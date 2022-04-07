@@ -15,5 +15,9 @@ module.exports = configureTranspileModules({
       }),
     },
   ],
-  serverRuntimeConfig: {},
+  serverRuntimeConfig: {
+    /* eslint-disable node/no-process-env */
+    gtmId: process.env.GTM_ID,
+    /* eslint-enable node/no-process-env */
+  },
 });

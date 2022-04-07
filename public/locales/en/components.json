@@ -1,0 +1,18 @@
+{
+  "404": {
+    "status": "404",
+    "message": "Oops! Something is missing...",
+    "caption": "We couldn't find the page you were looking for."
+  },
+  "500": {
+    "status": "500",
+    "message": "Oops! That's our bad...",
+    "caption": "We're not exactly sure what happened, but our servers say something is wrong."
+  },
+  "shared": {
+    "CopyButton": {
+      "copy": "Copy",
+      "copied": "Copied!"
+    }
+  }
+}

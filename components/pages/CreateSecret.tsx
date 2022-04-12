@@ -10,6 +10,7 @@ import { Props, useCreateSecret } from '@/components/pages/CreateSecret.hooks';
 import { LoadingButton } from '@/components/shared';
 import { GoldenFrame } from '@/components/shared/GoldenFrame';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
+import { SendSecurelyLogo } from '@/components/shared/SendSecurelyLogo';
 
 export const CreateSecret = (props: Props) => {
   const { t, data, setData, ttl, setTtl, isSubmitting, createSecret } =
@@ -28,7 +29,8 @@ export const CreateSecret = (props: Props) => {
           textAlign="center"
         >
           <Box mt={10} mb={19.5}>
-            <PoweredByBasisTheory />
+            <SendSecurelyLogo />
+            <Typography color="textSecondary">SendSecure.ly</Typography>
           </Box>
           <Typography
             mb={1}
@@ -99,6 +101,9 @@ export const CreateSecret = (props: Props) => {
           >
             {t('createLink')}
           </LoadingButton>
+        </Box>
+        <Box mt={2}>
+          <PoweredByBasisTheory />
         </Box>
       </Container>
     </Box>

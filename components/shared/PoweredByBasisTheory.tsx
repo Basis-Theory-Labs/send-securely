@@ -9,20 +9,13 @@ export const PoweredByBasisTheory = () => {
   const { t } = useTranslation('secrets');
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      textAlign="center"
-    >
-      <Typography color="textSecondary" variant="body2">
+    <Box display="flex" justifyContent="center" alignItems="center" mt={2}>
+      <Typography color="textSecondary" variant="body3">
         {t('poweredBy')}
       </Typography>
-      <Box display="flex" justifyContent="center" mt={2}>
-        <Button href="https://basistheory.com" target="_blank">
-          <BasisTheoryLogo />
-        </Button>
-      </Box>
+      <Button href="https://basistheory.com" target="_blank">
+        <BasisTheoryLogo />
+      </Button>
     </Box>
   );
 };

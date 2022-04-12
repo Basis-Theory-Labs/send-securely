@@ -15,7 +15,8 @@ export const ViewSecretPage = () => {
     useViewSecretPage();
 
   if (isValidating) {
-    return undefined;
+    // eslint-disable-next-line unicorn/no-null
+    return null;
   }
 
   return (

@@ -58,25 +58,31 @@ export const SecurityInfo = () => {
           <Divider />
           <Box p={4} textAlign="left">
             <Box>
-              <Typography variant="subtitle2">
-                {t('securityInfo.learnMore.heading1')}
-              </Typography>
+              <Box mb={1}>
+                <Typography variant="subtitle2">
+                  {t('securityInfo.learnMore.heading1')}
+                </Typography>
+              </Box>
               <Typography color="textSecondary" variant="body2">
                 {t('securityInfo.learnMore.body1')}
               </Typography>
             </Box>
             <Box mt={5}>
-              <Typography variant="subtitle2">
-                {t('securityInfo.learnMore.heading2')}
-              </Typography>
+              <Box mb={1}>
+                <Typography variant="subtitle2">
+                  {t('securityInfo.learnMore.heading2')}
+                </Typography>
+              </Box>
               <Typography color="textSecondary" variant="body2">
                 {t('securityInfo.learnMore.body2')}
               </Typography>
             </Box>
             <Box mt={5}>
-              <Typography variant="subtitle2">
-                {t('securityInfo.learnMore.heading3')}
-              </Typography>
+              <Box mb={1}>
+                <Typography variant="subtitle2">
+                  {t('securityInfo.learnMore.heading3')}
+                </Typography>
+              </Box>
               <Typography color="textSecondary" variant="subtitle2">
                 <Trans i18nKey="securityInfo.learnMore.body3" t={t}>
                   {'Explore how...'}

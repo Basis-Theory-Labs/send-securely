@@ -13,6 +13,3 @@ Then you can start the Next.js dev server by running:
 ```bash
 make dev
 ```
-
-Note: running this application requires access to Basis Theory's private npm repository. If you are interested in 
-contributing, please reach out to us at https://support.basistheory.com/.

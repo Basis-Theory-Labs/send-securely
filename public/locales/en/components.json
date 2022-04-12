@@ -25,6 +25,9 @@
       "body3": "Explore how <1>Basis Theory</1> helps developers build secure applications in minutes."
     }
   },
+  "poweredBy": {
+    "prefix": "Powered By"
+  },
   "shared": {
     "CopyButton": {
       "copy": "Copy",

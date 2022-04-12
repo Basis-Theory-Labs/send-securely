@@ -6,12 +6,12 @@ import { useTranslation } from 'next-i18next';
 import { BasisTheoryLogo } from '@/components/shared/BasisTheoryLogo';
 
 export const PoweredByBasisTheory = () => {
-  const { t } = useTranslation('secrets');
+  const { t } = useTranslation('components');
 
   return (
     <Box alignItems="center" display="flex" justifyContent="center">
       <Typography color="textSecondary" variant="body3">
-        {t('poweredBy')}
+        {t('poweredBy.prefix')}
       </Typography>
       <Button href="https://basistheory.com" target="_blank">
         <BasisTheoryLogo />

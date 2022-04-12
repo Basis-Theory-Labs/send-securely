@@ -29,10 +29,10 @@ export const ShareSecret = (props: Props) => {
             <SendSecurelyLogoWithName />
           </Box>
           <Typography mb={1} variant="h2">
-            {t('shareLink')}
+            {t('share.title')}
           </Typography>
           <Typography color="textSecondary" mb={5} variant="body2">
-            {t('oneTimeLink')}
+            {t('share.subtitle')}
           </Typography>
           <Box
             display="flex"
@@ -68,7 +68,7 @@ export const ShareSecret = (props: Props) => {
             }}
           >
             <Typography color="textSecondary" textAlign="left" variant="body2">
-              <Trans i18nKey="thisLinkWillBeDestroyed" t={t}>
+              <Trans i18nKey="share.thisLinkWillOnlyBeValid" t={t}>
                 {'This link will expire...'}
                 {ttlDescription}
                 {'The link can only...'}
@@ -87,7 +87,7 @@ export const ShareSecret = (props: Props) => {
                 width: 'fit-content',
               }}
             >
-              {t('secureAnotherSecret')}
+              {t('share.secureAnotherSecret')}
             </Button>
           </Box>
         </Box>

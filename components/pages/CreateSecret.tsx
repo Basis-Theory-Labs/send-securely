@@ -30,10 +30,10 @@ export const CreateSecret = (props: Props) => {
             <SendSecurelyLogoWithName />
           </Box>
           <Typography mb={1} variant="h2">
-            {t('sendSecretSecurely')}
+            {t('create.title')}
           </Typography>
           <Typography color="textSecondary" mb={5} variant="body2">
-            {t('oneTimeLink')}
+            {t('create.subtitle')}
           </Typography>
           <TextField
             multiline
@@ -51,7 +51,7 @@ export const CreateSecret = (props: Props) => {
           >
             <Box mr={2}>
               <Typography color="textSecondary" variant="body2">
-                {t('secretExpiresAfter')}
+                {t('create.secretExpiresAfter')}
               </Typography>
             </Box>
             <ToggleButtonGroup
@@ -104,7 +104,7 @@ export const CreateSecret = (props: Props) => {
             size="large"
             variant="contained"
           >
-            {t('createLink')}
+            {t('create.button')}
           </LoadingButton>
         </Box>
         <Box mt={4}>

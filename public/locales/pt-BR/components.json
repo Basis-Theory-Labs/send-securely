@@ -1,7 +1,1 @@
-{
-  "dashboard": {
-    "LatestAuditLogs": {
-      "period": "Últimos {{ duration }}"
-    }
-  }
-}
+{}

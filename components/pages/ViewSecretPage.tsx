@@ -26,11 +26,11 @@ export const ViewSecretPage = () => {
           <SendSecurelyLogoWithName />
         </Box>
         <Box mb={1}>
-          <Typography variant="h2">{t('somebodySentSecret')}</Typography>
+          <Typography variant="h2">{t('view.title')}</Typography>
         </Box>
         <Box mb={4}>
           <Typography color="textSecondary" variant="body2">
-            {t('clickToOpen')}
+            {t('view.subtitle')}
           </Typography>
         </Box>
         <Box alignItems="center" display="flex" flexDirection="column" mt={4}>
@@ -72,7 +72,7 @@ export const ViewSecretPage = () => {
                           fontWeight: 600,
                         }}
                       >
-                        {t('openSecret')}
+                        {t('view.button')}
                       </Typography>
                     </Box>
                   </Box>

@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@basis-theory/basis-theory-elements-interfaces": "^3.4.0",
-    "@basis-theory/basis-theory-js": "^1.22.2",
+    "@basis-theory/basis-theory-js": "^1.24.0",
     "@emotion/cache": "^11.4.1",
     "@emotion/react": "^11.4.1",
     "@emotion/server": "^11.4.0",

@@ -390,19 +390,19 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@basis-theory/basis-theory-elements-interfaces@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements-interfaces/-/basis-theory-elements-interfaces-3.4.0.tgz#c7fc3b2488ed48191275ebf04d4629c188f09a8d"
-  integrity sha512-XGf2oAPlmjnFdpVdsmDGBxr0I0LoMcF23Uh7n5j0AqjY/e2Rna3WJck52ZQs4v4LQJuotbCzr3oltqVdFgkzaw==
+"@basis-theory/basis-theory-elements-interfaces@^3.4.0", "@basis-theory/basis-theory-elements-interfaces@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-elements-interfaces/-/basis-theory-elements-interfaces-3.6.0.tgz#464990613194dd0e3cad0cdd609fab0464736654"
+  integrity sha512-hV+XXmvY+a/ryW6I1xFAOb1AtoipHpAwxT/yXF9M1wH66kmg8RCMU+4t5y7lJaa+8k4QYmskstqMxrIHQKcnkg==
   dependencies:
     csstype "^3.0.8"
 
-"@basis-theory/basis-theory-js@^1.22.2":
-  version "1.22.2"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.22.2.tgz#1197f28e999754fdbccad3296bc5b985f8498067"
-  integrity sha512-4AqLk1ambLMAE1IBZaBrZAKMYHNocfPPadcswTiIAhM5LmQb2ZUBtcEBUdp5BQwDdy1DCrzO1qVo9xGze8CgKQ==
+"@basis-theory/basis-theory-js@^1.24.0":
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.24.0.tgz#e687c00d7d5eff5f2a9664b04d7598fdf2273835"
+  integrity sha512-vIZVOtCsjB+qydvbv2Cqi+HL3YuzjmkQUcBlyHo+6FrlkMUcAPbYI6aO26dcNiaCRR/nVzpCXxfctS7zOjUV4g==
   dependencies:
-    "@basis-theory/basis-theory-elements-interfaces" "^3.4.0"
+    "@basis-theory/basis-theory-elements-interfaces" "^3.6.0"
     axios "^0.21.2"
     camelcase-keys "^6.2.2"
     os "^0.1.2"

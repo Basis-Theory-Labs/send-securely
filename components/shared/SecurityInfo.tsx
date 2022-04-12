@@ -3,7 +3,7 @@ import { Divider, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { Trans } from 'next-i18next';
 import ChevronDownIcon from '@/components/icons/ChevronDownIcon';
 import ChevronUpIcon from '@/components/icons/ChevronUpIcon';
 import useStyles from '@/components/pages/styles/SecurityInfo.styles';
@@ -14,7 +14,7 @@ export const SecurityInfo = () => {
   const classes = useStyles();
 
   return (
-    <Paper variant="outlined" className={classes.paper}>
+    <Paper className={classes.paper} variant="outlined">
       <Box
         alignItems="center"
         display="flex"
@@ -23,18 +23,26 @@ export const SecurityInfo = () => {
       >
         <Box alignItems="center" display="flex" flexDirection="row">
           <Box>
-            <img src="/secret-share-icon.png" width="36px" height="36px" />
+            <img
+              alt="security"
+              height="36px"
+              src="/secret-share-icon.png"
+              width="36px"
+            />
           </Box>
-          <Box sx={{ textAlign: 'left' }} ml={2.5}>
+          <Box ml={2.5} sx={{ textAlign: 'left' }}>
             <Typography sx={{ fontWeight: 600 }} variant="subtitle1">
               {t('securityInfo.title')}
             </Typography>
           </Box>
         </Box>
         <Link component="button" onClick={toggle}>
-          <Box display="flex" alignItems="center">
+          <Box alignItems="center" display="flex">
             <Typography
-              sx={{ fontWeight: 600, whiteSpace: 'nowrap' }}
+              sx={{
+                fontWeight: 600,
+                whiteSpace: 'nowrap',
+              }}
               variant="subtitle2"
             >
               {isExpanded
@@ -72,8 +80,8 @@ export const SecurityInfo = () => {
               <Typography color="textSecondary" variant="subtitle2">
                 <Trans i18nKey="securityInfo.learnMore.body3" t={t}>
                   {'Explore how...'}
-                  <Link target="_blank" href="https://basistheory.com">
-                    Basis Theory
+                  <Link href="https://basistheory.com" target="_blank">
+                    {'Basis Theory'}
                   </Link>
                   {'helps developers build...'}
                 </Trans>

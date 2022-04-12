@@ -10,7 +10,7 @@ export const SendSecurelyLogoWithName = () => {
 
   return (
     <Link color="inherit" href="/" underline="none">
-      <Box display="flex" alignItems="center" justifyContent="center">
+      <Box alignItems="center" display="flex" justifyContent="center">
         <SendSecurelyLogo />
         <Box ml={2}>
           {' '}

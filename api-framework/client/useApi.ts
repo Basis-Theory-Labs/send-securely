@@ -82,7 +82,9 @@ const useApi = <Data = any, Error = unknown>(
     fetcher: fetcher(transformResponse || transformResponseCamelCase, headers),
   });
 
-  if (error) throw error;
+  if (error) {
+    throw error;
+  }
 
   if (response !== undefined) {
     sticky.current = response;

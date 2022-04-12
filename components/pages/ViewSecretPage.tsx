@@ -2,7 +2,6 @@ import React from 'react';
 import VisibilityIcon from '@mui/icons-material/VisibilityOutlined';
 import { Paper } from '@mui/material';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useViewSecretPage } from '@/components/pages/ViewSecretPage.hooks';
@@ -15,12 +14,14 @@ export const ViewSecretPage = () => {
   const { t, isValidating, secret, openSecret, isOpeningSecret } =
     useViewSecretPage();
 
-  if (isValidating) return null;
+  if (isValidating) {
+    return undefined;
+  }
 
   return (
     <Box textAlign="center">
       <Container maxWidth="sm">
-        <Box mt={7.5} mb={20}>
+        <Box mb={20} mt={7.5}>
           <SendSecurelyLogoWithName />
         </Box>
         <Box mb={1}>

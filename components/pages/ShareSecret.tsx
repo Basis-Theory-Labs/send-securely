@@ -4,18 +4,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { Trans } from 'next-i18next';
 import RefreshIcon from '@/components/icons/RefreshIcon';
 import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
+import type { Props } from '@/components/pages/ShareSecret.hooks';
 import { CopyButton } from '@/components/shared';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
-import { Secret } from '@/globals';
-
-interface Props {
-  secret: Secret;
-}
 
 export const ShareSecret = (props: Props) => {
   const { t, secretUrl, ttlDescription } = useShareSecret(props);
@@ -29,7 +25,7 @@ export const ShareSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
-          <Box mt={7.5} mb={20}>
+          <Box mb={20} mt={7.5}>
             <SendSecurelyLogoWithName />
           </Box>
           <Typography mb={1} variant="h2">
@@ -41,8 +37,8 @@ export const ShareSecret = (props: Props) => {
           <Box
             display="flex"
             flexDirection="row"
-            mb={3}
             justifyContent="space-between"
+            mb={3}
           >
             <Box mr={2} sx={{ width: '100%' }}>
               <TextField

@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { Secret } from '@/globals';
 
-export interface Props {
+interface Props {
   secret: Secret;
 }
 
@@ -11,7 +11,7 @@ const ttlDescriptions = {
   86400: '24h',
 };
 
-export const useShareSecret = (props: Props) => {
+const useShareSecret = (props: Props) => {
   const {
     secret: { id: secretId, ttl },
   } = props;
@@ -27,3 +27,6 @@ export const useShareSecret = (props: Props) => {
     ttlDescription,
   };
 };
+
+export { useShareSecret };
+export type { Props };

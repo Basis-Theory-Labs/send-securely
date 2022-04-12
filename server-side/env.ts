@@ -2,13 +2,13 @@ import { str, ValidatorSpec, cleanEnv } from 'envalid';
 import type { CleanedEnvAccessors, CleanOptions } from 'envalid';
 import { cached } from './cache';
 
-const cleanEnvWithSecrets = <T, S extends Partial<T>>(
+const cleanEnvWithSecrets = <T>(
   specs: {
     [K in keyof T]: ValidatorSpec<T[K]>;
   },
   options: CleanOptions<T> = {}
 ): Readonly<T & CleanedEnvAccessors> => {
-  let source = process.env;
+  const source = process.env;
 
   const env = cleanEnv(source, specs, options);
 

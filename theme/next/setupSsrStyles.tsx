@@ -9,8 +9,12 @@ import type {
   AppPropsType,
   NextComponentType,
 } from 'next/dist/shared/lib/utils';
+
+/* eslint-disable @next/next/no-document-import-in-page */
 import type { DocumentContext } from 'next/document';
 import Document from 'next/document';
+
+/* eslint-enable @next/next/no-document-import-in-page */
 
 interface EmotionCached {
   emotionCache?: EmotionCache;

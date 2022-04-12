@@ -27,6 +27,7 @@ export const useViewSecretPage = () => {
       const { data } = await clientApiFramework.secrets.get({
         id: secretId,
       });
+
       setSecret(data.data);
     } finally {
       setIsOpeningSecret(false);

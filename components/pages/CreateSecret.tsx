@@ -26,7 +26,7 @@ export const CreateSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
-          <Box mt={7.5} mb={20}>
+          <Box mb={20} mt={7.5}>
             <SendSecurelyLogoWithName />
           </Box>
           <Typography mb={1} variant="h2">
@@ -39,8 +39,8 @@ export const CreateSecret = (props: Props) => {
             multiline
             onChange={(event) => setData(event.target.value)}
             placeholder="Passwords, credentials, API Keys or anything..."
-            sx={{ fontFamily: 'Source Code Pro' }}
             rows={4}
+            sx={{ fontFamily: 'Source Code Pro' }}
           />
           <Box
             alignItems="center"

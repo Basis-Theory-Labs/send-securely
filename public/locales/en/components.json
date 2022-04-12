@@ -1,4 +1,7 @@
 {
+  "logo": {
+    "appName": "sendsecure.ly"
+  },
   "404": {
     "status": "404",
     "message": "Oops! Something is missing...",
@@ -8,6 +11,22 @@
     "status": "500",
     "message": "Oops! That's our bad...",
     "caption": "We're not exactly sure what happened, but our servers say something is wrong."
+  },
+  "securityInfo": {
+    "title": "Why should I trust it's secure?",
+    "learnMore": {
+      "expand": "Learn More",
+      "collapse": "Close",
+      "heading1": "Tokenized and Encrypted",
+      "body1": "All data is transmitted over an encrypted connection and tokenized with Basis Theory. Building on top of a world-class tokenization platform guarantees your data will be encrypted and stored following the latest standards and best-practices. The SendSecure.ly application only exposes non-sensitive token identifiers that reference your sensitive data, while the data itself remains protected within Basis Theory's secure and compliant environment.",
+      "heading2": "Short-lived, One Time Use Link",
+      "body2": "SendSecure.ly generates a one time use link to share and retrieve your secure information. In addition, this link is only valid for a short amount of time - up to 24h. After the secret is opened or the link expires, your sensitive data will be purged from both SendSecure.ly and Basis Theory.",
+      "heading3": "Interested In Learning More?",
+      "body3": "Explore how <1>Basis Theory</1> helps developers build secure applications in minutes."
+    }
+  },
+  "poweredBy": {
+    "prefix": "Powered By"
   },
   "shared": {
     "CopyButton": {

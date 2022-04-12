@@ -1,10 +1,7 @@
 const { createSecureHeaders } = require('next-secure-headers');
 const { i18n } = require('./next-i18next.config');
-const {
-  configureTranspileModules,
-} = require('@basis-theory/basis-theory-portal-commons/src/config/next');
 
-module.exports = configureTranspileModules({
+module.exports = {
   i18n,
   poweredByHeader: false,
   headers: () => [
@@ -20,4 +17,4 @@ module.exports = configureTranspileModules({
     gtmId: process.env.GTM_ID,
     /* eslint-enable node/no-process-env */
   },
-});
+};

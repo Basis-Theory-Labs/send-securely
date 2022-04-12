@@ -1,3 +1,3 @@
-import { staticApi } from '@basis-theory/basis-theory-portal-commons/src/api/server';
+import { staticApi } from '@/api-framework/server';
 
 export default staticApi('Config', {});

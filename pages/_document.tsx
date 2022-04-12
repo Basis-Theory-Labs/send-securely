@@ -3,10 +3,10 @@
 /* eslint-disable @next/next/next-script-for-ga */
 // captured from https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
 import React from 'react';
-import { dark } from '@basis-theory/basis-theory-portal-commons/src/theme/bliss';
-import { setupSsrStyles } from '@basis-theory/basis-theory-portal-commons/src/theme/next';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { useDocument } from '@/components/pages/Document.hooks';
+import { dark } from '@/theme/bliss';
+import { setupSsrStyles } from '@/theme/next';
 
 class MyDocument extends Document {
   public render(): JSX.Element {
@@ -22,11 +22,15 @@ class MyDocument extends Document {
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="/manifest.webmanifest" rel="manifest" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
             rel="stylesheet"
           />
           <script

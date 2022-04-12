@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useApi } from '@basis-theory/basis-theory-portal-commons/src/api/client';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { useApi } from '@/api-framework/client';
 import { useClientApiFramework } from '@/components/hooks';
 import { Secret } from '@/globals';
 
@@ -27,6 +27,7 @@ export const useViewSecretPage = () => {
       const { data } = await clientApiFramework.secrets.get({
         id: secretId,
       });
+
       setSecret(data.data);
     } finally {
       setIsOpeningSecret(false);

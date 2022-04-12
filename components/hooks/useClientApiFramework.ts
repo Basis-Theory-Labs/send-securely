@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { NetworkError } from '@basis-theory/basis-theory-portal-commons/src/proxy/NetworkError';
 import { clientApiFramework } from '@/api-framework/client';
+import { NetworkError } from '@/proxy/NetworkError';
 
 type ClientApiFramework = typeof clientApiFramework;
 

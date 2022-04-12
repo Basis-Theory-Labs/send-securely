@@ -110,7 +110,7 @@ export const CreateSecret = (props: Props) => {
         <Box mt={4}>
           <SecurityInfo />
         </Box>
-        <Box mt={4}>
+        <Box mt={4} mb={7.5}>
           <PoweredByBasisTheory />
         </Box>
       </Container>

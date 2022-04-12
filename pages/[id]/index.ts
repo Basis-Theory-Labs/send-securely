@@ -14,7 +14,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
       'common',
       'components',
       'secrets',
-      'portal-commons',
     ])),
   },
 });

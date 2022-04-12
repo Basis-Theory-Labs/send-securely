@@ -1,8 +1,8 @@
-import { logInfo } from '@basis-theory/basis-theory-portal-commons/src/config/log';
 import axiosImport, { Method } from 'axios';
 import camelcaseKeys from 'camelcase-keys';
 import snakecaseKeys from 'snakecase-keys';
 import { env } from '@/server-side/env';
+import { logInfo } from '@/server-side/log';
 import type { FetchPromise, TransformOptions } from '../api-interfaces';
 
 interface HttpAdapterOptions {

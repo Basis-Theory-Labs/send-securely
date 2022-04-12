@@ -6,10 +6,11 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { Trans, useTranslation } from 'next-i18next';
 import RefreshIcon from '@/components/icons/RefreshIcon';
-import { FooterInfo } from '@/components/pages/FooterInfo';
 import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import { CopyButton } from '@/components/shared';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
+import { SecurityInfo } from '@/components/shared/SecurityInfo';
+import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 import { Secret } from '@/globals';
 
 interface Props {
@@ -28,19 +29,13 @@ export const ShareSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
-          <Box mt={10} mb={19.5}>
-            <PoweredByBasisTheory />
+          <Box mt={7.5} mb={20}>
+            <SendSecurelyLogoWithName />
           </Box>
-          <Typography
-            mb={1}
-            sx={{
-              fontSize: '24px',
-              fontWeight: 500,
-            }}
-          >
+          <Typography mb={1} variant="h2">
             {t('shareLink')}
           </Typography>
-          <Typography color="textSecondary" mb={5}>
+          <Typography color="textSecondary" mb={5} variant="body2">
             {t('oneTimeLink')}
           </Typography>
           <Box
@@ -76,7 +71,7 @@ export const ShareSecret = (props: Props) => {
               padding: (theme) => `${theme.spacing(2)} ${theme.spacing(3)}`,
             }}
           >
-            <Typography color="textSecondary" textAlign="left">
+            <Typography color="textSecondary" textAlign="left" variant="body2">
               <Trans i18nKey="thisLinkWillBeDestroyed" t={t}>
                 {'This link will expire...'}
                 {ttlDescription}
@@ -100,14 +95,11 @@ export const ShareSecret = (props: Props) => {
             </Button>
           </Box>
         </Box>
-        <Box
-          alignItems="center"
-          display="flex"
-          flexDirection="column"
-          mb={8}
-          mt={19.5}
-        >
-          <FooterInfo />
+        <Box mt={4}>
+          <SecurityInfo />
+        </Box>
+        <Box mt={4}>
+          <PoweredByBasisTheory />
         </Box>
       </Container>
     </Box>

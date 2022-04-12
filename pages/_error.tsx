@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { LoadingPage } from '@basis-theory/basis-theory-portal-commons/src/components/LoadingPage';
 import { NextPageContext } from 'next';
 import { ErrorProps } from 'next/error';
+import { LoadingPage } from '@/components/shared/LoadingPage';
 
 const Error = ({ statusCode }: ErrorProps): JSX.Element => {
   useEffect(() => {

@@ -9,7 +9,7 @@ export const PoweredByBasisTheory = () => {
   const { t } = useTranslation('secrets');
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" mt={2}>
+    <Box display="flex" justifyContent="center" alignItems="center">
       <Typography color="textSecondary" variant="body3">
         {t('poweredBy')}
       </Typography>

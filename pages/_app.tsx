@@ -1,11 +1,10 @@
 import React from 'react';
-import { NetworkErrorBoundary } from '@basis-theory/basis-theory-portal-commons/src/components/NetworkErrorBoundary';
-import { appWithInstrumentation } from '@basis-theory/basis-theory-portal-commons/src/instrumentation';
-import { ThemeProvider } from '@basis-theory/basis-theory-portal-commons/src/theme';
-import type { AppProps } from '@basis-theory/basis-theory-portal-commons/src/theme/next';
 import { Settings } from 'luxon';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import Head from 'next/head';
+import { NetworkErrorBoundary } from '@/components/shared/NetworkErrorBoundary';
+import { ThemeProvider } from '@/theme';
+import type { AppProps } from '@/theme/next';
 import '../styles/globals.css';
 import ErrorPage from './_error';
 
@@ -31,4 +30,4 @@ const MyApp = ({
   );
 };
 
-export default appWithInstrumentation(appWithTranslation(MyApp));
+export default appWithTranslation(MyApp);

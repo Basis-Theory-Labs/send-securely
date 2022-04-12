@@ -1,6 +1,6 @@
-import { NetworkError } from '@basis-theory/basis-theory-portal-commons/src/proxy/NetworkError';
 import camelcaseKeys from 'camelcase-keys';
 import snakecaseKeys from 'snakecase-keys';
+import { NetworkError } from '@/proxy/NetworkError';
 import type {
   FetchPromise,
   FetchResponse,

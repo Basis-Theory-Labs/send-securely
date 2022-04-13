@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { Trans } from 'next-i18next';
+import Head from 'next/head';
 import RefreshIcon from '@/components/icons/RefreshIcon';
 import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import type { Props } from '@/components/pages/ShareSecret.hooks';
@@ -17,87 +18,127 @@ export const ShareSecret = (props: Props) => {
   const { t, secretUrl, ttlDescription } = useShareSecret(props);
 
   return (
-    <Box>
-      <Container maxWidth="sm">
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          textAlign="center"
-        >
-          <Box mb={20} mt={7.5}>
-            <SendSecurelyLogoWithName />
-          </Box>
-          <Typography mb={1} variant="h2">
-            {t('share.title')}
-          </Typography>
-          <Typography color="textSecondary" mb={5} variant="body2">
-            {t('share.subtitle')}
-          </Typography>
+    <>
+      <Head>
+        <meta
+          content="One time link to share passwords, keys, and other sensitive data."
+          name="description"
+        />
+        <meta
+          content="Send Securely - Share your secret, securely."
+          property="og:title"
+        />
+        <meta
+          content="One time link to share passwords, keys, and other sensitive data."
+          property="og:description"
+        />
+        <meta
+          content="https://cdn.basistheory.com/images/seo/bt-opengraph.png"
+          property="og:image"
+        />
+        <meta
+          content="Send Securely - Share your secret, securely."
+          property="twitter:title"
+        />
+        <meta
+          content="Send your secret, securely. One time link to share passwords, keys, and other sensitive data."
+          property="twitter:description"
+        />
+        <meta
+          content="https://cdn.basistheory.com/images/seo/bt-opengraph.png"
+          property="twitter:image"
+        />
+        <meta property="og:type" content="website" />
+        <meta content="summary_large_image" name="twitter:card" />
+      </Head>
+      <Box>
+        <Container maxWidth="sm">
           <Box
             display="flex"
-            flexDirection="row"
-            justifyContent="space-between"
-            mb={3}
+            flexDirection="column"
+            justifyContent="center"
+            textAlign="center"
           >
-            <Box mr={2} sx={{ width: '100%' }}>
-              <TextField
-                inputProps={{
-                  readOnly: true,
-                  disabled: true,
-                }}
-                sx={{
-                  width: '100%',
-                }}
-                value={secretUrl}
+            <Box mb={{xs: 8, sm: 8, md: 20}} mt={7.5}>
+              <SendSecurelyLogoWithName />
+            </Box>
+            <Typography mb={1} variant="h2">
+              {t('share.title')}
+            </Typography>
+            <Typography color="textSecondary" mb={5} variant="body2">
+              {t('share.subtitle')}
+            </Typography>
+            <Box
+              display="flex"
+              flexDirection="row"
+              justifyContent="space-between"
+              mb={3}
+            >
+              <Box mr={2} sx={{ width: '100%' }}>
+                <TextField
+                  inputProps={{
+                    readOnly: true,
+                    disabled: true,
+                  }}
+                  sx={{
+                    width: '100%',
+                  }}
+                  value={secretUrl}
+                />
+              </Box>
+              <CopyButton
+                content={secretUrl}
+                iconPosition="start"
+                showCopyText
+                size="small"
               />
             </Box>
-            <CopyButton
-              content={secretUrl}
-              iconPosition="start"
-              showCopyText
-              size="small"
-            />
-          </Box>
-          <Paper
-            color="#070A1B"
-            sx={{
-              height: (theme) => theme.spacing(10),
-              width: '100%',
-              padding: (theme) => `${theme.spacing(2)} ${theme.spacing(3)}`,
-            }}
-          >
-            <Typography color="textSecondary" textAlign="left" variant="body2">
-              <Trans i18nKey="share.thisLinkWillOnlyBeValid" t={t}>
-                {'This link will expire...'}
-                {ttlDescription}
-                {'The link can only...'}
-              </Trans>
-            </Typography>
-          </Paper>
-          <Box display="flex" justifyContent="center">
-            <Button
-              component="a"
-              href="/"
-              startIcon={<RefreshIcon />}
+            <Paper
+              color="#070A1B"
               sx={{
-                fontWeight: 600,
-                fontSize: '16px',
-                marginTop: (theme) => theme.spacing(4),
-                width: 'fit-content',
+                width: '100%',
+                padding: (theme) => `${theme.spacing(2)} ${theme.spacing(3)}`,
+                borderStyle: 'solid',
+                borderRadius: (theme) => `${theme.shape.borderRadius}`,
+                border: '1px solid rgba(65, 73, 112, 0.5)'
               }}
             >
-              {t('share.secureAnotherSecret')}
-            </Button>
+              <Typography
+                color="textSecondary"
+                textAlign="left"
+                variant="body2"
+              >
+                <Trans i18nKey="share.thisLinkWillOnlyBeValid" t={t}>
+                  {'This link will expire...'}
+                  {ttlDescription}
+                  {'The link can only...'}
+                </Trans>
+              </Typography>
+            </Paper>
+            <Box display="flex" justifyContent="center">
+              <Button
+                component="a"
+                href="/"
+                startIcon={<RefreshIcon />}
+                sx={{
+                  fontWeight: 600,
+                  fontSize: '16px',
+                  marginTop: (theme) => theme.spacing(4),
+                  width: 'fit-content',
+                }}
+              >
+                {t('share.secureAnotherSecret')}
+              </Button>
+            </Box>
           </Box>
-        </Box>
-        <Box mt={4}>
-          <SecurityInfo />
-        </Box>
-        <Box mt={4} mb={7.5}>
-          <PoweredByBasisTheory />
-        </Box>
-      </Container>
-    </Box>
+          <Box mt={4}>
+            <SecurityInfo />
+          </Box>
+          <Box mt={4} mb={7.5}>
+            <PoweredByBasisTheory />
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 };

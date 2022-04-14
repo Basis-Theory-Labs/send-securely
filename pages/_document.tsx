@@ -11,7 +11,7 @@ import { setupSsrStyles } from '@/theme/next';
 class MyDocument extends Document {
   public render(): JSX.Element {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { nonce, gtmId } = useDocument();
+    const { nonce, gaMeasurementId } = useDocument();
 
     return (
       <Html lang="en">
@@ -34,33 +34,20 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          />
+          <script
             dangerouslySetInnerHTML={{
               __html: `
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;var n=d.querySelector('[nonce]');
-          n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${gtmId}');
-          `,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaMeasurementId}');`,
             }}
-            nonce={nonce}
-            type="text/javascript"
           />
         </Head>
         <body>
-          <noscript>
-            <iframe
-              height="0"
-              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-              style={{
-                display: 'none',
-                visibility: 'hidden',
-              }}
-              title="gtm-iframe"
-              width="0"
-            />
-          </noscript>
           <Main />
           <NextScript nonce={nonce} />
         </body>

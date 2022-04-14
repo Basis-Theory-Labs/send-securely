@@ -14,7 +14,7 @@ module.exports = {
   ],
   serverRuntimeConfig: {
     /* eslint-disable node/no-process-env */
-    gtmId: process.env.GTM_ID,
+    gaMeasurementId: process.env.GA_MEASUREMENT_ID,
     /* eslint-enable node/no-process-env */
   },
 };

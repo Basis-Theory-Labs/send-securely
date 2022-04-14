@@ -3,7 +3,7 @@ import getConfig from 'next/config';
 import { v4 as uuid } from 'uuid';
 
 const { serverRuntimeConfig } = getConfig();
-const { gtmId } = serverRuntimeConfig;
+const { gaMeasurementId } = serverRuntimeConfig;
 
 /**
  * Generate Content Security Policy for the app.
@@ -13,7 +13,7 @@ const { gtmId } = serverRuntimeConfig;
  */
 export const useDocument = (): {
   nonce: string;
-  gtmId: string;
+  gaMeasurementId: string;
 } => {
   // Generate random nonce converted to base64. Must be different on every HTTP page load
   const hash = crypto.createHash('sha256');
@@ -23,6 +23,6 @@ export const useDocument = (): {
 
   return {
     nonce,
-    gtmId,
+    gaMeasurementId,
   };
 };

@@ -1,6 +1,4 @@
 /* eslint-disable react/no-danger */
-
-/* eslint-disable @next/next/next-script-for-ga */
 // captured from https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -70,4 +68,3 @@ MyDocument.getInitialProps = async (ctx) => {
 export default MyDocument;
 
 /* eslint-enable react/no-danger */
-/* eslint-enable @next/next/next-script-for-ga */

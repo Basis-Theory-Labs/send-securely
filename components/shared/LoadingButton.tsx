@@ -20,6 +20,7 @@ export const LoadingButton = ({
     {...buttonProps}
     sx={{
       height: '46px',
+      fontSize: '16px',
     }}
   >
     {children}

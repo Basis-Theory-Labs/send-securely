@@ -4,8 +4,8 @@
   },
   "404": {
     "status": "404",
-    "message": "Oops! Something is missing...",
-    "caption": "We couldn't find the page you were looking for."
+    "message": "Secret not found.",
+    "caption": "The secret you're looking for may be invalid or expired."
   },
   "500": {
     "status": "500",

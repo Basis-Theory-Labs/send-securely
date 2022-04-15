@@ -64,7 +64,7 @@ class MyDocument extends Document {
             property="og:description"
           />
           <meta
-            content="https://cdn.basistheory.com/images/seo/bt-opengraph.png"
+            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
             property="og:image"
           />
           <meta
@@ -76,7 +76,7 @@ class MyDocument extends Document {
             property="twitter:description"
           />
           <meta
-            content="https://cdn.basistheory.com/images/seo/bt-opengraph.png"
+            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
             property="twitter:image"
           />
           <meta content="website" property="og:type" />

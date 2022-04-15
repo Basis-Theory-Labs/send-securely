@@ -25,7 +25,14 @@ export const ShareSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
-          <Box mb={20} mt={7.5}>
+          <Box
+            mb={{
+              xs: 8,
+              sm: 8,
+              md: 20,
+            }}
+            mt={7.5}
+          >
             <SendSecurelyLogoWithName />
           </Box>
           <Typography mb={1} variant="h2">
@@ -62,9 +69,11 @@ export const ShareSecret = (props: Props) => {
           <Paper
             color="#070A1B"
             sx={{
-              height: (theme) => theme.spacing(10),
               width: '100%',
               padding: (theme) => `${theme.spacing(2)} ${theme.spacing(3)}`,
+              borderStyle: 'solid',
+              borderRadius: (theme) => `${theme.shape.borderRadius}`,
+              border: '1px solid rgba(65, 73, 112, 0.5)',
             }}
           >
             <Typography color="textSecondary" textAlign="left" variant="body2">
@@ -94,7 +103,7 @@ export const ShareSecret = (props: Props) => {
         <Box mt={4}>
           <SecurityInfo />
         </Box>
-        <Box mt={4}>
+        <Box mb={5} mt={4}>
           <PoweredByBasisTheory />
         </Box>
       </Container>

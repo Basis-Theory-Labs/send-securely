@@ -16,8 +16,12 @@ export const LoadingButton = ({
 }: Props) => (
   <Button
     disabled={loading || disabled}
-    startIcon={loading ? <Spinner height={24} /> : startIcon}
+    startIcon={loading ? <Spinner height={32} /> : startIcon}
     {...buttonProps}
+    sx={{
+      height: '46px',
+      fontSize: '16px',
+    }}
   >
     {children}
   </Button>

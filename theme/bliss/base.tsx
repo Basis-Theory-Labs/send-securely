@@ -23,7 +23,7 @@ export const baseThemeOptions: ThemeOptions = {
       fontFamily: 'Outfit',
       fontSize: '24px',
       fontStyle: 'normal',
-      fontWeight: '500',
+      fontWeight: '600',
       lineHeight: 32 / 24,
       letterSpacing: '0px',
     },

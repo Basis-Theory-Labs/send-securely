@@ -22,17 +22,22 @@ export const ViewSecretPage = () => {
   return (
     <Box textAlign="center">
       <Container maxWidth="sm">
-        <Box mb={20} mt={7.5}>
+        <Box
+          mb={{
+            xs: 8,
+            sm: 8,
+            md: 20,
+          }}
+          mt={7.5}
+        >
           <SendSecurelyLogoWithName />
         </Box>
-        <Box mb={1}>
-          <Typography variant="h2">{t('view.title')}</Typography>
-        </Box>
-        <Box mb={4}>
-          <Typography color="textSecondary" variant="body2">
-            {t('view.subtitle')}
-          </Typography>
-        </Box>
+        <Typography mb={1} variant="h2">
+          {t('view.title')}
+        </Typography>
+        <Typography color="textSecondary" mb={4} variant="body2">
+          {t('view.subtitle')}
+        </Typography>
         <Box alignItems="center" display="flex" flexDirection="column" mt={4}>
           {secret ? (
             <Paper sx={{ width: '100%' }} variant="outlined">
@@ -84,7 +89,7 @@ export const ViewSecretPage = () => {
         <Box mt={4}>
           <SecurityInfo />
         </Box>
-        <Box mt={4}>
+        <Box mb={5} mt={4}>
           <PoweredByBasisTheory />
         </Box>
       </Container>

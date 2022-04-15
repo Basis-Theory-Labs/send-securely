@@ -47,6 +47,40 @@ class MyDocument extends Document {
             nonce={nonce}
             type="text/javascript"
           />
+          <meta
+            content="width=device-width, initial-scale=1.0"
+            name="viewport"
+          />
+          <meta
+            content="One time link to share passwords, keys, and other sensitive data."
+            name="description"
+          />
+          <meta
+            content="SendSecure.ly - Send your secret, securely."
+            property="og:title"
+          />
+          <meta
+            content="One time link to share passwords, keys, and other sensitive data."
+            property="og:description"
+          />
+          <meta
+            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
+            property="og:image"
+          />
+          <meta
+            content="Send Securely - Send your secret, securely."
+            property="twitter:title"
+          />
+          <meta
+            content="Send your secret, securely. One time link to share passwords, keys, and other sensitive data."
+            property="twitter:description"
+          />
+          <meta
+            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
+            property="twitter:image"
+          />
+          <meta content="website" property="og:type" />
+          <meta content="summary_large_image" name="twitter:card" />
         </Head>
         <body>
           <noscript>

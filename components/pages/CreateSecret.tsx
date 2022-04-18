@@ -26,7 +26,14 @@ export const CreateSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
-          <Box mb={20} mt={7.5}>
+          <Box
+            mb={{
+              xs: 8,
+              sm: 8,
+              md: 20,
+            }}
+            mt={7.5}
+          >
             <SendSecurelyLogoWithName />
           </Box>
           <Typography mb={1} variant="h2">
@@ -98,19 +105,19 @@ export const CreateSecret = (props: Props) => {
           <LoadingButton
             color="primary"
             disabled={_isEmpty(data) || isSubmitting}
-            endIcon={<ChevronRightIcon />}
+            endIcon={!isSubmitting && <ChevronRightIcon />}
             loading={isSubmitting}
             onClick={createSecret}
-            size="large"
+            size="medium"
             variant="contained"
           >
-            {t('create.button')}
+            {!isSubmitting && t('create.button')}
           </LoadingButton>
         </Box>
         <Box mt={4}>
           <SecurityInfo />
         </Box>
-        <Box mt={4}>
+        <Box mb={5} mt={4}>
           <PoweredByBasisTheory />
         </Box>
       </Container>

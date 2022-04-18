@@ -22,7 +22,7 @@ export const SecurityInfo = () => {
         p={2}
       >
         <Box alignItems="center" display="flex" flexDirection="row">
-          <Box>
+          <Box display="flex">
             <img
               alt="security"
               height="36px"

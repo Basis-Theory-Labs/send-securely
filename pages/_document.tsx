@@ -53,7 +53,7 @@ class MyDocument extends Document {
             property="og:title"
           />
           <meta
-            content="One time link to share passwords, keys, and other sensitive data."
+            content="Send passwords, keys, and other sensitive data with a single-use link."
             property="og:description"
           />
           <meta

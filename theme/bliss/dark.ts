@@ -38,8 +38,8 @@ const options: ThemeOptions = {
       hover: '#20243A',
       selected: alpha('#000000', 0.08),
       selectedOpacity: 0.08, // does not produce desired effect
-      disabled: alpha('#CED3FF', 0.4),
-      disabledBackground: alpha('#B6BADC', 0.3),
+      disabled: '#626262',
+      disabledBackground: '#1F1F1F',
     },
     primary: {
       main: '#5383FF',

@@ -34,9 +34,9 @@ export const CreateSecret = (props: Props) => {
             mb={{
               xs: 8,
               sm: 8,
-              md: 20,
+              md: 15,
             }}
-            mt={3.5}
+            mt={2}
           >
             <PoweredByBasisTheory />
           </Box>

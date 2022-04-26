@@ -12,7 +12,7 @@ export const baseThemeOptions: ThemeOptions = {
   typography: {
     fontFamily: ['Inter'].join(','),
     h1: {
-      fontFamily: 'Outfit',
+      fontFamily: 'Inter',
       fontSize: '32px',
       fontStyle: 'normal',
       fontWeight: '500',
@@ -20,7 +20,7 @@ export const baseThemeOptions: ThemeOptions = {
       letterSpacing: '0.25px',
     },
     h2: {
-      fontFamily: 'Outfit',
+      fontFamily: 'Inter',
       fontSize: '24px',
       fontStyle: 'normal',
       fontWeight: '600',

@@ -58,6 +58,9 @@ export const ShareSecret = (props: Props) => {
                   disabled: true,
                 }}
                 sx={{
+                  '& *': {
+                    fontFamily: 'Inter',
+                  },
                   width: '100%',
                 }}
                 value={secretUrl}
@@ -75,9 +78,8 @@ export const ShareSecret = (props: Props) => {
             sx={{
               width: '100%',
               padding: (theme) => `${theme.spacing(2)} ${theme.spacing(3)}`,
-              borderStyle: 'solid',
               borderRadius: (theme) => `${theme.shape.borderRadius}`,
-              border: '1px solid rgba(65, 73, 112, 0.5)',
+              border: '1px solid rgba(209, 215, 255, 0.1)',
             }}
           >
             <Typography color="textSecondary" textAlign="left" variant="body2">

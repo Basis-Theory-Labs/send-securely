@@ -146,8 +146,8 @@ const options: ThemeOptions = {
     },
     MuiDivider: {
       styleOverrides: {
-        light: {
-          borderColor: '#4A4C65',
+        root: {
+          borderColor: 'rgba(209, 215, 255, 0.1)',
         },
       },
     },

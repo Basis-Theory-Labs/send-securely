@@ -9,13 +9,13 @@ export const PoweredByBasisTheory = () => {
   const { t } = useTranslation('components');
 
   return (
-    <Box alignItems="center" display="flex" justifyContent="center">
-      <Typography sx={{ color: '#6A6A6A' }} variant="body3">
-        {t('poweredBy.prefix')}
-      </Typography>
-      <Button href="https://basistheory.com" target="_blank">
+    <Button href="https://basistheory.com" target="_blank">
+      <Box alignItems="center" display="flex" justifyContent="center">
+        <Typography mr={1} sx={{ color: '#6A6A6A' }} variant="body3">
+          {t('poweredBy.prefix')}
+        </Typography>
         <BasisTheoryLogo />
-      </Button>
-    </Box>
+      </Box>
+    </Button>
   );
 };

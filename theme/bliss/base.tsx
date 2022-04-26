@@ -117,6 +117,13 @@ export const baseThemeOptions: ThemeOptions = {
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+        },
+      },
+    },
     MuiSvgIcon: {
       styleOverrides: {
         fontSizeSmall: {
@@ -134,7 +141,7 @@ export const baseThemeOptions: ThemeOptions = {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '2px',
+          borderRadius: '8px',
         },
         outlined: {
           borderWidth: '2px !important', // only way to override for all sub styles and keep consistency
@@ -200,14 +207,24 @@ export const baseThemeOptions: ThemeOptions = {
     MuiMenu: {
       styleOverrides: {
         paper: {
-          borderRadius: '1px',
+          borderRadius: '8px',
           borderWidth: '1px',
           borderStyle: 'solid',
         },
       },
     },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+        },
+      },
+    },
     MuiToggleButton: {
       styleOverrides: {
+        root: {
+          borderRadius: '8px',
+        },
         sizeSmall: {
           padding: `${spacing * 0.5}px ${spacing}px`,
         },

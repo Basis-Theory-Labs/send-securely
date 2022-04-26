@@ -4,7 +4,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import merge from 'lodash/merge';
 import { baseThemeOptions } from './base';
 
-const defaultContrastText = '#070A1B';
+const defaultContrastText = '#000000';
 const grey = {
   '50': '#F2F4FF',
   '100': '#CACDDB',
@@ -34,7 +34,7 @@ const options: ThemeOptions = {
       disabled: alpha('#a3b0ec', 0.4),
     },
     action: {
-      active: '#E0E0E0',
+      active: '#5383FF',
       hover: '#20243A',
       selected: alpha('#000000', 0.08),
       selectedOpacity: 0.08, // does not produce desired effect
@@ -42,13 +42,13 @@ const options: ThemeOptions = {
       disabledBackground: alpha('#B6BADC', 0.3),
     },
     primary: {
-      main: '#1AD1DB',
-      dark: '#009FA9',
-      light: '#6CFFFF',
+      main: '#5383FF',
+      dark: '#3658B2',
+      light: '#5383FF',
       contrastText: defaultContrastText,
     },
     secondary: {
-      main: '#7E67F3',
+      main: '#5383FF',
       dark: '#4F43CD',
       light: '#A583FF',
       contrastText: defaultContrastText,
@@ -79,7 +79,7 @@ const options: ThemeOptions = {
     },
     background: {
       default: defaultContrastText,
-      paper: '#13172A',
+      paper: '#0C0C0C',
     },
     divider, // used for borders
     grey,
@@ -195,11 +195,19 @@ const options: ThemeOptions = {
     MuiFilledInput: {
       styleOverrides: {
         root: {
-          borderRadius: 4,
+          borderRadius: 8,
         },
         underline: {
           borderBottomLeftRadius: 0,
           borderBottomRightRadius: 0,
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          background: '#0C0C0C',
         },
       },
     },
@@ -233,7 +241,7 @@ const options: ThemeOptions = {
                   ? {
                       backgroundColor: `${alpha(
                         theme.palette.primary.main,
-                        0.15
+                        0.2
                       )} !important`,
                     }
                   : {}),

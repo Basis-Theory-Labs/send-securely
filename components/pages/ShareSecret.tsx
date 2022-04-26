@@ -9,6 +9,7 @@ import RefreshIcon from '@/components/icons/RefreshIcon';
 import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import type { Props } from '@/components/pages/ShareSecret.hooks';
 import { CopyButton } from '@/components/shared';
+import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
@@ -25,15 +26,18 @@ export const ShareSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
+          <Box mt={7.5}>
+            <SendSecurelyLogoWithName />
+          </Box>
           <Box
             mb={{
               xs: 8,
               sm: 8,
               md: 20,
             }}
-            mt={7.5}
+            mt={3.5}
           >
-            <SendSecurelyLogoWithName />
+            <PoweredByBasisTheory />
           </Box>
           <Typography mb={1} variant="h2">
             {t('share.title')}
@@ -104,7 +108,7 @@ export const ShareSecret = (props: Props) => {
           <SecurityInfo />
         </Box>
         <Box mb={5} mt={4}>
-          <PoweredByBasisTheory />
+          <CheckoutGitHub />
         </Box>
       </Container>
     </Box>

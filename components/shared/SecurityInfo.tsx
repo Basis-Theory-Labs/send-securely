@@ -26,7 +26,7 @@ export const SecurityInfo = () => {
             <img
               alt="security"
               height="36px"
-              src="/secret-share-icon.png"
+              src="/security-icon.png"
               width="36px"
             />
           </Box>

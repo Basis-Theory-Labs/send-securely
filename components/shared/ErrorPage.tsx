@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
-import { ErrorPageSadFaceAnimation } from '@/components/shared/ErrorPageSadFaceAnimation';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 interface Props {

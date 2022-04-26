@@ -21,7 +21,9 @@ const MyApp = ({
   return (
     <NetworkErrorBoundary Component={ErrorPage}>
       <Head>
-        <title>{'SendSecure.ly - Send your secret, securely.'}</title>
+        <title>
+          {'sendsecure.ly - Share secrets without the digital footprint.'}
+        </title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <ThemeProvider emotionCache={emotionCache}>

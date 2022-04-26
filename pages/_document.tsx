@@ -45,11 +45,11 @@ class MyDocument extends Document {
             name="viewport"
           />
           <meta
-            content="One time link to share passwords, keys, and other sensitive data."
+            content="Send passwords, keys, and other sensitive data with a single-use link."
             name="description"
           />
           <meta
-            content="SendSecure.ly - Send your secret, securely."
+            content="sendsecure.ly - Share secrets without the digital footprint."
             property="og:title"
           />
           <meta
@@ -61,11 +61,11 @@ class MyDocument extends Document {
             property="og:image"
           />
           <meta
-            content="Send Securely - Send your secret, securely."
+            content="sendsecure.ly - Share secrets without the digital footprint."
             property="twitter:title"
           />
           <meta
-            content="Send your secret, securely. One time link to share passwords, keys, and other sensitive data."
+            content="Send passwords, keys, and other sensitive data with a single-use link."
             property="twitter:description"
           />
           <meta

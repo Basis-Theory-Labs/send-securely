@@ -39,7 +39,7 @@ const options: ThemeOptions = {
       selected: alpha('#000000', 0.08),
       selectedOpacity: 0.08, // does not produce desired effect
       disabled: '#626262',
-      disabledBackground: '#1F1F1F',
+      disabledBackground: '#363636',
     },
     primary: {
       main: '#5383FF',

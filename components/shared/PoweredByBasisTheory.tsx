@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
 import { BasisTheoryLogo } from '@/components/shared/BasisTheoryLogo';
@@ -9,13 +9,23 @@ export const PoweredByBasisTheory = () => {
   const { t } = useTranslation('components');
 
   return (
-    <Box alignItems="center" display="flex" justifyContent="center">
-      <Typography color="textSecondary" variant="body3">
-        {t('poweredBy.prefix')}
-      </Typography>
-      <Button href="https://basistheory.com" target="_blank">
+    <Link href="https://basistheory.com" target="_blank" underline="none">
+      <Box
+        alignItems="center"
+        display="flex"
+        justifyContent="center"
+        sx={{
+          opacity: 0.4,
+          '&:hover': {
+            opacity: 1,
+          },
+        }}
+      >
+        <Typography mr={1} sx={{ color: '#FFFFFF' }} variant="body3">
+          {t('poweredBy.prefix')}
+        </Typography>
         <BasisTheoryLogo />
-      </Button>
-    </Box>
+      </Box>
+    </Link>
   );
 };

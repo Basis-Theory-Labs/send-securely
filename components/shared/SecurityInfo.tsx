@@ -21,34 +21,38 @@ export const SecurityInfo = () => {
         justifyContent="space-between"
         p={2}
       >
-        <Box alignItems="center" display="flex" flexDirection="row">
-          <Box display="flex">
-            <img
-              alt="security"
-              height="36px"
-              src="/secret-share-icon.png"
-              width="36px"
-            />
-          </Box>
-          <Box ml={2.5} sx={{ textAlign: 'left' }}>
-            <Typography sx={{ fontWeight: 600 }} variant="subtitle1">
-              {t('securityInfo.title')}
-            </Typography>
-          </Box>
-        </Box>
-        <Link component="button" onClick={toggle}>
-          <Box alignItems="center" display="flex">
-            <Typography
-              sx={{
-                fontWeight: 600,
-                whiteSpace: 'nowrap',
-              }}
-              variant="subtitle2"
-            >
-              {isExpanded
-                ? t('securityInfo.learnMore.collapse')
-                : t('securityInfo.learnMore.expand')}
-            </Typography>
+        <Link
+          color="inherit"
+          component="button"
+          onClick={toggle}
+          underline="none"
+          width="100%"
+        >
+          <Box
+            alignItems="center"
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+          >
+            <Box alignItems="center" display="flex">
+              <img
+                alt="security"
+                height="36px"
+                src="/security-icon.png"
+                width="36px"
+              />
+              <Box ml={2.5} sx={{ textAlign: 'left' }}>
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    lineHeight: '1.2',
+                  }}
+                  variant="subtitle1"
+                >
+                  {t('securityInfo.title')}
+                </Typography>
+              </Box>
+            </Box>
             {isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
           </Box>
         </Link>

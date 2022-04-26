@@ -9,6 +9,7 @@ import RefreshIcon from '@/components/icons/RefreshIcon';
 import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import type { Props } from '@/components/pages/ShareSecret.hooks';
 import { CopyButton } from '@/components/shared';
+import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
@@ -25,15 +26,18 @@ export const ShareSecret = (props: Props) => {
           justifyContent="center"
           textAlign="center"
         >
+          <Box mt={7.5}>
+            <SendSecurelyLogoWithName />
+          </Box>
           <Box
             mb={{
               xs: 8,
               sm: 8,
-              md: 20,
+              md: 15,
             }}
-            mt={7.5}
+            mt={2}
           >
-            <SendSecurelyLogoWithName />
+            <PoweredByBasisTheory />
           </Box>
           <Typography mb={1} variant="h2">
             {t('share.title')}
@@ -54,6 +58,9 @@ export const ShareSecret = (props: Props) => {
                   disabled: true,
                 }}
                 sx={{
+                  '& *': {
+                    fontFamily: 'Inter',
+                  },
                   width: '100%',
                 }}
                 value={secretUrl}
@@ -71,9 +78,8 @@ export const ShareSecret = (props: Props) => {
             sx={{
               width: '100%',
               padding: (theme) => `${theme.spacing(2)} ${theme.spacing(3)}`,
-              borderStyle: 'solid',
               borderRadius: (theme) => `${theme.shape.borderRadius}`,
-              border: '1px solid rgba(65, 73, 112, 0.5)',
+              border: '1px solid rgba(209, 215, 255, 0.1)',
             }}
           >
             <Typography color="textSecondary" textAlign="left" variant="body2">
@@ -104,7 +110,7 @@ export const ShareSecret = (props: Props) => {
           <SecurityInfo />
         </Box>
         <Box mb={5} mt={4}>
-          <PoweredByBasisTheory />
+          <CheckoutGitHub />
         </Box>
       </Container>
     </Box>

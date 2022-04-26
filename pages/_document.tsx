@@ -24,10 +24,6 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
-            rel="stylesheet"
-          />
-          <link
             href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
             rel="stylesheet"
           />
@@ -45,19 +41,19 @@ class MyDocument extends Document {
             }}
           />
           <meta
-            content="width=device-width, initial-scale=1.0"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
             name="viewport"
           />
           <meta
-            content="One time link to share passwords, keys, and other sensitive data."
+            content="Send passwords, keys, and other sensitive data with a single-use link."
             name="description"
           />
           <meta
-            content="SendSecure.ly - Send your secret, securely."
+            content="sendsecure.ly - Share secrets without the digital footprint."
             property="og:title"
           />
           <meta
-            content="One time link to share passwords, keys, and other sensitive data."
+            content="Send passwords, keys, and other sensitive data with a single-use link."
             property="og:description"
           />
           <meta
@@ -65,11 +61,11 @@ class MyDocument extends Document {
             property="og:image"
           />
           <meta
-            content="Send Securely - Send your secret, securely."
+            content="sendsecure.ly - Share secrets without the digital footprint."
             property="twitter:title"
           />
           <meta
-            content="Send your secret, securely. One time link to share passwords, keys, and other sensitive data."
+            content="Send passwords, keys, and other sensitive data with a single-use link."
             property="twitter:description"
           />
           <meta
@@ -79,7 +75,13 @@ class MyDocument extends Document {
           <meta content="website" property="og:type" />
           <meta content="summary_large_image" name="twitter:card" />
         </Head>
-        <body>
+        <body
+          style={{
+            background:
+              'radial-gradient(61.89% 61.89% at 50% 8.83%, #2C2C2C 0%, #0C0C0C 100%)',
+            minHeight: '100vh',
+          }}
+        >
           <Main />
           <NextScript nonce={nonce} />
         </body>

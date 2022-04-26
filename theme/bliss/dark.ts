@@ -4,7 +4,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import merge from 'lodash/merge';
 import { baseThemeOptions } from './base';
 
-const defaultContrastText = '#070A1B';
+const defaultContrastText = '#000000';
 const grey = {
   '50': '#F2F4FF',
   '100': '#CACDDB',
@@ -23,7 +23,7 @@ const divider = alpha('#414970', 0.5);
 const successContrastText = alpha('#070A1B', 0.9);
 
 const textPrimary = '#E5E6EC';
-const textSecondary = '#8B92B6';
+const textSecondary = '#838383';
 
 const options: ThemeOptions = {
   palette: {
@@ -34,21 +34,21 @@ const options: ThemeOptions = {
       disabled: alpha('#a3b0ec', 0.4),
     },
     action: {
-      active: '#E0E0E0',
+      active: '#5383FF',
       hover: '#20243A',
       selected: alpha('#000000', 0.08),
       selectedOpacity: 0.08, // does not produce desired effect
-      disabled: alpha('#CED3FF', 0.4),
-      disabledBackground: alpha('#B6BADC', 0.3),
+      disabled: '#626262',
+      disabledBackground: '#363636',
     },
     primary: {
-      main: '#1AD1DB',
-      dark: '#009FA9',
-      light: '#6CFFFF',
+      main: '#5383FF',
+      dark: '#3658B2',
+      light: '#5383FF',
       contrastText: defaultContrastText,
     },
     secondary: {
-      main: '#7E67F3',
+      main: '#5383FF',
       dark: '#4F43CD',
       light: '#A583FF',
       contrastText: defaultContrastText,
@@ -79,7 +79,7 @@ const options: ThemeOptions = {
     },
     background: {
       default: defaultContrastText,
-      paper: '#13172A',
+      paper: '#1D1D1D',
     },
     divider, // used for borders
     grey,
@@ -146,8 +146,8 @@ const options: ThemeOptions = {
     },
     MuiDivider: {
       styleOverrides: {
-        light: {
-          borderColor: '#4A4C65',
+        root: {
+          borderColor: 'rgba(209, 215, 255, 0.1)',
         },
       },
     },
@@ -182,10 +182,14 @@ const options: ThemeOptions = {
         },
       },
     },
-    // eslint-disable-next-line no-warning-comments
-    // TODO check with rad
     MuiPaper: {
-      styleOverrides: { root: { backgroundImage: 'unset' } },
+      styleOverrides: {
+        root: {
+          backgroundImage: 'unset',
+          borderColor: 'rgba(209, 215, 255, 0.1)',
+          borderRadius: '8px',
+        },
+      },
     },
     MuiLink: {
       defaultProps: {
@@ -195,11 +199,19 @@ const options: ThemeOptions = {
     MuiFilledInput: {
       styleOverrides: {
         root: {
-          borderRadius: 4,
+          borderRadius: 8,
         },
         underline: {
           borderBottomLeftRadius: 0,
           borderBottomRightRadius: 0,
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          background: '#1D1D1D',
         },
       },
     },
@@ -233,7 +245,7 @@ const options: ThemeOptions = {
                   ? {
                       backgroundColor: `${alpha(
                         theme.palette.primary.main,
-                        0.15
+                        0.2
                       )} !important`,
                     }
                   : {}),

@@ -9,7 +9,6 @@ import _isEmpty from 'lodash/isEmpty';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import { Props, useCreateSecret } from '@/components/pages/CreateSecret.hooks';
 import { LoadingButton } from '@/components/shared';
-import { AbstractBackground } from '@/components/shared/AbstractBackground';
 import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';

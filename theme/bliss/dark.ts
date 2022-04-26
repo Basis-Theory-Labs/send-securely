@@ -79,7 +79,7 @@ const options: ThemeOptions = {
     },
     background: {
       default: defaultContrastText,
-      paper: '#0C0C0C',
+      paper: '#1D1D1D',
     },
     divider, // used for borders
     grey,
@@ -182,13 +182,12 @@ const options: ThemeOptions = {
         },
       },
     },
-    // eslint-disable-next-line no-warning-comments
-    // TODO check with rad
     MuiPaper: {
       styleOverrides: {
         root: {
           backgroundImage: 'unset',
           borderColor: 'rgba(209, 215, 255, 0.1)',
+          borderRadius: '8px',
         },
       },
     },
@@ -212,7 +211,7 @@ const options: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 8,
-          background: '#0C0C0C',
+          background: '#1D1D1D',
         },
       },
     },

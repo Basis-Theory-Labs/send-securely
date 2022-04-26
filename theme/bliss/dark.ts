@@ -23,7 +23,7 @@ const divider = alpha('#414970', 0.5);
 const successContrastText = alpha('#070A1B', 0.9);
 
 const textPrimary = '#E5E6EC';
-const textSecondary = '#8B92B6';
+const textSecondary = '#838383';
 
 const options: ThemeOptions = {
   palette: {
@@ -185,7 +185,12 @@ const options: ThemeOptions = {
     // eslint-disable-next-line no-warning-comments
     // TODO check with rad
     MuiPaper: {
-      styleOverrides: { root: { backgroundImage: 'unset' } },
+      styleOverrides: {
+        root: {
+          backgroundImage: 'unset',
+          borderColor: 'rgba(209, 215, 255, 0.1)',
+        },
+      },
     },
     MuiLink: {
       defaultProps: {

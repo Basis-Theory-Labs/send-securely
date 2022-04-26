@@ -15,7 +15,7 @@ export const CheckoutGitHub = () => {
           <Link
             href="https://github.com/Basis-Theory-Labs/send-securely"
             sx={{
-              color: '#8B92B6',
+              color: '#838383',
               textDecoration: 'underline',
             }}
             target="_blank"

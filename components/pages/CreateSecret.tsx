@@ -128,13 +128,6 @@ export const CreateSecret = (props: Props) => {
           </Box>
         </Container>
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-        }}
-      >
-        <AbstractBackground />
-      </Box>
     </>
   );
 };

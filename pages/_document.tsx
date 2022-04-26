@@ -75,7 +75,13 @@ class MyDocument extends Document {
           <meta content="website" property="og:type" />
           <meta content="summary_large_image" name="twitter:card" />
         </Head>
-        <body>
+        <body
+          style={{
+            background:
+              'radial-gradient(61.89% 61.89% at 50% 8.83%, #2C2C2C 0%, #0C0C0C 100%)',
+            minHeight: '100vh',
+          }}
+        >
           <Main />
           <NextScript nonce={nonce} />
         </body>

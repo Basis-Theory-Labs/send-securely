@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 // captured from https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -9,7 +8,7 @@ import { setupSsrStyles } from '@/theme/next';
 class MyDocument extends Document {
   public render(): JSX.Element {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { nonce, gaMeasurementId } = useDocument();
+    const { nonce } = useDocument();
 
     return (
       <Html lang="en">
@@ -28,17 +27,9 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gaMeasurementId}');`,
-            }}
+            data-domain="sendsecure.ly"
+            defer
+            src="https://plausible.io/js/plausible.js"
           />
           <meta
             content="width=device-width, initial-scale=1.0, user-scalable=no"
@@ -102,5 +93,3 @@ MyDocument.getInitialProps = async (ctx) => {
 };
 
 export default MyDocument;
-
-/* eslint-enable react/no-danger */

@@ -29,12 +29,16 @@
     "prefix": "Powered By"
   },
   "github": {
-    "link": "Check out our GitHub <1>repository</1>."
+    "link": "Github"
   },
   "shared": {
     "CopyButton": {
       "copy": "Copy",
       "copied": "Copied!"
     }
+  },
+  "links": {
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
   }
 }

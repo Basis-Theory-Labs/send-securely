@@ -2,28 +2,33 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import { Trans, useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 
-export const CheckoutGitHub = () => {
+interface FooterLinkProps {
+    i18nKey: string,
+    linkUrl: string
+}
+
+export const FooterLink = (props: FooterLinkProps) => {
   const { t } = useTranslation('components');
+
+  const {
+      i18nKey,
+      linkUrl
+  } = props;
 
   return (
     <Box textAlign="center">
       <Typography color="textSecondary" variant="body2">
-        <Trans i18nKey="github.link" t={t}>
-          {'Check out our GitHub...'}
           <Link
-            href="https://github.com/Basis-Theory-Labs/send-securely"
+            href={linkUrl}
             sx={{
-              color: '#838383',
-              textDecoration: 'underline',
+              color: '#838383'
             }}
             target="_blank"
           >
-            {'repository'}
+            {t(i18nKey)}
           </Link>
-          {'.'}
-        </Trans>
       </Typography>
     </Box>
   );

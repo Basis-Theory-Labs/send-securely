@@ -112,7 +112,7 @@ export const baseThemeOptions: ThemeOptions = {
     MuiInputBase: {
       styleOverrides: {
         root: {
-          fontFamily: 'Source Code Pro',
+          fontFamily: 'Inter',
           fontSize: '14px',
         },
       },

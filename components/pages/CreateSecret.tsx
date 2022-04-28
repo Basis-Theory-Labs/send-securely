@@ -58,6 +58,7 @@ export const CreateSecret = (props: Props) => {
               rows={4}
               sx={{
                 '& textarea': {
+                  fontFamily: 'Source Code Pro',
                   fontSize: '16px',
                 },
               }}

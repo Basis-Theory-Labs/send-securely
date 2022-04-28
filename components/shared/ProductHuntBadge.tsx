@@ -9,7 +9,7 @@ export const ProductHuntBadge = () => (
     <img
       alt="sendsecure&#0046;ly - Send&#0032;secrets&#0032;to&#0032;anyone&#0032;without&#0032;leaving&#0032;a&#0032;digital&#0032;footprint | Product Hunt"
       height="54"
-      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=344273&theme=light"
+      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=344273&theme=dark"
       style={{
         width: '250px',
         height: '54px',

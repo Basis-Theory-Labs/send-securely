@@ -7,9 +7,8 @@ import Typography from '@mui/material/Typography';
 import Head from 'next/head';
 import { useViewSecretPage } from '@/components/pages/ViewSecretPage.hooks';
 import { CopyButton, LoadingButton } from '@/components/shared';
-import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
+import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
-import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 export const ViewSecretPage = () => {
@@ -119,12 +118,7 @@ export const ViewSecretPage = () => {
               </Paper>
             )}
           </Box>
-          <Box mt={4}>
-            <SecurityInfo />
-          </Box>
-          <Box mb={5} mt={4}>
-            <CheckoutGitHub />
-          </Box>
+          <Footer />
         </Container>
       </Box>
     </>

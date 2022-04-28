@@ -9,9 +9,8 @@ import _isEmpty from 'lodash/isEmpty';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import { Props, useCreateSecret } from '@/components/pages/CreateSecret.hooks';
 import { LoadingButton } from '@/components/shared';
-import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
+import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
-import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 export const CreateSecret = (props: Props) => {
@@ -118,12 +117,7 @@ export const CreateSecret = (props: Props) => {
             {!isSubmitting && t('create.button')}
           </LoadingButton>
         </Box>
-        <Box mt={4}>
-          <SecurityInfo />
-        </Box>
-        <Box mb={5} mt={4}>
-          <CheckoutGitHub />
-        </Box>
+        <Footer />
       </Container>
     </Box>
   );

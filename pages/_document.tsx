@@ -16,6 +16,7 @@ class MyDocument extends Document {
         <Head nonce={nonce}>
           {/* PWA primary color */}
           <meta content={dark.palette.primary.main} name="theme-color" />
+          <link href="/favicon.ico" rel="icon" />
           {/* Theme fonts */}
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="/manifest.webmanifest" rel="manifest" />

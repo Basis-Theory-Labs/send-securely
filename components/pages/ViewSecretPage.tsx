@@ -4,10 +4,10 @@ import { Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Head from 'next/head';
 import { useViewSecretPage } from '@/components/pages/ViewSecretPage.hooks';
 import { CopyButton, LoadingButton } from '@/components/shared';
 import { Footer } from '@/components/shared/Footer';
+import { MetaTags } from '@/components/shared/MetaTags';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
@@ -22,33 +22,10 @@ export const ViewSecretPage = () => {
 
   return (
     <>
-      <Head>
-        <meta
-          content="You were sent a secret!"
-          key="description"
-          name="description"
-        />
-        <meta
-          content="You were sent a secret!"
-          key="og:description"
-          property="og:description"
-        />
-        <meta
-          content="https://cdn.basistheory.com/images/seo/sendsecurely-secret-opengraph.png"
-          key="og:image"
-          property="og:image"
-        />
-        <meta
-          content="You were sent a secret!"
-          key="twitter:description"
-          property="twitter:description"
-        />
-        <meta
-          content="https://cdn.basistheory.com/images/seo/sendsecurely-secret-opengraph.png"
-          key="twitter:image"
-          property="twitter:image"
-        />
-      </Head>
+      <MetaTags
+        description="You were sent a secret!"
+        image="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
+      />
       <Box textAlign="center">
         <Container maxWidth="sm">
           <Box mt={7.5}>

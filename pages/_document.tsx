@@ -46,40 +46,6 @@ class MyDocument extends Document {
               plausible('pageview', { u: redactedUrl });`,
             }}
           />
-          <meta
-            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
-            name="viewport"
-          />
-          <meta
-            content="Send passwords, keys, and other sensitive data with a single-use link."
-            name="description"
-          />
-          <meta
-            content="sendsecure.ly - Share secrets without the digital footprint."
-            property="og:title"
-          />
-          <meta
-            content="Send passwords, keys, and other sensitive data with a single-use link."
-            property="og:description"
-          />
-          <meta
-            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
-            property="og:image"
-          />
-          <meta
-            content="sendsecure.ly - Share secrets without the digital footprint."
-            property="twitter:title"
-          />
-          <meta
-            content="Send passwords, keys, and other sensitive data with a single-use link."
-            property="twitter:description"
-          />
-          <meta
-            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
-            property="twitter:image"
-          />
-          <meta content="website" property="og:type" />
-          <meta content="summary_large_image" name="twitter:card" />
         </Head>
         <body
           style={{

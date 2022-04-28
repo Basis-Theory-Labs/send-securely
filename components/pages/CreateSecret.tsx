@@ -22,7 +22,7 @@ export const CreateSecret = (props: Props) => {
     <>
       <MetaTags
         description="Send passwords, keys, and other sensitive data with a single-use link."
-        image="https://cdn.basistheory.com/images/seo/sendsecurely-secret-opengraph.png"
+        image="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
       />
       <Box>
         <Container maxWidth="sm">
@@ -57,8 +57,9 @@ export const CreateSecret = (props: Props) => {
               placeholder="Passwords, credentials, API Keys or anything..."
               rows={4}
               sx={{
-                fontFamily: 'Source Code Pro',
-                fontSize: '16px',
+                '& textarea': {
+                  fontSize: '16px',
+                },
               }}
             />
             <Box

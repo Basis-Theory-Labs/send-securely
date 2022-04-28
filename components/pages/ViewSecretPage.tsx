@@ -24,7 +24,7 @@ export const ViewSecretPage = () => {
     <>
       <MetaTags
         description="You were sent a secret!"
-        image="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
+        image="https://cdn.basistheory.com/images/seo/sendsecurely-secret-opengraph.png"
       />
       <Box textAlign="center">
         <Container maxWidth="sm">

@@ -18,8 +18,7 @@ export const PrivacyPolicy = () => {
               color: '#838383'
             }}
             target="_blank"
-          >
-          </Link>
+          />
         </Trans>
       </Typography>
     </Box>

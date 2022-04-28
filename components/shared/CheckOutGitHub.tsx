@@ -18,8 +18,7 @@ export const CheckoutGitHub = () => {
               color: '#838383'
             }}
             target="_blank"
-          >
-          </Link>
+          />
         </Trans>
       </Typography>
     </Box>

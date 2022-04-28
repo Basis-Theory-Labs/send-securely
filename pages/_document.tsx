@@ -16,6 +16,7 @@ class MyDocument extends Document {
         <Head nonce={nonce}>
           {/* PWA primary color */}
           <meta content={dark.palette.primary.main} name="theme-color" />
+          <link href="/favicon.ico" rel="icon" />
           {/* Theme fonts */}
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="/manifest.webmanifest" rel="manifest" />
@@ -46,40 +47,6 @@ class MyDocument extends Document {
               plausible('pageview', { u: redactedUrl });`,
             }}
           />
-          <meta
-            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
-            name="viewport"
-          />
-          <meta
-            content="Send passwords, keys, and other sensitive data with a single-use link."
-            name="description"
-          />
-          <meta
-            content="sendsecure.ly - Share secrets without the digital footprint."
-            property="og:title"
-          />
-          <meta
-            content="Send passwords, keys, and other sensitive data with a single-use link."
-            property="og:description"
-          />
-          <meta
-            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
-            property="og:image"
-          />
-          <meta
-            content="sendsecure.ly - Share secrets without the digital footprint."
-            property="twitter:title"
-          />
-          <meta
-            content="Send passwords, keys, and other sensitive data with a single-use link."
-            property="twitter:description"
-          />
-          <meta
-            content="https://cdn.basistheory.com/images/seo/sendsecurely-opengraph.png"
-            property="twitter:image"
-          />
-          <meta content="website" property="og:type" />
-          <meta content="summary_large_image" name="twitter:card" />
         </Head>
         <body
           style={{

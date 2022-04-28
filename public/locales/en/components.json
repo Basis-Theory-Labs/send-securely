@@ -29,7 +29,7 @@
     "prefix": "Powered By"
   },
   "github": {
-    "link": "<1>Github</1>"
+    "link": "Github"
   },
   "shared": {
     "CopyButton": {
@@ -38,7 +38,7 @@
     }
   },
   "links": {
-    "termsOfService": "<1>Terms of Service<1>",
-    "privacyPolicy": "<1>Privacy Policy<1>"
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
   }
 }

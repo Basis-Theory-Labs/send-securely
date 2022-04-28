@@ -23,11 +23,11 @@ export const Footer = () => (
         color: '#838383', 
         alignItems: 'center'
       }}>
-        <FooterLink i18nKey='github.link' linkText='Github' linkUrl='https://github.com/Basis-Theory-Labs/send-securely'/>
+        <FooterLink i18nKey='github.link' linkUrl='https://github.com/Basis-Theory-Labs/send-securely'/>
         <Box ml={1} mr={1}>{'·'}</Box>
-        <FooterLink i18nKey='links.termsOfService' linkText='Terms of Service' linkUrl='https://basistheory.com/terms-of-service'/>
+        <FooterLink i18nKey='links.termsOfService' linkUrl='https://basistheory.com/terms-of-service'/>
         <Box ml={1} mr={1}>{'·'}</Box>
-        <FooterLink i18nKey='links.privacyPolicy' linkText='Privacy Policy' linkUrl='https://basistheory.com/privacy-policy'/>
+        <FooterLink i18nKey='links.privacyPolicy' linkUrl='https://basistheory.com/privacy-policy'/>
     </Box>
     <ProductHuntBadge />
   </Box>

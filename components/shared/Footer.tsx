@@ -1,10 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
 import { ProductHuntBadge } from '@/components/shared/ProductHuntBadge';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';
-import { TermsOfService } from './TermsOfService';
-import { PrivacyPolicy } from './PrivacyPolicy';
+import { FooterLink } from './FooterLink';
 
 export const Footer = () => (
   <Box
@@ -25,11 +23,11 @@ export const Footer = () => (
         color: '#838383', 
         alignItems: 'center'
       }}>
-        <CheckoutGitHub />
+        <FooterLink i18nKey='github.link' linkText='Github' linkUrl='https://github.com/Basis-Theory-Labs/send-securely'/>
         <Box ml={1} mr={1}>{'·'}</Box>
-        <TermsOfService/>
+        <FooterLink i18nKey='links.termsOfService' linkText='Terms of Service' linkUrl='https://basistheory.com/terms-of-service'/>
         <Box ml={1} mr={1}>{'·'}</Box>
-        <PrivacyPolicy/>
+        <FooterLink i18nKey='links.privacyPolicy' linkText='Privacy Policy' linkUrl='https://basistheory.com/privacy-policy'/>
     </Box>
     <ProductHuntBadge />
   </Box>

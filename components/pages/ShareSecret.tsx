@@ -57,9 +57,6 @@ export const ShareSecret = (props: Props) => {
                   disabled: true,
                 }}
                 sx={{
-                  '& *': {
-                    fontFamily: 'Inter',
-                  },
                   width: '100%',
                 }}
                 value={secretUrl}

@@ -50,7 +50,12 @@ export const CreateSecret = (props: Props) => {
             onChange={(event) => setData(event.target.value)}
             placeholder="Passwords, credentials, API Keys or anything..."
             rows={4}
-            sx={{ fontFamily: 'Source Code Pro' }}
+            sx={{
+              '& textarea': {
+                fontFamily: 'Source Code Pro',
+                fontSize: '16px',
+              },
+            }}
           />
           <Box
             alignItems="center"

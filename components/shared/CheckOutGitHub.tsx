@@ -19,9 +19,7 @@ export const CheckoutGitHub = () => {
             }}
             target="_blank"
           >
-            {'Github'}
           </Link>
-          {'.'}
         </Trans>
       </Typography>
     </Box>

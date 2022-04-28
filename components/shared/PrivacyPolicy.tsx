@@ -19,7 +19,6 @@ export const PrivacyPolicy = () => {
             }}
             target="_blank"
           >
-            {'Privacy Policy'}
           </Link>
         </Trans>
       </Typography>

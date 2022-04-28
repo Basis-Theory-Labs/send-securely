@@ -19,7 +19,6 @@ export const TermsOfService = () => {
             }}
             target="_blank"
           >
-            {'Terms of Service'}
           </Link>
         </Trans>
       </Typography>

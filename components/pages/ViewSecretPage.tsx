@@ -4,7 +4,7 @@ import { Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Head } from 'next/document';
+import Head from 'next/head';
 import { useViewSecretPage } from '@/components/pages/ViewSecretPage.hooks';
 import { CopyButton, LoadingButton } from '@/components/shared';
 import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';

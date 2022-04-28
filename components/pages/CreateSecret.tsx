@@ -13,118 +13,122 @@ import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
+import { TrackPageView } from '@/components/shared/TrackPageView';
 
 export const CreateSecret = (props: Props) => {
   const { t, data, setData, ttl, setTtl, isSubmitting, createSecret } =
     useCreateSecret(props);
 
   return (
-    <Box>
-      <Container maxWidth="sm">
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          textAlign="center"
-        >
-          <Box mt={7.5}>
-            <SendSecurelyLogoWithName />
-          </Box>
+    <>
+      <Box>
+        <Container maxWidth="sm">
           <Box
-            mb={{
-              xs: 8,
-              sm: 8,
-              md: 15,
-            }}
-            mt={2}
-          >
-            <PoweredByBasisTheory />
-          </Box>
-          <Typography mb={1} variant="h2">
-            {t('create.title')}
-          </Typography>
-          <Typography color="textSecondary" mb={5} variant="body2">
-            {t('create.subtitle')}
-          </Typography>
-          <TextField
-            multiline
-            onChange={(event) => setData(event.target.value)}
-            placeholder="Passwords, credentials, API Keys or anything..."
-            rows={4}
-            sx={{ fontFamily: 'Source Code Pro' }}
-          />
-          <Box
-            alignItems="center"
             display="flex"
-            flexDirection="row"
-            justifyContent="right"
-            my={3}
+            flexDirection="column"
+            justifyContent="center"
+            textAlign="center"
           >
-            <Box mr={2}>
-              <Typography color="textSecondary" variant="body2">
-                {t('create.secretExpiresAfter')}
-              </Typography>
+            <Box mt={7.5}>
+              <SendSecurelyLogoWithName />
             </Box>
-            <ToggleButtonGroup
-              color="primary"
-              exclusive
-              onChange={(event, newTtl) => setTtl(newTtl)}
-              value={ttl}
+            <Box
+              mb={{
+                xs: 8,
+                sm: 8,
+                md: 15,
+              }}
+              mt={2}
             >
-              <ToggleButton
-                size="small"
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
-                  minWidth: '45px',
-                }}
-                value="600"
+              <PoweredByBasisTheory />
+            </Box>
+            <Typography mb={1} variant="h2">
+              {t('create.title')}
+            </Typography>
+            <Typography color="textSecondary" mb={5} variant="body2">
+              {t('create.subtitle')}
+            </Typography>
+            <TextField
+              multiline
+              onChange={(event) => setData(event.target.value)}
+              placeholder="Passwords, credentials, API Keys or anything..."
+              rows={4}
+              sx={{ fontFamily: 'Source Code Pro' }}
+            />
+            <Box
+              alignItems="center"
+              display="flex"
+              flexDirection="row"
+              justifyContent="right"
+              my={3}
+            >
+              <Box mr={2}>
+                <Typography color="textSecondary" variant="body2">
+                  {t('create.secretExpiresAfter')}
+                </Typography>
+              </Box>
+              <ToggleButtonGroup
+                color="primary"
+                exclusive
+                onChange={(event, newTtl) => setTtl(newTtl)}
+                value={ttl}
               >
-                {'10m'}
-              </ToggleButton>
-              <ToggleButton
-                size="small"
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
-                  minWidth: '45px',
-                }}
-                value="3600"
-              >
-                {'1h'}
-              </ToggleButton>
-              <ToggleButton
-                size="small"
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
-                  minWidth: '45px',
-                }}
-                value="86400"
-              >
-                {'24h'}
-              </ToggleButton>
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size="small"
+                  sx={{
+                    padding: (theme) =>
+                      `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
+                    minWidth: '45px',
+                  }}
+                  value="600"
+                >
+                  {'10m'}
+                </ToggleButton>
+                <ToggleButton
+                  size="small"
+                  sx={{
+                    padding: (theme) =>
+                      `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
+                    minWidth: '45px',
+                  }}
+                  value="3600"
+                >
+                  {'1h'}
+                </ToggleButton>
+                <ToggleButton
+                  size="small"
+                  sx={{
+                    padding: (theme) =>
+                      `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
+                    minWidth: '45px',
+                  }}
+                  value="86400"
+                >
+                  {'24h'}
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </Box>
+            <LoadingButton
+              color="primary"
+              disabled={_isEmpty(data) || isSubmitting}
+              endIcon={!isSubmitting && <ChevronRightIcon />}
+              loading={isSubmitting}
+              onClick={createSecret}
+              size="medium"
+              variant="contained"
+            >
+              {!isSubmitting && t('create.button')}
+            </LoadingButton>
           </Box>
-          <LoadingButton
-            color="primary"
-            disabled={_isEmpty(data) || isSubmitting}
-            endIcon={!isSubmitting && <ChevronRightIcon />}
-            loading={isSubmitting}
-            onClick={createSecret}
-            size="medium"
-            variant="contained"
-          >
-            {!isSubmitting && t('create.button')}
-          </LoadingButton>
-        </Box>
-        <Box mt={4}>
-          <SecurityInfo />
-        </Box>
-        <Box mb={5} mt={4}>
-          <CheckoutGitHub />
-        </Box>
-      </Container>
-    </Box>
+          <Box mt={4}>
+            <SecurityInfo />
+          </Box>
+          <Box mb={5} mt={4}>
+            <CheckoutGitHub />
+          </Box>
+        </Container>
+      </Box>
+      <TrackPageView />
+    </>
   );
 };

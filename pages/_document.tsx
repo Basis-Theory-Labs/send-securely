@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 // captured from https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -29,10 +30,16 @@ class MyDocument extends Document {
           <script
             data-domain="sendsecure.ly"
             defer
-            src="https://plausible.io/js/plausible.js"
+            src="https://plausible.io/js/script.manual.js"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`,
+            }}
           />
           <meta
-            content="width=device-width, initial-scale=1.0, user-scalable=no"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
             name="viewport"
           />
           <meta

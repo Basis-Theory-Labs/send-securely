@@ -38,6 +38,14 @@ class MyDocument extends Document {
               window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`,
             }}
           />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              var url = window.location.href;
+              var redactedUrl = url.replace(/\\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g, "/secret-id");
+              plausible('pageview', { u: redactedUrl });`,
+            }}
+          />
           <meta
             content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
             name="viewport"
@@ -100,3 +108,5 @@ MyDocument.getInitialProps = async (ctx) => {
 };
 
 export default MyDocument;
+
+/* eslint-enable react/no-danger */

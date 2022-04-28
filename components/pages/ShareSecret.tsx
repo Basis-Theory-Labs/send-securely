@@ -9,9 +9,8 @@ import RefreshIcon from '@/components/icons/RefreshIcon';
 import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import type { Props } from '@/components/pages/ShareSecret.hooks';
 import { CopyButton } from '@/components/shared';
-import { CheckoutGitHub } from '@/components/shared/CheckOutGitHub';
+import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
-import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 export const ShareSecret = (props: Props) => {
@@ -106,12 +105,7 @@ export const ShareSecret = (props: Props) => {
             </Button>
           </Box>
         </Box>
-        <Box mt={4}>
-          <SecurityInfo />
-        </Box>
-        <Box mb={5} mt={4}>
-          <CheckoutGitHub />
-        </Box>
+        <Footer />
       </Container>
     </Box>
   );

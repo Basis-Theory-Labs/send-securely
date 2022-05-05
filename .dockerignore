@@ -1,0 +1,16 @@
+*
+!api-framework
+!components
+!globals
+!pages
+!proxy
+!public
+!server-side
+!styles
+!theme
+!package.json
+!yarn.lock
+!.babelrc
+!next.config.js
+!next-i18next.config.js
+!tsconfig.json

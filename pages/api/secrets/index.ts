@@ -2,7 +2,9 @@ import { BasisTheory } from '@basis-theory/basis-theory-js';
 import { env } from '../../../server-side/env';
 
 export default async (req, res) => {
-  const bt = await new BasisTheory().init(env().BT_API_KEY);
+  const bt = await new BasisTheory().init(env().BT_API_KEY, {
+    apiBaseUrl: env().BT_API_BASE_URL,
+  });
 
   const token = await bt.tokens.create({
     type: 'token',

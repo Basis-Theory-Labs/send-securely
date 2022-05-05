@@ -13,5 +13,6 @@ services:
     ports:
       - '8080:8080'
       - '8443:8443'
+    command: [ '--https-port', '8443' ]
     volumes:
       - $PWD/wiremock:/home/wiremock

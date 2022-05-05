@@ -1,25 +1,30 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import type { StubMapping } from './wiremock/types';
+
+Cypress.Commands.add('stubRequest', (scenario: string, stub: StubMapping) => {
+  const mappingWithScenarioMetadata = {
+    ...stub,
+    metadata: {
+      ...stub.metadata,
+      scenario,
+    },
+  };
+
+  cy.request(
+    'POST',
+    'http://localhost:8080/__admin/mappings',
+    JSON.stringify(mappingWithScenarioMetadata)
+  );
+});
+
+Cypress.Commands.add('clearStubs', (scenario: string) => {
+  cy.request(
+    'POST',
+    'http://localhost:8080/__admin/mappings/remove-by-metadata',
+    JSON.stringify({
+      matchesJsonPath: {
+        expression: '$.scenario',
+        equalTo: scenario,
+      },
+    })
+  );
+});

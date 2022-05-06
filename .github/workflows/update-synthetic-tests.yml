@@ -1,0 +1,50 @@
+name: Update Synthetic Tests
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  update-synthetic-tests:
+    runs-on: ubuntu-latest
+    env:
+      CI: 1
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install deps (with cache)
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
+          working-directory: synthetic-tests
+
+      - name: Setup Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v2
+
+      - name: Update Synthetic Tests
+        env:
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+          DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
+          PULUMI_STACK: synthetic-tests/prod
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+        run: | ### Extract to script to get diff in PR. Add PR workflow to get diff
+          #!/bin/bash
+          set -e
+          current_directory=`pwd`
+          cd synthetic-tests
+          pulumi login
+          (pulumi stack init $PULUMI_STACK) || echo "Pulumi $PULUMI_STACK already exists"
+          pulumi stack select $PULUMI_STACK
+          pulumi stack
+          if [ "$IS_PR_WORKFLOW" = true ] ; then
+            pulumi preview --diff
+          else
+            pulumi up -y
+          fi

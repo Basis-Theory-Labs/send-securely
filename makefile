@@ -5,3 +5,6 @@ dev:
 
 verify:
 	./scripts/verify.sh
+
+stop-docker:
+	docker-compose down -v

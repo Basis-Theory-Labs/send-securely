@@ -1,15 +1,16 @@
 import Chance from 'chance';
+import { add } from 'date-fns';
 
-describe('get secret by ID', () => {
+describe('get secret details', () => {
   const chance = new Chance();
   let secretData, secretTtl, secretCreatedAt, tokenId;
 
-  describe('should retrieve secret when not expired', () => {
-    const scenario = 'get secret';
+  describe('secret details not expired', () => {
+    const scenario = 'get secret details';
 
     beforeEach(() => {
       secretTtl = 1000;
-      secretCreatedAt = new Date().toISOString();
+      secretCreatedAt = new Date();
       secretData = chance.guid();
       tokenId = chance.guid();
 
@@ -18,19 +19,9 @@ describe('get secret by ID', () => {
         type: 'token',
         data: secretData,
         // eslint-disable-next-line camelcase
-        created_at: secretCreatedAt,
+        created_at: secretCreatedAt.toISOString(),
         metadata: {
           ttl: secretTtl,
-        },
-      });
-
-      cy.stubRequest(scenario, {
-        request: {
-          method: 'DELETE',
-          urlPath: `/tokens/${tokenId}`,
-        },
-        response: {
-          status: 204,
         },
       });
     });
@@ -39,27 +30,23 @@ describe('get secret by ID', () => {
       cy.clearStubs(scenario);
     });
 
-    it('should return secret data in 200 OK', () => {
-      cy.request('GET', `/api/secrets/${tokenId}`).then(({ status, body }) => {
-        expect(status).to.eq(200);
-        expect(body).to.deep.eq({
-          data: secretData,
-        });
-      });
-    });
-
-    it('should delete token after retrieving', () => {
-      cy.request('GET', `/api/secrets/${tokenId}`);
-
-      cy.verifyRequestCount(1, {
-        method: 'DELETE',
-        urlPath: `/tokens/${tokenId}`,
-      });
+    it('should return secret details in 200 OK', () => {
+      cy.request('GET', `/api/secrets/${tokenId}/details`).then(
+        ({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body).to.deep.eq({
+            id: tokenId,
+            timeLeft: add(secretCreatedAt, {
+              seconds: secretTtl,
+            }).toISOString(),
+          });
+        }
+      );
     });
   });
 
   describe('should validate secret is not expired', () => {
-    const scenario = 'get secret expired';
+    const scenario = 'get secret details expired';
 
     beforeEach(() => {
       secretTtl = 0;
@@ -93,10 +80,10 @@ describe('get secret by ID', () => {
       cy.clearStubs(scenario);
     });
 
-    it('should return 404 NOT_FOUND when token is expired', () => {
+    it('should return 404 NOT_FOUND when secret is expired', () => {
       cy.request({
         method: 'GET',
-        url: `/api/secrets/${tokenId}`,
+        url: `/api/secrets/${tokenId}/details`,
         failOnStatusCode: false,
       }).then(({ status, body }) => {
         expect(status).to.eq(404);
@@ -107,7 +94,7 @@ describe('get secret by ID', () => {
     it('should delete token after retrieving', () => {
       cy.request({
         method: 'GET',
-        url: `/api/secrets/${tokenId}`,
+        url: `/api/secrets/${tokenId}/details`,
         failOnStatusCode: false,
       });
 
@@ -118,8 +105,8 @@ describe('get secret by ID', () => {
     });
   });
 
-  describe('secret not found', () => {
-    const scenario = 'get secret not found';
+  describe('secret details not found', () => {
+    const scenario = 'get secret details not found';
 
     beforeEach(() => {
       cy.stubRequest(scenario, {
@@ -137,13 +124,14 @@ describe('get secret by ID', () => {
       cy.clearStubs(scenario);
     });
 
-    it('should return 500 error when secret token does not exist', () => {
+    it('should return 404 NOT_FOUND when secret token does not exist', () => {
       cy.request({
         method: 'GET',
-        url: `/api/secrets/${chance.guid()}`,
+        url: `/api/secrets/${tokenId}/details`,
         failOnStatusCode: false,
-      }).then(({ status }) => {
-        expect(status).to.eq(500);
+      }).then(({ status, body }) => {
+        expect(status).to.eq(404);
+        expect(body).to.deep.eq({});
       });
     });
   });

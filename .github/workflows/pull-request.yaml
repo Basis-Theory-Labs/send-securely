@@ -29,8 +29,12 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
-#        env:
-#          CYPRESS_INSTALL_BINARY: 0
+        env:
+          CYPRESS_INSTALL_BINARY: 0
+
+      # Install and check Cypress binary
+      - run: yarn run cypress install
+      - run: yarn run cypress cache list
 
       - name: Verify Acceptance tests
         run: make verify

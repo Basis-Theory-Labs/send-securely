@@ -7,34 +7,38 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  if (req.method === 'GET') {
-    const bt = await new BasisTheory().init(env().BT_API_KEY);
+  if (req.method !== 'GET') {
+    res.status(404).json({
+      message: 'Endpoint not found',
+    });
+  }
 
-    const { id } = req.query;
+  const bt = await new BasisTheory().init(env().BT_API_KEY);
 
-    if (typeof id !== 'string') {
-      res.status(404).json({});
+  const { id } = req.query;
 
-      return;
-    }
+  if (typeof id !== 'string') {
+    res.status(404).json({});
 
-    try {
-      const token = await bt.tokens.retrieve(id);
-      const datePlusTTL = add(parseISO(token.createdAt), {
-        seconds: Number.parseInt(token.metadata.ttl),
+    return;
+  }
+
+  try {
+    const token = await bt.tokens.retrieve(id);
+    const datePlusTTL = add(parseISO(token.createdAt), {
+      seconds: Number.parseInt(token.metadata.ttl),
+    });
+
+    if (getTime(datePlusTTL) > Date.now()) {
+      res.status(200).json({
+        id: token.id,
+        timeLeft: datePlusTTL,
       });
-
-      if (getTime(datePlusTTL) > Date.now()) {
-        res.status(200).json({
-          id: token.id,
-          timeLeft: datePlusTTL,
-        });
-      } else {
-        await bt.tokens.delete(id);
-        res.status(404).json({});
-      }
-    } catch {
+    } else {
+      await bt.tokens.delete(id);
       res.status(404).json({});
     }
+  } catch {
+    res.status(404).json({});
   }
 };

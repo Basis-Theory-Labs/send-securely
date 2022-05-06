@@ -17,6 +17,14 @@ jobs:
         with:
           node-version: '14.x'
 
+      - name: Cache Cypress binary
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-cypress-
+
       - name: Install deps (with cache)
         uses: bahmutov/npm-install@v1
         with:

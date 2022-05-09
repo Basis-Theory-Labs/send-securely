@@ -1,0 +1,11 @@
+{
+  "projectId": "nka6kf",
+  "baseUrl": "http://localhost:3000/",
+  "integrationFolder": "cypress/specs",
+  "chromeWebSecurity": false,
+  "video": false,
+  "retries": {
+    "runMode": 0,
+    "openMode": 0
+  }
+}

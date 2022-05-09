@@ -1,8 +1,7 @@
-import { BasisTheory } from '@basis-theory/basis-theory-js';
-import { env } from '../../../server-side/env';
+import { getBasisTheoryClient } from '@/server-side/services/basistheory-service';
 
 export default async (req, res) => {
-  const bt = await new BasisTheory().init(env().BT_API_KEY);
+  const bt = await getBasisTheoryClient();
 
   const token = await bt.tokens.create({
     type: 'token',

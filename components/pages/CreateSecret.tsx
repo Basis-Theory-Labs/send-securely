@@ -47,7 +47,7 @@ export const CreateSecret = (props: Props) => {
         <TextField
           multiline
           onChange={(event) => setData(event.target.value)}
-          placeholder="Passwords, credentials, API Keys or anything..."
+          placeholder={t('create.placeholder')}
           rows={4}
           sx={{
             '& textarea': {

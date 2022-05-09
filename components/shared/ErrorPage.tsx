@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import NextLink from 'next/link';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 interface Props {
@@ -29,9 +30,11 @@ export const ErrorPage = ({ status, message, caption }: Props) => {
               {caption}
             </Typography>
             <Box mt={4}>
-              <Button color="primary" href="/" variant="contained">
-                {tc('goToHome')}
-              </Button>
+              <NextLink href="/" passHref>
+                <Button color="primary" variant="contained">
+                  {tc('goToHome')}
+                </Button>
+              </NextLink>
             </Box>
           </Box>
         </Grid>

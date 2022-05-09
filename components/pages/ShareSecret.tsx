@@ -6,8 +6,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { Trans } from 'next-i18next';
 import RefreshIcon from '@/components/icons/RefreshIcon';
-import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import type { Props } from '@/components/pages/ShareSecret.hooks';
+import { useShareSecret } from '@/components/pages/ShareSecret.hooks';
 import { CopyButton } from '@/components/shared';
 import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
@@ -87,8 +87,7 @@ export const ShareSecret = (props: Props) => {
         </Paper>
         <Box display="flex" justifyContent="center">
           <Button
-            component="a"
-            href="/"
+            onClick={() => window.location.reload()}
             startIcon={<RefreshIcon />}
             sx={{
               fontWeight: 600,

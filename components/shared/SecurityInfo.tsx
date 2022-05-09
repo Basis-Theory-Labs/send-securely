@@ -43,6 +43,7 @@ export const SecurityInfo = () => {
               />
               <Box ml={2.5} sx={{ textAlign: 'left' }}>
                 <Typography
+                  component="div"
                   sx={{
                     fontWeight: 600,
                     lineHeight: '1.2',

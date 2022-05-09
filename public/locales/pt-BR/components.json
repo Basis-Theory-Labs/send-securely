@@ -1,1 +1,44 @@
-{}
+{
+  "logo": {
+    "appName": "sendsecure.ly"
+  },
+  "404": {
+    "status": "404",
+    "message": "Segredo não encontrado.",
+    "caption": "O segredo que você está procurando pode ser inválido ou ter expirado."
+  },
+  "500": {
+    "status": "500",
+    "message": "Ops! Falha nossa...",
+    "caption": "Não sabemos dizer ao certo o que houve, mas nossos servidores dizem que há algo errado."
+  },
+  "securityInfo": {
+    "title": "Como posso confiar em sendsecure.ly?",
+    "learnMore": {
+      "expand": "Aprender Mais",
+      "collapse": "Fechar",
+      "heading1": "Tokenizado e Criptografado",
+      "body1": "Sendsecure.ly usa TLS 1.2 para transmitir seu segredo de forma segura ao ambiente certificado da Basis Theory (PCI Level 1 e SOC 2). Em troca, sendsecure.ly recebe um token indecifrável e não sensível que usa para gerar um link com vida útil expirável.",
+      "heading2": "Um Link de vida curta e uso único",
+      "body2": "O link pode ser copiado e compartilhado com qualquer pessoa, mas resgatado apenas uma vez. Além do mais, o autor define um período de vida, fazendo com que o segredo seja válido apenas por um perído de tempo limitado a 24h. Uma vez aberto ou expirado, sendsecure.ly e a Basis Theory irão automaticamente expurgar o segredo de seus sistemas.",
+      "heading3": "Interessado em aprender mais?",
+      "body3": "Explore como a <1>Basis Theory</1> ajuda desenvolvedores construir aplicações seguras em minutos."
+    }
+  },
+  "poweredBy": {
+    "prefix": "Powered By"
+  },
+  "github": {
+    "link": "Github"
+  },
+  "shared": {
+    "CopyButton": {
+      "copy": "Copiar",
+      "copied": "Copiado!"
+    }
+  },
+  "links": {
+    "termsOfService": "Termos de Serviço",
+    "privacyPolicy": "Política de Privacidade"
+  }
+}

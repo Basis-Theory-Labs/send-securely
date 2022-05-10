@@ -1,4 +1,5 @@
 import { Token } from '@basis-theory/basis-theory-elements-interfaces/models';
+import snakecaseKeys from 'snakecase-keys';
 import type { StubMapping, StubMappingRequest } from './wiremock/types';
 
 Cypress.Commands.add('stubRequest', (scenario: string, stub: StubMapping) => {
@@ -35,7 +36,7 @@ Cypress.Commands.add('stubGetTokenById', (scenario: string, token: Token) => {
   cy.request(
     'POST',
     'http://localhost:8080/__admin/mappings',
-    JSON.stringify(mapping)
+    JSON.stringify(snakecaseKeys(mapping, { deep: false }))
   );
 });
 
@@ -54,13 +55,12 @@ Cypress.Commands.add('clearStubs', (scenario: string) => {
 
 Cypress.Commands.add(
   'verifyRequestCount',
-  (expectedCount: number, mapping: StubMappingRequest) => {
+  (expectedCount: number, requestMapping: StubMappingRequest) => {
     cy.request(
       'POST',
       'http://localhost:8080/__admin/requests/count',
-      JSON.stringify(mapping)
+      JSON.stringify(requestMapping)
     ).then(({ body }) => {
-      // eslint-disable-next-line jest/no-standalone-expect
       expect(body.count).to.eq(expectedCount);
     });
   }

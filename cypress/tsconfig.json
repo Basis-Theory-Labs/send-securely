@@ -5,7 +5,10 @@
     "types": ["cypress", "@testing-library/cypress"],
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["**/*.ts"]
 }

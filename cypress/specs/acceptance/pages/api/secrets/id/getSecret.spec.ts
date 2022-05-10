@@ -16,9 +16,9 @@ describe('get secret by ID', () => {
       cy.stubGetTokenById(scenario, {
         id: tokenId,
         type: 'token',
+        tenantId: chance.guid(),
         data: secretData,
-        // eslint-disable-next-line camelcase
-        created_at: secretCreatedAt,
+        createdAt: secretCreatedAt,
         metadata: {
           ttl: secretTtl,
         },
@@ -70,9 +70,9 @@ describe('get secret by ID', () => {
       cy.stubGetTokenById(scenario, {
         id: tokenId,
         type: 'token',
+        tenantId: chance.guid(),
         data: secretData,
-        // eslint-disable-next-line camelcase
-        created_at: secretCreatedAt,
+        createdAt: secretCreatedAt,
         metadata: {
           ttl: secretTtl,
         },

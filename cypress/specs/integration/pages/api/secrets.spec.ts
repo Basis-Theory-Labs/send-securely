@@ -30,23 +30,28 @@ describe('secrets', () => {
 
     // READ SECRET
     cy.get('@secretId').then((secretId) => {
-      cy.request('GET', `/api/secrets/${secretId}`).then(({ status, body }) => {
-        expect(status).to.eq(200);
-        expect(body).to.deep.eq({
-          data: secret.data,
+      cy.request('GET', `/api/secrets/${secretId}`)
+        .as('readSecret')
+        .then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body).to.deep.eq({
+            data: secret.data,
+          });
         });
-      });
     });
 
     // READ SECRET AGAIN
-    cy.get('@secretId').then((secretId) => {
-      cy.request({
-        method: 'GET',
-        url: `/api/secrets/${secretId}`,
-        failOnStatusCode: false,
-      }).then(({ status, body }) => {
-        expect(status).to.eq(404);
-        expect(body).to.deep.eq({});
+    // Ensure second request awaits for first request to complete
+    cy.get('@readSecret').then(() => {
+      cy.get('@secretId').then((secretId) => {
+        cy.request({
+          method: 'GET',
+          url: `/api/secrets/${secretId}`,
+          failOnStatusCode: false,
+        }).then(({ status, body }) => {
+          expect(status).to.eq(404);
+          expect(body).to.deep.eq({});
+        });
       });
     });
   });

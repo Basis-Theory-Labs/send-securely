@@ -8,7 +8,7 @@ jobs:
 #    if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel'
     steps:
       - name: debug github event
-        run: echo ${{ toJson(github.event) }}
+        run: echo "${{ toJson(github.event) }}"
 #      - name: Checkout repo
 #        uses: actions/checkout@v2
 #

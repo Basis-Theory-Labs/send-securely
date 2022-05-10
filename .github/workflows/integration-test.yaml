@@ -5,42 +5,44 @@ jobs:
   integration-test:
     name: Integration Test
     runs-on: ubuntu-latest
-    if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel'
+#    if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel'
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Use Node v14
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-
-      - name: Cache Cypress binary
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            cypress-${{ runner.os }}-cypress-
-
-      - name: Install deps (with cache)
-        uses: bahmutov/npm-install@v1
-        with:
-          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
-        env:
-          CYPRESS_INSTALL_BINARY: 0
-
-      # Install and check Cypress binary
-      - run: yarn run cypress install
-      - run: yarn run cypress cache list
-
-      - name: Test
-        run: CYPRESS_BASE_URL=${{ github.event.deployment_status.target_url }} yarn test:integration
-
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: ${{ github.token }}
-          state: "failure"
-          deployment_id: ${{ github.event.deployment.id }}
+      - name: debug github event
+        run: echo ${{ toJson(github.event) }}
+#      - name: Checkout repo
+#        uses: actions/checkout@v2
+#
+#      - name: Use Node v14
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: '14.x'
+#
+#      - name: Cache Cypress binary
+#        uses: actions/cache@v1
+#        with:
+#          path: ~/.cache/Cypress
+#          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+#          restore-keys: |
+#            cypress-${{ runner.os }}-cypress-
+#
+#      - name: Install deps (with cache)
+#        uses: bahmutov/npm-install@v1
+#        with:
+#          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
+#        env:
+#          CYPRESS_INSTALL_BINARY: 0
+#
+#      # Install and check Cypress binary
+#      - run: yarn run cypress install
+#      - run: yarn run cypress cache list
+#
+#      - name: Test
+#        run: CYPRESS_BASE_URL=${{ github.event.deployment_status.target_url }} yarn test:integration
+#
+#      - name: Update deployment status (failure)
+#        if: failure()
+#        uses: chrnorm/deployment-status@releases/v1
+#        with:
+#          token: ${{ github.token }}
+#          state: "failure"
+#          deployment_id: ${{ github.event.deployment.id }}

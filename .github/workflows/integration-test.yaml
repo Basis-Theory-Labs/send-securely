@@ -23,10 +23,15 @@ jobs:
           restore-keys: |
             cypress-${{ runner.os }}-cypress-
 
-      - name: Install deps (with cache)
-        uses: bahmutov/npm-install@v1
-        with:
-          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
+#      - name: Install deps (with cache)
+#        uses: bahmutov/npm-install@v1
+#        with:
+#          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
+#        env:
+#          CYPRESS_INSTALL_BINARY: 0
+
+      - name: Install deps
+        run: yarn --frozen-lockfile --no-progress --ignore-scripts
         env:
           CYPRESS_INSTALL_BINARY: 0
 

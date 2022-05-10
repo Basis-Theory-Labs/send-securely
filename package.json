@@ -15,6 +15,7 @@
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "cypress:open": "cypress open",
     "test:acceptance": "cypress run --spec \"cypress/specs/acceptance/**/*\" --headless",
+    "test:integration": "cypress run --spec \"cypress/specs/integration/**/*\" --headless --config baseUrl=https://sendsecure.ly/",
     "pretty-quick": "pretty-quick --staged",
     "postinstall": "husky install"
   },

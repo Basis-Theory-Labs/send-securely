@@ -49,7 +49,7 @@ describe('secrets', () => {
           url: `/api/secrets/${secretId}`,
           failOnStatusCode: false,
         }).then(({ status, body }) => {
-          expect(status).to.eq(500);
+          expect(status).to.eq(404);
           expect(body).to.deep.eq({});
         });
       });

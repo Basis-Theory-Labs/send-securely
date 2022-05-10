@@ -7,6 +7,9 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "esModuleInterop": true
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["**/*.ts"]
 }

@@ -13,8 +13,26 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 // Import commands.ts using ES2015 syntax:
+// / <reference types="cypress" />
 import 'cypress-axe';
+import { Token } from '@basis-theory/basis-theory-elements-interfaces/models';
+import { StubMapping, StubMappingRequest } from '@/support/wiremock/types';
 import './commands';
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to select DOM element by data-cy attribute.
+       * @example cy.dataCy('greeting')
+       */
+      clearStubs(scenario: string): void;
+      stubRequest(scenario: string, mapping: StubMapping): void;
+      stubGetTokenById(scenario: string, token: Token): void;
+      verifyRequestCount(
+        expectedCount: number,
+        requestMapping: StubMappingRequest
+      ): void;
+    }
+  }
+}

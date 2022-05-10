@@ -6,6 +6,7 @@ import { FooterLink } from './FooterLink';
 
 export const Footer = () => (
   <Box
+    component="footer"
     display="flex"
     flexDirection="column"
     justifyContent="center"

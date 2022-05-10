@@ -1,5 +1,5 @@
 import Chance from 'chance';
-import type { StubMapping } from '../../../../../support/wiremock/types';
+import type { StubMapping } from '@/support/wiremock/types';
 
 describe('create secret', () => {
   const chance = new Chance();

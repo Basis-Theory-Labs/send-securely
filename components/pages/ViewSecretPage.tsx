@@ -44,12 +44,15 @@ export const ViewSecretPage = () => {
         <Box alignItems="center" display="flex" flexDirection="column" mt={4}>
           {secret ? (
             <Paper sx={{ width: '100%' }} variant="outlined">
-              <Box pb={1.5} pt={5}>
+              <Box sx={{ padding: '16.5px 14px 16.5px 14px' }}>
                 <Box mb={3}>
                   <Typography
                     sx={{
                       fontFamily: 'Source Code Pro',
                       fontSize: '23px',
+                      overflow: 'auto',
+                      overflowWrap: 'break-word',
+                      maxHeight: '80px'
                     }}
                   >
                     {secret}

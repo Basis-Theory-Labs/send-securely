@@ -54,5 +54,20 @@ describe('secrets', () => {
         });
       });
     });
+
+    // READ SECRET DETAILS AGAIN
+    // Ensure request awaits for first read secret request to complete
+    cy.get('@readSecret').then(() => {
+      cy.get('@secretId').then((secretId) => {
+        cy.request({
+          method: 'GET',
+          url: `/api/secrets/${secretId}/details`,
+          failOnStatusCode: false,
+        }).then(({ status, body }) => {
+          expect(status).to.eq(404);
+          expect(body).to.deep.eq({});
+        });
+      });
+    });
   });
 });

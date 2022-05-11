@@ -18,6 +18,10 @@ jobs:
       - name: Install deps
         run: yarn --frozen-lockfile --no-progress --ignore-scripts
 
+      # Install and check Cypress binary
+      - run: yarn run cypress install
+      - run: yarn run cypress cache list
+
       - name: Test
         run: CYPRESS_BASE_URL=${{ github.event.deployment_status.target_url }} yarn test:integration
 

@@ -137,24 +137,10 @@ describe('Index page', () => {
         .should('have.value', link)
         .should('have.attr', 'readonly');
 
-      // stubs window prompt to test clipboard
-      cy.window().then((win) => {
-        (cy.stub(win, 'prompt').returns(win.prompt) as any).as(
-          'copyToClipboardPrompt'
-        );
-      });
-
       cy.contains(
         'button',
         getTranslation(locale, 'components.shared.CopyButton.copy')
       ).click();
-
-      // asserts that performed copy to clipboard
-      cy.get('@copyToClipboardPrompt').should(
-        'have.been.calledWithMatch',
-        /.*/u,
-        link
-      );
 
       cy.contains(
         'button',

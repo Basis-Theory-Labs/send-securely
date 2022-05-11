@@ -8,7 +8,7 @@ describe('secret lifecycle', () => {
     cy.visit('/');
     const { data } = fillSecretForm();
 
-    getCreateButton().click();
+    getCreateButton('en').click();
 
     cy.wait('@createSecret');
 

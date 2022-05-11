@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   app:
+    image: send-securely:latest
     build:
       context: .
     ports:

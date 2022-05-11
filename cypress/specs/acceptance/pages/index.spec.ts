@@ -105,7 +105,7 @@ describe('Index page', () => {
     cy.assert404(locale);
   });
 
-  it('should create secret', () => {
+  it.only('should create secret', () => {
     getCreateButton(locale).should('be.disabled');
 
     const { data, ttl } = fillForm();
@@ -131,10 +131,36 @@ describe('Index page', () => {
     cy.contains('h2', getTranslation(locale, 'secrets.share.title'));
 
     cy.location('origin').then((origin) => {
+      const link = `${origin}/${id}`;
+
       cy.get('input')
-        .should('have.value', `${origin}/${id}`)
+        .should('have.value', link)
         .should('have.attr', 'readonly');
+
+      // stubs window prompt to test clipboard
+      cy.window().then((win) => {
+        (cy.stub(win, 'prompt').returns(win.prompt) as any).as(
+          'copyToClipboardPrompt'
+        );
+      });
+
+      cy.contains(
+        'button',
+        getTranslation(locale, 'components.shared.CopyButton.copy')
+      ).click();
+
+      // asserts that performed copy to clipboard
+      cy.get('@copyToClipboardPrompt').should(
+        'have.been.calledWithMatch',
+        /.*/u,
+        link
+      );
+
+      cy.contains(
+        'button',
+        getTranslation(locale, 'components.shared.CopyButton.copied')
+      ).should('be.visible');
+      cy.checkA11y();
     });
-    cy.checkA11y();
   });
 });

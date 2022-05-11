@@ -1,0 +1,34 @@
+name: Integration Test Preview
+on:
+  deployment_status
+jobs:
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+    if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel[bot]'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install deps
+        run: yarn --frozen-lockfile --no-progress --ignore-scripts
+
+      # Install and check Cypress binary
+      - run: yarn run cypress install
+      - run: yarn run cypress cache list
+
+      - name: Test
+        run: CYPRESS_BASE_URL=${{ github.event.deployment_status.target_url }} yarn test:integration
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ github.token }}
+          state: "failure"
+          deployment_id: ${{ github.event.deployment.id }}

@@ -82,3 +82,21 @@ Cypress.Commands.add('assert404', (locale: string) => {
   cy.contains('a', getTranslation(locale, 'common.goToHome'));
   cy.checkA11y();
 });
+
+Cypress.Commands.add('assertSecurityInfo', (locale: string) => {
+  // security info should not be visible at first
+  cy.contains(
+    getTranslation(locale, 'components.securityInfo.learnMore.heading1')
+  ).should('not.exist');
+
+  cy.contains(
+    'button',
+    getTranslation(locale, 'components.securityInfo.title')
+  ).click();
+
+  cy.contains(
+    getTranslation(locale, 'components.securityInfo.learnMore.heading1')
+  ).should('be.visible');
+
+  cy.checkA11y();
+});

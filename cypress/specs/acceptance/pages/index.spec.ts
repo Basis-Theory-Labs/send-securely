@@ -65,21 +65,7 @@ describe('Index page', () => {
 
     cy.contains('button', getTranslation(locale, 'secrets.create.button'));
 
-    // security info should not be visible at first
-    cy.contains(
-      getTranslation(locale, 'components.securityInfo.learnMore.heading1')
-    ).should('not.exist');
-
-    cy.contains(
-      'button',
-      getTranslation(locale, 'components.securityInfo.title')
-    ).click();
-
-    cy.contains(
-      getTranslation(locale, 'components.securityInfo.learnMore.heading1')
-    ).should('be.visible');
-
-    cy.checkA11y();
+    cy.assertSecurityInfo(locale);
   });
 
   it('should handle 500 status code response from the API', () => {

@@ -44,6 +44,7 @@ declare global {
       ): void;
       assert500(locale: string): void;
       assert404(locale: string): void;
+      assertSecurityInfo(locale: string): void;
     }
   }
 }

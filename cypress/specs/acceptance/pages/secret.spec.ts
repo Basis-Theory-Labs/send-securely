@@ -4,11 +4,50 @@ import { getTranslation, randomLocale } from '@/support';
 const chance = new Chance();
 
 describe('Secret page', () => {
-  const locale = randomLocale(false);
+  let locale: string;
   const id = chance.guid();
 
+  const visit = (): void => {
+    cy.visit(`/${locale}/${id}`);
+    cy.injectAxe();
+  };
+
   beforeEach(() => {
+    locale = randomLocale(false);
     cy.viewport(chance.pickone(['iphone-x', 'macbook-13', 'samsung-s10']));
+  });
+
+  it('should render important callouts and labels', () => {
+    // set intercept before the page visit
+    cy.intercept('GET', `/api/secrets/${id}/details`, {
+      statusCode: 200,
+    });
+    visit();
+    cy.contains('h2', getTranslation(locale, 'secrets.view.title'));
+    cy.contains('button', getTranslation(locale, 'secrets.view.button'));
+    cy.assertSecurityInfo(locale);
+  });
+
+  it('should handle 404 status code response from the API', () => {
+    // set intercept before the page visit
+    cy.intercept('GET', `/api/secrets/${id}/details`, {
+      statusCode: 404,
+    });
+    visit();
+    // temporarily disable halting on uncaught client exceptions (used to redirect)
+    cy.on('uncaught:exception', () => false);
+    cy.assert404(locale);
+  });
+
+  it('should handle 500 status code response from the API', () => {
+    // set intercept before the page visit
+    cy.intercept('GET', `/api/secrets/${id}/details`, {
+      statusCode: 500,
+    });
+    visit();
+    // temporarily disable halting on uncaught client exceptions (used to redirect)
+    cy.on('uncaught:exception', () => false);
+    cy.assert500(locale);
   });
 
   it('should reveal secret', () => {
@@ -29,9 +68,7 @@ describe('Secret page', () => {
       delay: 500,
     }).as('getSecret');
 
-    cy.visit(`/${locale}/${id}`);
-    cy.injectAxe();
-    cy.checkA11y();
+    visit();
 
     cy.contains('button', getTranslation(locale, 'secrets.view.button'))
       .click()

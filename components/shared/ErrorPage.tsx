@@ -17,13 +17,13 @@ export const ErrorPage = ({ status, message, caption }: Props) => {
   const { t: tc } = useTranslation('common');
 
   return (
-    <Box textAlign="center">
+    <Box component="main" textAlign="center">
       <Box mb={20} mt={7.5}>
         <SendSecurelyLogoWithName />
       </Box>
       <Box alignItems="center" display="flex" flexDirection="column" mt={-8}>
         <Typography variant="h1">{status}</Typography>
-        <Typography variant="h4">{message}</Typography>
+        <Typography variant="h2">{message}</Typography>
         <Grid item sm={4}>
           <Box mt={1}>
             <Typography color="textSecondary" variant="body1">

@@ -6,9 +6,9 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "esModuleInterop": true
+    "esModuleInterop": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
     }
   },
   "include": ["**/*.ts"]

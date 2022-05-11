@@ -1,56 +1,140 @@
 import Chance from 'chance';
+import { getTranslation, randomLocale } from '@/support';
+
+import Chainable = Cypress.Chainable;
 
 const chance = new Chance();
 
-['pt-BR', chance.locale({ region: true })].forEach((locale) => {
-  describe(`Index page (${locale})`, () => {
-    beforeEach(() => {
-      cy.viewport(chance.pickone(['iphone-x', 'macbook-13', 'samsung-s10']));
+const getCreateButton = (
+  locale: string
+): Chainable<JQuery<HTMLButtonElement>> =>
+  cy.contains('button', getTranslation(locale, 'secrets.create.button'));
 
-      cy.visit('/', {
-        headers: {
-          'Accept-Language': locale,
-        },
+const fillForm = (): { data: string; expiresIn: string; ttl: number } => {
+  const secret = {
+    data: `My ${chance.animal()} is called ${chance.name()} and it is ${chance.age()} years old.`,
+    ...chance.pickone([
+      {
+        expiresIn: '10m',
+        ttl: 600,
+      },
+      {
+        expiresIn: '1h',
+        ttl: 3600,
+      },
+      {
+        expiresIn: '24h',
+        ttl: 86400,
+      },
+    ]),
+  };
+
+  cy.get('textarea#secret-data').clear().type(secret.data);
+  cy.get('#secret-expires-in').contains(secret.expiresIn).click();
+
+  return secret;
+};
+
+describe('Index page', () => {
+  const locale = randomLocale();
+
+  beforeEach(() => {
+    cy.viewport(chance.pickone(['iphone-x', 'macbook-13', 'samsung-s10']));
+
+    cy.visit('/', {
+      headers: {
+        'Accept-Language': locale,
+      },
+    });
+    cy.injectAxe();
+  });
+
+  it('has no detectable a11y violations on load', () => {
+    cy.checkA11y();
+  });
+
+  it('should render important callouts and labels', () => {
+    cy.contains('h2', getTranslation(locale, 'secrets.create.title'));
+
+    cy.get('textarea').should(
+      'have.attr',
+      'placeholder',
+      getTranslation(locale, 'secrets.create.placeholder')
+    );
+
+    cy.contains('button', getTranslation(locale, 'secrets.create.button'));
+
+    // security info should not be visible at first
+    cy.contains(
+      getTranslation(locale, 'components.securityInfo.learnMore.heading1')
+    ).should('not.exist');
+
+    cy.contains(
+      'button',
+      getTranslation(locale, 'components.securityInfo.title')
+    ).click();
+
+    cy.contains(
+      getTranslation(locale, 'components.securityInfo.learnMore.heading1')
+    ).should('be.visible');
+
+    cy.checkA11y();
+  });
+
+  it('should handle 500 status code response from the API', () => {
+    // temporarily disable halting on uncaught client exceptions (used to redirect)
+    cy.on('uncaught:exception', () => false);
+    cy.intercept('POST', '/api/secrets', {
+      statusCode: 500,
+    });
+
+    fillForm();
+    getCreateButton(locale).click();
+    cy.assert500(locale);
+  });
+
+  it('should handle 404 status code response from the API', () => {
+    // temporarily disable halting on uncaught client exceptions (used to redirect)
+    cy.on('uncaught:exception', () => false);
+    cy.intercept('POST', '/api/secrets', {
+      statusCode: 404,
+    });
+
+    fillForm();
+    getCreateButton(locale).click();
+    cy.assert404(locale);
+  });
+
+  it('should create secret', () => {
+    getCreateButton(locale).should('be.disabled');
+
+    const { data, ttl } = fillForm();
+    const id = chance.guid();
+
+    cy.intercept('POST', '/api/secrets', {
+      statusCode: 200,
+      body: {
+        id,
+        ttl,
+      },
+    }).as('createSecret');
+
+    getCreateButton(locale).click();
+
+    cy.wait('@createSecret').then(({ request }) => {
+      expect(request.body).to.deep.eq({
+        data,
+        ttl,
       });
-      cy.injectAxe();
     });
 
-    it('has no detectable a11y violations on load', () => {
-      cy.checkA11y();
+    cy.contains('h2', getTranslation(locale, 'secrets.share.title'));
+
+    cy.location('origin').then((origin) => {
+      cy.get('input')
+        .should('have.value', `${origin}/${id}`)
+        .should('have.attr', 'readonly');
     });
-
-    it('should render important callouts and labels', () => {
-      const verbiage = {
-        'pt-BR': {
-          h2: 'Compartilhe segredos sem a pegada digital.',
-          placeholder:
-            'Senhas, credenciais, chaves de API ou qualquer coisa...',
-          actionButton: 'Criar Link',
-        },
-      };
-
-      cy.get('main').contains(
-        'h2',
-        verbiage[locale]?.h2 || 'Share secrets without the digital footprint.'
-      );
-
-      cy.get('main')
-        .find('textarea')
-        .should(
-          'have.attr',
-          'placeholder',
-          verbiage[locale]?.placeholder ||
-            'Passwords, credentials, API Keys or anything...'
-        );
-
-      cy.get('main').contains(
-        'button',
-        verbiage[locale]?.actionButton || 'Create Link'
-      );
-    });
-
-    it('should fill out form', () => {
-
-    });
+    cy.checkA11y();
   });
 });

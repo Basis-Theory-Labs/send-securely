@@ -54,6 +54,7 @@ export const ShareSecret = (props: Props) => {
               inputProps={{
                 readOnly: true,
                 disabled: true,
+                'aria-label': secretUrl,
               }}
               sx={{
                 width: '100%',

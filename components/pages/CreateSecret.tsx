@@ -45,6 +45,7 @@ export const CreateSecret = (props: Props) => {
           {t('create.subtitle')}
         </Typography>
         <TextField
+          id="secret-data"
           multiline
           onChange={(event) => setData(event.target.value)}
           placeholder={t('create.placeholder')}
@@ -71,7 +72,8 @@ export const CreateSecret = (props: Props) => {
           <ToggleButtonGroup
             color="primary"
             exclusive
-            onChange={(event, newTtl) => setTtl(newTtl)}
+            id="secret-expires-in"
+            onChange={(event, newTtl) => setTtl(newTtl || ttl)}
             value={ttl}
           >
             <ToggleButton

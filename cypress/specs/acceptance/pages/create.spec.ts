@@ -1,41 +1,14 @@
 import Chance from 'chance';
-import { getTranslation, randomLocale } from '@/support';
-
-import Chainable = Cypress.Chainable;
+import {
+  getTranslation,
+  randomLocale,
+  fillSecretForm,
+  getCreateButton,
+} from '@/support';
 
 const chance = new Chance();
 
-const getCreateButton = (
-  locale: string
-): Chainable<JQuery<HTMLButtonElement>> =>
-  cy.contains('button', getTranslation(locale, 'secrets.create.button'));
-
-const fillForm = (): { data: string; expiresIn: string; ttl: number } => {
-  const secret = {
-    data: `My ${chance.animal()} is called ${chance.name()} and it is ${chance.age()} years old.`,
-    ...chance.pickone([
-      {
-        expiresIn: '10m',
-        ttl: 600,
-      },
-      {
-        expiresIn: '1h',
-        ttl: 3600,
-      },
-      {
-        expiresIn: '24h',
-        ttl: 86400,
-      },
-    ]),
-  };
-
-  cy.get('textarea#secret-data').clear().type(secret.data);
-  cy.get('#secret-expires-in').contains(secret.expiresIn).click();
-
-  return secret;
-};
-
-describe('Index page', () => {
+describe('Create Secret page (index)', () => {
   let locale: string;
 
   beforeEach(() => {
@@ -75,7 +48,7 @@ describe('Index page', () => {
       statusCode: 500,
     });
 
-    fillForm();
+    fillSecretForm();
     getCreateButton(locale).click();
     cy.assert500(locale);
   });
@@ -87,7 +60,7 @@ describe('Index page', () => {
       statusCode: 404,
     });
 
-    fillForm();
+    fillSecretForm();
     getCreateButton(locale).click();
     cy.assert404(locale);
   });
@@ -95,7 +68,7 @@ describe('Index page', () => {
   it('should create secret', () => {
     getCreateButton(locale).should('be.disabled');
 
-    const { data, ttl } = fillForm();
+    const { data, ttl } = fillSecretForm();
     const id = chance.guid();
 
     cy.intercept('POST', '/api/secrets', {

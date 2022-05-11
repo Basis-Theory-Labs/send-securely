@@ -74,4 +74,40 @@ const randomLocale = (any = true): string =>
 const getTranslation = (locale: string, key: string): string =>
   _get(locales[locale] || locales.en, key);
 
-export { locales, getTranslation, randomLocale };
+const fillSecretForm = (): { data: string; expiresIn: string; ttl: number } => {
+  const secret = {
+    data: `My ${chance.animal()} is called ${chance.name()} and it is ${chance.age()} years old.`,
+    ...chance.pickone([
+      {
+        expiresIn: '10m',
+        ttl: 600,
+      },
+      {
+        expiresIn: '1h',
+        ttl: 3600,
+      },
+      {
+        expiresIn: '24h',
+        ttl: 86400,
+      },
+    ]),
+  };
+
+  cy.get('textarea#secret-data').clear().type(secret.data);
+  cy.get('#secret-expires-in').contains(secret.expiresIn).click();
+
+  return secret;
+};
+
+const getCreateButton = (
+  locale: string
+): Cypress.Chainable<JQuery<HTMLButtonElement>> =>
+  cy.contains('button', getTranslation(locale, 'secrets.create.button'));
+
+export {
+  locales,
+  getTranslation,
+  randomLocale,
+  fillSecretForm,
+  getCreateButton,
+};

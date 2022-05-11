@@ -1,9 +1,8 @@
 import Chance from 'chance';
 import { getTranslation, randomLocale } from '@/support';
 
-const chance = new Chance();
-
-describe('Secret page', () => {
+describe('View Secret page', () => {
+  const chance = new Chance();
   let locale: string;
   const id = chance.guid();
 

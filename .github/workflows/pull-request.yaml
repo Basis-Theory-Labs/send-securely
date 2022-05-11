@@ -38,7 +38,6 @@ jobs:
             send-securely
             send-securely:${{ github.sha }}
             send-securely:latest
-          outputs: type=docker,dest=/tmp/send-securely.tar
           cache-from: type=local,src=/tmp/.buildx-app-cache
           cache-to: type=local,dest=/tmp/.buildx-app-cache-new
 

@@ -63,8 +63,12 @@ const locales = {
 
 const chance = new Chance();
 
-const randomLocale = (): string =>
-  chance.pickone(['pt-BR', 'en', chance.locale({ region: true })]);
+const randomLocale = (any = true): string =>
+  chance.pickone([
+    'pt-BR',
+    'en',
+    ...(any ? [chance.locale({ region: true })] : []),
+  ]);
 
 const getTranslation = (locale: string, key: string): string =>
   _get(locales[locale] || locales.en, key);

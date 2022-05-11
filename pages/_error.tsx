@@ -8,11 +8,12 @@ const Error = ({ statusCode }: ErrorProps): JSX.Element => {
   const router = useRouter();
 
   useEffect(() => {
-    const redirect = (): void => {
+    const redirect = async (): Promise<void> => {
       if (statusCode === 404 || statusCode === 403) {
-        window.location.href = `${router.locale}/404`;
+        await router.replace('/404');
+        router.reload();
       } else {
-        window.location.href = `${router.locale}/500`;
+        await router.replace('/500');
       }
     };
 

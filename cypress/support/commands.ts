@@ -68,17 +68,17 @@ Cypress.Commands.add(
 );
 
 Cypress.Commands.add('assert500', (locale: string) => {
+  cy.contains(getTranslation(locale, 'components.500.message'));
   cy.location('pathname').should('match', /.*?\/500/u);
   cy.injectAxe();
-  cy.contains(getTranslation(locale, 'components.500.message'));
   cy.contains('a', getTranslation(locale, 'common.goToHome'));
   cy.checkA11y();
 });
 
 Cypress.Commands.add('assert404', (locale: string) => {
+  cy.contains(getTranslation(locale, 'components.404.message'));
   cy.location('pathname').should('match', /.*?\/404/u);
   cy.injectAxe();
-  cy.contains(getTranslation(locale, 'components.404.message'));
   cy.contains('a', getTranslation(locale, 'common.goToHome'));
   cy.checkA11y();
 });

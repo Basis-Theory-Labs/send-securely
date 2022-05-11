@@ -36,9 +36,10 @@ const fillForm = (): { data: string; expiresIn: string; ttl: number } => {
 };
 
 describe('Index page', () => {
-  const locale = randomLocale();
+  let locale: string;
 
   beforeEach(() => {
+    locale = randomLocale();
     cy.viewport(chance.pickone(['iphone-x', 'macbook-13', 'samsung-s10']));
 
     cy.visit('/', {
@@ -105,7 +106,7 @@ describe('Index page', () => {
     cy.assert404(locale);
   });
 
-  it.only('should create secret', () => {
+  it('should create secret', () => {
     getCreateButton(locale).should('be.disabled');
 
     const { data, ttl } = fillForm();
@@ -136,6 +137,11 @@ describe('Index page', () => {
       cy.get('input')
         .should('have.value', link)
         .should('have.attr', 'readonly');
+
+      // stubs copy to clipboard fallback
+      cy.window().then((win) => {
+        cy.stub(win, 'prompt').returns({});
+      });
 
       cy.contains(
         'button',

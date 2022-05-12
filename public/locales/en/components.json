@@ -15,8 +15,6 @@
   "securityInfo": {
     "title": "How can I trust sendsecure.ly?",
     "learnMore": {
-      "expand": "Learn More",
-      "collapse": "Close",
       "heading1": "Tokenized and Encrypted",
       "body1": "Sendsecure.ly uses TLS 1.2 to securely transmit your secret to Basis Theory's PCI Level 1 and SOC 2 compliant environment. In exchange, sendsecure.ly receives an undecipherable and non-sensitive token that it uses to generate a time-boxed single-use link.",
       "heading2": "A Short-lived, Single-use Link",

@@ -43,6 +43,7 @@ export const SecurityInfo = () => {
               />
               <Box ml={2.5} sx={{ textAlign: 'left' }}>
                 <Typography
+                  component="div"
                   sx={{
                     fontWeight: 600,
                     lineHeight: '1.2',
@@ -63,7 +64,7 @@ export const SecurityInfo = () => {
           <Box p={4} textAlign="left">
             <Box>
               <Box mb={1}>
-                <Typography variant="subtitle2">
+                <Typography component="span" variant="subtitle2">
                   {t('securityInfo.learnMore.heading1')}
                 </Typography>
               </Box>
@@ -73,7 +74,7 @@ export const SecurityInfo = () => {
             </Box>
             <Box mt={5}>
               <Box mb={1}>
-                <Typography variant="subtitle2">
+                <Typography component="span" variant="subtitle2">
                   {t('securityInfo.learnMore.heading2')}
                 </Typography>
               </Box>
@@ -83,11 +84,15 @@ export const SecurityInfo = () => {
             </Box>
             <Box mt={5}>
               <Box mb={1}>
-                <Typography variant="subtitle2">
+                <Typography component="span" variant="subtitle2">
                   {t('securityInfo.learnMore.heading3')}
                 </Typography>
               </Box>
-              <Typography color="textSecondary" variant="subtitle2">
+              <Typography
+                color="textSecondary"
+                component="span"
+                variant="subtitle2"
+              >
                 <Trans i18nKey="securityInfo.learnMore.body3" t={t}>
                   {'Explore how...'}
                   <Link href="https://basistheory.com" target="_blank">

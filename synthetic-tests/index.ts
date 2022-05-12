@@ -44,6 +44,7 @@ import * as datadog from '@pulumi/datadog';
 //     type: "browser",
 // });
 
+// health check
 const healthCheckName = 'sendsecurely-health-check';
 const sendSecurelyHealthCheck = new datadog.SyntheticsTest(healthCheckName, {
   name: healthCheckName,

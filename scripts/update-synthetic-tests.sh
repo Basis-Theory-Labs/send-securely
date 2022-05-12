@@ -18,3 +18,9 @@ if [ "$IS_PR_WORKFLOW" = true ] ; then
 else
   pulumi up -y
 fi
+
+result=$?
+
+cd "$current_directory"
+
+exit $result

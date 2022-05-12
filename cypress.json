@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:3000/",
   "integrationFolder": "cypress/specs",
-  "fixturesFolder": "cypress/fixtures",
+  "fixturesFolder": false,
   "video": false,
   "retries": {
     "runMode": 0,

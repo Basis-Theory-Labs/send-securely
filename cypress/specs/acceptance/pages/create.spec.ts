@@ -90,8 +90,8 @@ describe('Create Secret page (index)', () => {
 
     cy.contains('h2', getTranslation(locale, 'secrets.share.title'));
 
-    cy.location('origin').then((origin) => {
-      const link = `${origin}/${id}`;
+    cy.location('href').then((href) => {
+      const link = `${href.replace(/\/$/u, '')}/${id}`;
 
       cy.get('input')
         .should('have.value', link)

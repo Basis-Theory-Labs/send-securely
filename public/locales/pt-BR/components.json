@@ -15,8 +15,6 @@
   "securityInfo": {
     "title": "Como posso confiar em sendsecure.ly?",
     "learnMore": {
-      "expand": "Aprender Mais",
-      "collapse": "Fechar",
       "heading1": "Tokenizado e Criptografado",
       "body1": "Sendsecure.ly usa TLS 1.2 para transmitir seu segredo de forma segura ao ambiente certificado da Basis Theory (PCI Level 1 e SOC 2). Em troca, sendsecure.ly recebe um token indecifrável e não sensível que usa para gerar um link com vida útil expirável.",
       "heading2": "Um Link de vida curta e uso único",

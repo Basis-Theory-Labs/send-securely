@@ -32,9 +32,9 @@ describe('View Secret page', () => {
     cy.intercept('GET', `/api/secrets/${id}/details`, {
       statusCode: 404,
     });
-    visit();
     // temporarily disable halting on uncaught client exceptions (used to redirect)
     cy.on('uncaught:exception', () => false);
+    visit();
     cy.assert404(locale);
   });
 
@@ -43,9 +43,9 @@ describe('View Secret page', () => {
     cy.intercept('GET', `/api/secrets/${id}/details`, {
       statusCode: 500,
     });
-    visit();
     // temporarily disable halting on uncaught client exceptions (used to redirect)
     cy.on('uncaught:exception', () => false);
+    visit();
     cy.assert500(locale);
   });
 

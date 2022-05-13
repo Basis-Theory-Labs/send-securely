@@ -18,6 +18,6 @@ jobs:
         uses: ./.github/composite/update-synthetic-tests
         with:
           pulumi-stack: synthetic-tests/prod
-          pulumi-access-token: ${{ secret.PULUMI_ACCESS_TOKEN }}
-          datadog-app-key: ${{ secret.DATADOG_APP_KEY }}
-          datadog-api-key: ${{ secret.DATADOG_API_KEY }}
+          pulumi-access-token: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          datadog-app-key: ${{ secrets.DATADOG_APP_KEY }}
+          datadog-api-key: ${{ secrets.DATADOG_API_KEY }}

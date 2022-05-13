@@ -90,7 +90,7 @@ jobs:
         uses: ./.github/composite/update-synthetic-tests
         with:
           is-pr-workflow: true
-          pulumi-stack: synthetic-tests/prod
+          pulumi-stack: basistheory/prod
           pulumi-access-token: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           datadog-app-key: ${{ secrets.DATADOG_APP_KEY }}
           datadog-api-key: ${{ secrets.DATADOG_API_KEY }}

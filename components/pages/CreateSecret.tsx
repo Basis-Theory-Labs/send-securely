@@ -12,10 +12,13 @@ import { LoadingButton } from '@/components/shared';
 import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
+import useStyles from '@/components/pages/styles/CreateSecret.styles';
 
 export const CreateSecret = (props: Props) => {
   const { t, data, setData, ttl, setTtl, isSubmitting, createSecret } =
     useCreateSecret(props);
+
+  const classes = useStyles();
 
   return (
     <Container component="main" maxWidth="sm">
@@ -45,34 +48,12 @@ export const CreateSecret = (props: Props) => {
           {t('create.subtitle')}
         </Typography>
         <TextField
+          className={classes.textScroll}
           id="secret-data"
           multiline
           onChange={(event) => setData(event.target.value)}
-          placeholder="Passwords, credentials, API Keys or anything..."
-          rows={4.9}
-          sx={{
-            width: '551px',
-            overflowX: 'hidden',
-            borderRadius: '8px',
-            borderStyle: 'solid',
-            borderWidth: '1px',
-            borderColor: 'rgba(255, 255, 255, 0.23)',
-            '& textarea': {
-              fontFamily: 'Source Code Pro',
-              fontSize: '16px',
-              overflow: 'auto',
-              padding: '10px',
-              WebkitMaskImage: 'linear-gradient(180deg, #1D1D1D 75%, transparent)'
-            },
-            '& .MuiOutlinedInput-root': {
-              width: '564px',
-              maxHeight: '118px',
-              overflow: 'hidden'
-            },
-            '& .MuiOutlinedInput-notchedOutline': {
-              display: 'none'
-            }
-          }}
+          placeholder={t('create.placeholder')}
+          rows={4.4}
           />
         <Box
           alignItems="center"

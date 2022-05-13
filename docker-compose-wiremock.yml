@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  wiremock:
+    image: wiremock/wiremock:latest
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+    command: [ '--https-port', '8443' ]

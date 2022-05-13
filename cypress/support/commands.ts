@@ -1,5 +1,6 @@
 import { Token } from '@basis-theory/basis-theory-elements-interfaces/models';
 import snakecaseKeys from 'snakecase-keys';
+import { getTranslation } from '@/support/index';
 import type { StubMapping, StubMappingRequest } from './wiremock/types';
 
 Cypress.Commands.add('stubRequest', (scenario: string, stub: StubMapping) => {
@@ -65,3 +66,37 @@ Cypress.Commands.add(
     });
   }
 );
+
+Cypress.Commands.add('assert500', (locale: string) => {
+  cy.contains(getTranslation(locale, 'components.500.message'));
+  cy.location('pathname').should('match', /.*?\/500/u);
+  cy.injectAxe();
+  cy.contains('a', getTranslation(locale, 'common.goToHome'));
+  cy.checkA11y();
+});
+
+Cypress.Commands.add('assert404', (locale: string) => {
+  cy.contains(getTranslation(locale, 'components.404.message'));
+  cy.location('pathname').should('match', /.*?\/404/u);
+  cy.injectAxe();
+  cy.contains('a', getTranslation(locale, 'common.goToHome'));
+  cy.checkA11y();
+});
+
+Cypress.Commands.add('assertSecurityInfo', (locale: string) => {
+  // security info should not be visible at first
+  cy.contains(
+    getTranslation(locale, 'components.securityInfo.learnMore.heading1')
+  ).should('not.exist');
+
+  cy.contains(
+    'button',
+    getTranslation(locale, 'components.securityInfo.title')
+  ).click();
+
+  cy.contains(
+    getTranslation(locale, 'components.securityInfo.learnMore.heading1')
+  ).should('be.visible');
+
+  cy.checkA11y();
+});

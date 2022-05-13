@@ -2,10 +2,11 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6", "dom"],
-    "types": ["cypress", "@testing-library/cypress"],
+    "types": ["cypress", "@testing-library/cypress", "cypress-axe"],
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "baseUrl": ".",
+    "esModuleInterop": true,
     "paths": {
       "@/*": ["./*"]
     }

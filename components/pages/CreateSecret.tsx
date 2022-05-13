@@ -18,34 +18,33 @@ export const CreateSecret = (props: Props) => {
     useCreateSecret(props);
 
   return (
-    <Box>
-      <Container maxWidth="sm">
+    <Container component="main" maxWidth="sm">
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        textAlign="center"
+      >
+        <Box mt={7.5}>
+          <SendSecurelyLogoWithName />
+        </Box>
         <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          textAlign="center"
+          mb={{
+            xs: 8,
+            sm: 8,
+            md: 15,
+          }}
+          mt={1}
         >
-          <Box mt={7.5}>
-            <SendSecurelyLogoWithName />
-          </Box>
-          <Box
-            mb={{
-              xs: 8,
-              sm: 8,
-              md: 15,
-            }}
-            mt={2}
-          >
-            <PoweredByBasisTheory />
-          </Box>
-          <Typography mb={1} variant="h2">
-            {t('create.title')}
-          </Typography>
-          <Typography color="textSecondary" mb={5} variant="body2">
-            {t('create.subtitle')}
-          </Typography>
-          <TextField
+          <PoweredByBasisTheory />
+        </Box>
+        <Typography mb={1} variant="h2">
+          {t('create.title')}
+        </Typography>
+        <Typography color="textSecondary" mb={5} variant="body2">
+          {t('create.subtitle')}
+        </Typography>
+        <TextField
             multiline
             onChange={(event) => setData(event.target.value)}
             placeholder="Passwords, credentials, API Keys or anything..."
@@ -74,73 +73,73 @@ export const CreateSecret = (props: Props) => {
               }
             }}
           />
-          <Box
-            alignItems="center"
-            display="flex"
-            flexDirection="row"
-            justifyContent="right"
-            my={3}
-          >
-            <Box mr={2}>
-              <Typography color="textSecondary" variant="body2">
-                {t('create.secretExpiresAfter')}
-              </Typography>
-            </Box>
-            <ToggleButtonGroup
-              color="primary"
-              exclusive
-              onChange={(event, newTtl) => setTtl(newTtl)}
-              value={ttl}
-            >
-              <ToggleButton
-                size="small"
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
-                  minWidth: '45px',
-                }}
-                value="600"
-              >
-                {'10m'}
-              </ToggleButton>
-              <ToggleButton
-                size="small"
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
-                  minWidth: '45px',
-                }}
-                value="3600"
-              >
-                {'1h'}
-              </ToggleButton>
-              <ToggleButton
-                size="small"
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
-                  minWidth: '45px',
-                }}
-                value="86400"
-              >
-                {'24h'}
-              </ToggleButton>
-            </ToggleButtonGroup>
+        <Box
+          alignItems="center"
+          display="flex"
+          flexDirection="row"
+          justifyContent="right"
+          my={3}
+        >
+          <Box mr={2}>
+            <Typography color="textSecondary" variant="body2">
+              {t('create.secretExpiresAfter')}
+            </Typography>
           </Box>
-          <LoadingButton
+          <ToggleButtonGroup
             color="primary"
-            disabled={_isEmpty(data) || isSubmitting}
-            endIcon={!isSubmitting && <ChevronRightIcon />}
-            loading={isSubmitting}
-            onClick={createSecret}
-            size="medium"
-            variant="contained"
+            exclusive
+            id="secret-expires-in"
+            onChange={(event, newTtl) => setTtl(newTtl || ttl)}
+            value={ttl}
           >
-            {!isSubmitting && t('create.button')}
-          </LoadingButton>
+            <ToggleButton
+              size="small"
+              sx={{
+                padding: (theme) =>
+                  `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
+                minWidth: '45px',
+              }}
+              value="600"
+            >
+              {'10m'}
+            </ToggleButton>
+            <ToggleButton
+              size="small"
+              sx={{
+                padding: (theme) =>
+                  `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
+                minWidth: '45px',
+              }}
+              value="3600"
+            >
+              {'1h'}
+            </ToggleButton>
+            <ToggleButton
+              size="small"
+              sx={{
+                padding: (theme) =>
+                  `${theme.spacing(0.5)} ${theme.spacing(1.25)}`,
+                minWidth: '45px',
+              }}
+              value="86400"
+            >
+              {'24h'}
+            </ToggleButton>
+          </ToggleButtonGroup>
         </Box>
-        <Footer />
-      </Container>
-    </Box>
+        <LoadingButton
+          color="primary"
+          disabled={_isEmpty(data) || isSubmitting}
+          endIcon={!isSubmitting && <ChevronRightIcon />}
+          loading={isSubmitting}
+          onClick={createSecret}
+          size="medium"
+          variant="contained"
+        >
+          {!isSubmitting && t('create.button')}
+        </LoadingButton>
+      </Box>
+      <Footer />
+    </Container>
   );
 };

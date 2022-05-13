@@ -17,7 +17,9 @@ const useShareSecret = (props: Props) => {
   } = props;
   const { t } = useTranslation('secrets');
 
-  const secretUrl = `${window.location.origin}/${secretId}`;
+  const { href } = window.location;
+
+  const secretUrl = `${href.replace(/\/$/u, '')}/${secretId}`;
   const ttlDescription = ttlDescriptions[ttl];
 
   return {

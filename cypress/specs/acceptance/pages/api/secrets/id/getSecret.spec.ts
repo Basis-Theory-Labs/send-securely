@@ -137,13 +137,13 @@ describe('get secret by ID', () => {
       cy.clearStubs(scenario);
     });
 
-    it('should return 500 error when secret token does not exist', () => {
+    it('should return 404 NOT_FOUND when secret token does not exist', () => {
       cy.request({
         method: 'GET',
         url: `/api/secrets/${chance.guid()}`,
         failOnStatusCode: false,
       }).then(({ status }) => {
-        expect(status).to.eq(500);
+        expect(status).to.eq(404);
       });
     });
   });

@@ -45,33 +45,34 @@ export const CreateSecret = (props: Props) => {
           {t('create.subtitle')}
         </Typography>
         <TextField
-            multiline
-            onChange={(event) => setData(event.target.value)}
-            placeholder="Passwords, credentials, API Keys or anything..."
-            rows={4.9}
-            sx={{
-              width: '551px',
-              overflowX: 'hidden',
-              borderRadius: '8px',
-              borderStyle: 'solid',
-              borderWidth: '1px',
-              borderColor: 'rgba(255, 255, 255, 0.23)',
-              '& textarea': {
-                fontFamily: 'Source Code Pro',
-                fontSize: '16px',
-                overflow: 'auto',
-                padding: '10px',
-                WebkitMaskImage: 'linear-gradient(180deg, #1D1D1D 75%, transparent)'
-              },
-              '& .MuiOutlinedInput-root': {
-                width: '564px',
-                maxHeight: '118px',
-                overflow: 'hidden'
-              },
-              '& .MuiOutlinedInput-notchedOutline': {
-                display: 'none'
-              }
-            }}
+          id="secret-data"
+          multiline
+          onChange={(event) => setData(event.target.value)}
+          placeholder="Passwords, credentials, API Keys or anything..."
+          rows={4.9}
+          sx={{
+            width: '551px',
+            overflowX: 'hidden',
+            borderRadius: '8px',
+            borderStyle: 'solid',
+            borderWidth: '1px',
+            borderColor: 'rgba(255, 255, 255, 0.23)',
+            '& textarea': {
+              fontFamily: 'Source Code Pro',
+              fontSize: '16px',
+              overflow: 'auto',
+              padding: '10px',
+              WebkitMaskImage: 'linear-gradient(180deg, #1D1D1D 75%, transparent)'
+            },
+            '& .MuiOutlinedInput-root': {
+              width: '564px',
+              maxHeight: '118px',
+              overflow: 'hidden'
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+              display: 'none'
+            }
+          }}
           />
         <Box
           alignItems="center"

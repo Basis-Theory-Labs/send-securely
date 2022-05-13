@@ -11,5 +11,8 @@ jobs:
       CI: 1
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
       - name: Update Synthetic Tests
         uses: ./.github/actions/update-synthetic-tests

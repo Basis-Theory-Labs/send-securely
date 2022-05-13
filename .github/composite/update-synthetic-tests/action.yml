@@ -5,7 +5,19 @@ inputs:
   is-pr-workflow:
     description: Is this action on a PR workflow
     required: false
-    default: false
+    default: 'false'
+  pulumi-stack:
+    description: The Pulumi stack to use
+    required: true
+  pulumi-access-token:
+    description: The Pulumi access token to use
+    required: true
+  datadog-app-key:
+    description: The DataDog app key to use
+    required: true
+  datadog-api-key:
+    description: The DataDog api key to use
+    required: true
 
 runs:
   using: composite
@@ -28,10 +40,11 @@ runs:
       uses: pulumi/action-install-pulumi-cli@v2
 
     - name: Update Synthetic Tests
+      shell: bash
       env:
-        DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
-        DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
-        PULUMI_STACK: synthetic-tests/prod
-        PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
         IS_PR_WORKFLOW: ${{ inputs.is-pr-workflow }}
+        PULUMI_STACK: ${{ inputs.pulumi-stack }}
+        PULUMI_ACCESS_TOKEN: ${{ inputs.pulumi-access-token }}
+        DATADOG_APP_KEY: ${{ inputs.datadog-app-key }}
+        DATADOG_API_KEY: ${{ inputs.datadog-api-key }}
       run: make update-synthetic-tests

@@ -15,4 +15,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Update Synthetic Tests
-        uses: ./.github/actions/update-synthetic-tests
+        uses: ./.github/composite/update-synthetic-tests
+        with:
+          pulumi-stack: synthetic-tests/prod
+          pulumi-access-token: ${{ secret.PULUMI_ACCESS_TOKEN }}
+          datadog-app-key: ${{ secret.DATADOG_APP_KEY }}
+          datadog-api-key: ${{ secret.DATADOG_API_KEY }}

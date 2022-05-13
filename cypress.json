@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:3000/",
+  "integrationFolder": "cypress/specs",
+  "fixturesFolder": false,
+  "video": false,
+  "retries": {
+    "runMode": 0,
+    "openMode": 0
+  }
+}

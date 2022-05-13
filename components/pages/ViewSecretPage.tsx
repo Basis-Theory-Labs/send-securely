@@ -20,7 +20,7 @@ export const ViewSecretPage = () => {
   }
 
   return (
-    <Box textAlign="center">
+    <Box component="main" textAlign="center">
       <Container maxWidth="sm">
         <Box mt={7.5}>
           <SendSecurelyLogoWithName />

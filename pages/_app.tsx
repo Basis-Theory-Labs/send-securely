@@ -28,10 +28,7 @@ const MyApp = ({
     <NetworkErrorBoundary Component={ErrorPage}>
       <Head>
         <title>{title}</title>
-        <meta
-          content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
-          name="viewport"
-        />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <OpenGraphTags isSharingSecret={isSharingSecret} title={title} />
       </Head>
       <ThemeProvider emotionCache={emotionCache}>

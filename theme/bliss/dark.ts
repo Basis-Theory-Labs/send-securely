@@ -23,7 +23,7 @@ const divider = alpha('#414970', 0.5);
 const successContrastText = alpha('#070A1B', 0.9);
 
 const textPrimary = '#E5E6EC';
-const textSecondary = '#838383';
+const textSecondary = '#A1A1A1';
 
 const options: ThemeOptions = {
   palette: {

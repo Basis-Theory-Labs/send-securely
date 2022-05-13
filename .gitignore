@@ -13,6 +13,12 @@ node_modules
 /build
 dist/
 
+# testing
+/coverage
+/cypress/videos
+/cypress/screenshots
+cypress.env.json
+
 # misc
 .DS_Store
 *.pem
@@ -23,6 +29,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env.local
 
 # IDE

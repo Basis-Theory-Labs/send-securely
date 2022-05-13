@@ -25,6 +25,10 @@ const env = cached(cleanEnvWithSecrets, {
   BT_API_KEY: str({
     desc: 'The BT server to server API key',
   }),
+  BT_API_BASE_URL: str({
+    desc: 'The BT API base URL',
+    default: 'https://api.basistheory.com/',
+  }),
 });
 
 export { env };

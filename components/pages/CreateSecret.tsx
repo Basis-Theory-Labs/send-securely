@@ -46,6 +46,7 @@ export const CreateSecret = (props: Props) => {
             {t('create.subtitle')}
           </Typography>
           <TextField
+            id="secret-data"
             multiline
             onChange={(event) => setData(event.target.value)}
             placeholder="Passwords, credentials, API Keys or anything..."
@@ -114,6 +115,7 @@ export const CreateSecret = (props: Props) => {
             color="primary"
             disabled={_isEmpty(data) || isSubmitting}
             endIcon={!isSubmitting && <ChevronRightIcon />}
+            id="create-link-button"
             loading={isSubmitting}
             onClick={createSecret}
             size="medium"

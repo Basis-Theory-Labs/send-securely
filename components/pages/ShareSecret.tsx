@@ -65,6 +65,7 @@ export const ShareSecret = (props: Props) => {
             <CopyButton
               content={secretUrl}
               iconPosition="start"
+              id="copy-secret-link-button"
               showCopyText
               size="small"
             />

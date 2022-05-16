@@ -50,14 +50,7 @@ export const ViewSecretPage = () => {
               }}
               variant="outlined"
             >
-              <Box
-                sx={{
-                  padding: (theme) =>
-                    `${theme.spacing(0)} ${theme.spacing(0)} ${theme.spacing(
-                      2
-                    )} ${theme.spacing(2)}`,
-                }}
-              >
+              <Box sx={{ padding: (theme) => theme.spacing(0, 0, 2, 2) }}>
                 <Box mb={3}>
                   <Typography
                     sx={(theme) => ({

@@ -1,4 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable no-console */
 /* eslint-disable get-off-my-lawn/prefer-arrow-functions */
 /**
@@ -20,3 +19,6 @@ const plugins: Cypress.PluginConfig = (on) => {
 };
 
 export default plugins;
+
+/* eslint-enable no-console */
+/* eslint-enable get-off-my-lawn/prefer-arrow-functions */

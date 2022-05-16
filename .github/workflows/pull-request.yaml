@@ -76,3 +76,21 @@ jobs:
       - name: Stop services
         if: always()
         run: make stop-docker
+
+  view-synthetic-test-diff:
+    runs-on: ubuntu-latest
+    env:
+      CI: 1
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Update Synthetic Tests
+        uses: ./.github/composite/update-synthetic-tests
+        with:
+          is-pr-workflow: true
+          pulumi-stack: basistheory/prod
+          pulumi-access-token: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          datadog-app-key: ${{ secrets.DATADOG_APP_KEY }}
+          datadog-api-key: ${{ secrets.DATADOG_API_KEY }}

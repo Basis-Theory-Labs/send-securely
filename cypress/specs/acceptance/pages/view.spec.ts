@@ -1,4 +1,5 @@
 import Chance from 'chance';
+import { logAccesibilityViolations } from '@/specs/acceptance/pages/utils/utils';
 import { getTranslation, randomLocale } from '@/support';
 
 describe('View Secret page', () => {
@@ -49,7 +50,7 @@ describe('View Secret page', () => {
     cy.assert500(locale);
   });
 
-  it('should reveal secret', () => {
+  it.only('should reveal secret', () => {
     const data = `The package will arrive at ${chance.address()} by ${chance.weekday(
       {}
     )}`;
@@ -91,6 +92,6 @@ describe('View Secret page', () => {
       getTranslation(locale, 'components.shared.CopyButton.copied')
     ).should('be.visible');
 
-    cy.checkA11y();
+    cy.checkA11y(undefined, undefined, logAccesibilityViolations);
   });
 });

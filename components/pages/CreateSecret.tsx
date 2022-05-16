@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
@@ -11,6 +10,7 @@ import { Props, useCreateSecret } from '@/components/pages/CreateSecret.hooks';
 import { LoadingButton } from '@/components/shared';
 import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
+import { ScrollableText } from '@/components/shared/ScrollableText';
 import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 export const CreateSecret = (props: Props) => {
@@ -44,18 +44,12 @@ export const CreateSecret = (props: Props) => {
         <Typography color="textSecondary" mb={5} variant="body2">
           {t('create.subtitle')}
         </Typography>
-        <TextField
+        <ScrollableText
           id="secret-data"
           multiline
           onChange={(event) => setData(event.target.value)}
           placeholder={t('create.placeholder')}
-          rows={4}
-          sx={{
-            '& textarea': {
-              fontFamily: 'Source Code Pro',
-              fontSize: '16px',
-            },
-          }}
+          rows={4.4}
         />
         <Box
           alignItems="center"

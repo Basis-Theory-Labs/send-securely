@@ -1,6 +1,16 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { getBasisTheoryClient } from '@/server-side/services/basistheory-service';
 
-export default async (req, res) => {
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
+  if (req.method !== 'POST') {
+    res.status(404).json({
+      message: 'Endpoint not found',
+    });
+  }
+
   const bt = await getBasisTheoryClient();
 
   const token = await bt.tokens.create({

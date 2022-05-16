@@ -8,6 +8,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CopyIcon from '@/components/icons/CopyIcon';
 
 interface CopyButtonProps {
+  id?: string;
   content: string;
 }
 
@@ -42,6 +43,7 @@ export const CopyButton = (props: NoCopyTextProps | CopyTextProps) => {
     button = (
       <IconButton
         className={props.classes.copyButton}
+        id={props.id}
         // event.stopPropagation is needed to prevent opening clickable components underneath this button
         onClick={(event) => event.stopPropagation()}
         size="large"
@@ -56,6 +58,7 @@ export const CopyButton = (props: NoCopyTextProps | CopyTextProps) => {
       <Button
         color="primary"
         endIcon={endIcon}
+        id={props.id}
         onClick={(event) => event.stopPropagation()}
         size={props.size}
         sx={{

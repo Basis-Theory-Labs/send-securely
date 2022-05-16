@@ -115,6 +115,7 @@ export const CreateSecret = (props: Props) => {
           color="primary"
           disabled={_isEmpty(data) || isSubmitting}
           endIcon={!isSubmitting && <ChevronRightIcon />}
+          id="create-link-button"
           loading={isSubmitting}
           onClick={createSecret}
           size="medium"

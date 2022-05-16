@@ -10,8 +10,8 @@ import { Props, useCreateSecret } from '@/components/pages/CreateSecret.hooks';
 import { LoadingButton } from '@/components/shared';
 import { Footer } from '@/components/shared/Footer';
 import { PoweredByBasisTheory } from '@/components/shared/PoweredByBasisTheory';
-import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 import { ScrollableText } from '@/components/shared/ScrollableText';
+import { SendSecurelyLogoWithName } from '@/components/shared/SendSecurelyLogoWithName';
 
 export const CreateSecret = (props: Props) => {
   const { t, data, setData, ttl, setTtl, isSubmitting, createSecret } =
@@ -50,7 +50,7 @@ export const CreateSecret = (props: Props) => {
           onChange={(event) => setData(event.target.value)}
           placeholder={t('create.placeholder')}
           rows={4.4}
-          />
+        />
         <Box
           alignItems="center"
           display="flex"

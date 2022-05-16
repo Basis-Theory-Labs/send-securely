@@ -43,18 +43,24 @@ export const ViewSecretPage = () => {
         </Typography>
         <Box alignItems="center" display="flex" flexDirection="column" mt={4}>
           {secret ? (
-            <Paper 
-              sx={{ 
+            <Paper
+              sx={{
                 width: '100%',
-                 overflowX: 'hidden'
-              }} 
+                overflowX: 'hidden',
+              }}
               variant="outlined"
             >
-              <Box sx={{ padding: (theme) => `${theme.spacing(0)} ${theme.spacing(0)} ${theme.spacing(2)} ${theme.spacing(2)}` }}>
+              <Box
+                sx={{
+                  padding: (theme) =>
+                    `${theme.spacing(0)} ${theme.spacing(0)} ${theme.spacing(
+                      2
+                    )} ${theme.spacing(2)}`,
+                }}
+              >
                 <Box mb={3}>
                   <Typography
-                    variant="h2"
-                    sx={ theme => ({
+                    sx={(theme) => ({
                       fontFamily: 'Source Code Pro',
                       fontWeight: 'normal',
                       overflow: 'auto',
@@ -64,9 +70,10 @@ export const ViewSecretPage = () => {
                       width: theme.spacing(67),
                       WebkitMaskImage: `linear-gradient(180deg, ${theme.palette.background.paper} 75%, transparent)`,
                       [theme.breakpoints.down('sm')]: {
-                        width: '100%'
-                      }
+                        width: '100%',
+                      },
                     })}
+                    variant="h2"
                   >
                     {secret}
                   </Typography>

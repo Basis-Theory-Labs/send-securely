@@ -1,6 +1,6 @@
 import Chance from 'chance';
+import { logAccesibilityViolations } from '@/specs/acceptance/pages/utils/utils';
 import { getTranslation, randomLocale } from '@/support';
-import { logAccesibilityViolations } from '@/specs/acceptance/pages/utils/utils'
 
 describe('View Secret page', () => {
   const chance = new Chance();
@@ -92,6 +92,6 @@ describe('View Secret page', () => {
       getTranslation(locale, 'components.shared.CopyButton.copied')
     ).should('be.visible');
 
-    cy.checkA11y(null, null, logAccesibilityViolations);
+    cy.checkA11y(undefined, undefined, logAccesibilityViolations);
   });
 });

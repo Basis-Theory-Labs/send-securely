@@ -53,9 +53,10 @@ export const ViewSecretPage = () => {
               <Box sx={{ padding: (theme) => `${theme.spacing(0)} ${theme.spacing(0)} ${theme.spacing(2)} ${theme.spacing(2)}` }}>
                 <Box mb={3}>
                   <Typography
+                    variant="h2"
                     sx={ theme => ({
                       fontFamily: 'Source Code Pro',
-                      fontSize: theme.spacing(3),
+                      fontWeight: 'normal',
                       overflow: 'auto',
                       overflowWrap: 'break-word',
                       maxHeight: theme.spacing(12),

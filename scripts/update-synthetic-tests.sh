@@ -12,7 +12,6 @@ pulumi login
 
 pulumi stack select $PULUMI_STACK
 
-pulumi stack
 if [ "$IS_PR_WORKFLOW" = true ] ; then
   pulumi preview --diff
 else

@@ -30,7 +30,7 @@ const sendSecurelyHealthCheck = new datadog.SyntheticsTest(healthCheckName, {
     followRedirects: true,
     minLocationFailed: 2,
     monitorName: healthCheckName,
-    monitorPriority: 1,
+    monitorPriority: 2,
     tickEvery: 300,
     monitorOptions: {
       renotifyInterval: 120,
@@ -130,7 +130,7 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
     followRedirects: true,
     minLocationFailed: 2,
     monitorName: apiCheckName,
-    monitorPriority: 1,
+    monitorPriority: 2,
     tickEvery: 300,
     monitorOptions: {
       renotifyInterval: 120,
@@ -211,7 +211,7 @@ const sendSecurelyBrowserCheck = new datadog.SyntheticsTest(browserCheckName, {
     followRedirects: true,
     minLocationFailed: 2,
     monitorName: browserCheckName,
-    monitorPriority: 1,
+    monitorPriority: 2,
     tickEvery: 300,
     monitorOptions: {
       renotifyInterval: 120,

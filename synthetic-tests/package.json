@@ -9,7 +9,6 @@
     "name": "Basis Theory",
     "email": "team@basistheory.com"
   },
-  "license": "ISC",
   "dependencies": {
     "@pulumi/datadog": "^4.8.0"
   },

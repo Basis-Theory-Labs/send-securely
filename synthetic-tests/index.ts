@@ -31,13 +31,13 @@ const sendSecurelyHealthCheck = new datadog.SyntheticsTest(healthCheckName, {
     minLocationFailed: 2,
     monitorName: healthCheckName,
     monitorPriority: 2,
-    tickEvery: 300,
+    tickEvery: 300, // seconds
     monitorOptions: {
-      renotifyInterval: 120,
+      renotifyInterval: 60, // minutes
     },
     retry: {
       count: 3,
-      interval: 60,
+      interval: 60000, // milliseconds
     },
   },
 });
@@ -131,13 +131,13 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
     minLocationFailed: 2,
     monitorName: apiCheckName,
     monitorPriority: 2,
-    tickEvery: 300,
+    tickEvery: 300, // seconds
     monitorOptions: {
-      renotifyInterval: 120,
+      renotifyInterval: 60, // minutes
     },
     retry: {
       count: 3,
-      interval: 60,
+      interval: 60000, // milliseconds
     },
   },
 });

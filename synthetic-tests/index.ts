@@ -31,7 +31,7 @@ const sendSecurelyHealthCheck = new datadog.SyntheticsTest(healthCheckName, {
     minLocationFailed: 2,
     monitorName: healthCheckName,
     monitorPriority: 2,
-    tickEvery: 3600, // seconds
+    tickEvery: 300, // seconds
     monitorOptions: {
       renotifyInterval: 60, // minutes
     },

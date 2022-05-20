@@ -2,13 +2,12 @@ import {Trend} from 'k6/metrics';
 import http from 'k6/http'
 
 export const options = {
-  vus: 10,
-  iterations: 100,
+  vus: 20,
+  iterations: 200,
   thresholds: {
     http_req_failed: ['rate<0.01'],
-    create_duration: ["avg<500"],
-    get_duration: ["avg<200"],
-    delete_duration: ["avg<200"]
+    create_duration: ["p(90)<500"],
+    retrieve_duration: ["p(90)<1000"]
   }
 };
 
@@ -18,7 +17,7 @@ const createSecretRequest = {
 };
 
 const createTrend = new Trend("create_duration");
-const getTrend = new Trend("get_duration");
+const retrieveTrend = new Trend("retrieve_duration");
 
 export default function main(data) {
   const createResponse = http.post(
@@ -30,8 +29,8 @@ export default function main(data) {
 
   const secretId = createResponse.json()['id'];
 
-  const getResponse = http.get(
+  const retrieveResponse = http.get(
     `${__ENV.API_URL}/api/secrets/${secretId}`
   );
-  getTrend.add(getResponse.timings.duration);
+  retrieveTrend.add(retrieveResponse.timings.duration);
 }

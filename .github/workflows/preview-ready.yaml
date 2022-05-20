@@ -35,6 +35,7 @@ jobs:
 
   performance-test:
     name: Performance Test
+    needs: integration-test
     runs-on: ubuntu-latest
     if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel[bot]'
     steps:

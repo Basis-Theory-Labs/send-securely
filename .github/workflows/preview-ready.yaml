@@ -1,4 +1,4 @@
-name: Integration Test Preview
+name: Preview Ready
 on:
   deployment_status
 jobs:
@@ -32,3 +32,25 @@ jobs:
           token: ${{ github.token }}
           state: "failure"
           deployment_id: ${{ github.event.deployment.id }}
+
+  performance-test:
+    name: Performance Test
+    runs-on: ubuntu-latest
+    if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel[bot]'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run k6 local test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: load-tests/secret-lifecycle.js
+          flags: --env API_URL=${{ github.event.deployment_status.target_url }}
+
+          - name: Update deployment status (failure)
+            if: failure()
+            uses: chrnorm/deployment-status@releases/v1
+            with:
+              token: ${{ github.token }}
+              state: "failure"
+              deployment_id: ${{ github.event.deployment.id }}

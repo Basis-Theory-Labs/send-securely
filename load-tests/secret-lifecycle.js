@@ -2,8 +2,8 @@ import {Trend} from 'k6/metrics';
 import http from 'k6/http'
 
 export const options = {
-  vus: 10,
-  iterations: 100,
+  vus: 5,
+  iterations: 50,
   thresholds: {
     http_req_failed: ['rate<0.01'],
     create_duration: ["p(90)<500"],

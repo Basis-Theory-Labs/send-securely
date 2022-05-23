@@ -46,7 +46,7 @@ jobs:
         uses: grafana/k6-action@v0.2.0
         with:
           filename: load-tests/secret-lifecycle.js
-          flags: --env API_URL=${{ github.event.deployment_status.target_url }}
+          flags: --env API_URL=${{ github.event.deployment_status.target_url }} --http-debug=full
 
       - name: Update deployment status (failure)
         if: failure()

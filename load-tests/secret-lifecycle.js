@@ -19,7 +19,7 @@ const createSecretRequest = {
 const createTrend = new Trend("create_duration");
 const retrieveTrend = new Trend("retrieve_duration");
 
-export default function main(data) {
+export default function main() {
   const createResponse = http.post(
     `${__ENV.API_URL}/api/secrets`,
     JSON.stringify(createSecretRequest),

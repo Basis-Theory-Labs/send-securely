@@ -1,4 +1,4 @@
-name: Integration Test Preview
+name: Preview Ready
 on:
   deployment_status
 jobs:

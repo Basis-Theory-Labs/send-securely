@@ -1,9 +1,9 @@
 name: njsscan
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, main ]
+    branches: [ master ]
 jobs:
   njsscan:
     runs-on: ubuntu-latest

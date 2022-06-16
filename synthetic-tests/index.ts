@@ -28,9 +28,10 @@ const sendSecurelyHealthCheck = new datadog.SyntheticsTest(healthCheckName, {
   ],
   optionsList: {
     followRedirects: true,
+    minFailureDuration: 5, // minutes
     minLocationFailed: 2,
     monitorName: healthCheckName,
-    monitorPriority: 2,
+    monitorPriority: 4,
     tickEvery: 300, // seconds
     monitorOptions: {
       renotifyInterval: 60, // minutes
@@ -128,9 +129,10 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
   ],
   optionsList: {
     followRedirects: true,
+    minFailureDuration: 5, // minutes
     minLocationFailed: 2,
     monitorName: apiCheckName,
-    monitorPriority: 2,
+    monitorPriority: 4,
     tickEvery: 3600, // seconds
     monitorOptions: {
       renotifyInterval: 60, // minutes
@@ -210,9 +212,10 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
 //   ],
 //   optionsList: {
 //     followRedirects: true,
+//     minFailureDuration: 5, // minutes
 //     minLocationFailed: 2,
 //     monitorName: browserCheckName,
-//     monitorPriority: 2,
+//     monitorPriority: 4,
 //     tickEvery: 300,
 //     monitorOptions: {
 //       renotifyInterval: 120,

@@ -84,7 +84,6 @@ describe('Create Secret page (index)', () => {
     cy.wait('@createSecret').then(({ request }) => {
       expect(request.body).to.deep.eq({
         data,
-        ttl,
       });
     });
 

@@ -24,9 +24,8 @@ describe('create secret', () => {
               equalToJson: {
                 type: 'token',
                 data: secretData,
-                metadata: {
-                  ttl: secretTtl,
-                },
+                // eslint-disable-next-line camelcase,no-template-curly-in-string
+                expires_at: '${now offset=1 days}',
               },
             },
           ],
@@ -53,7 +52,6 @@ describe('create secret', () => {
         expect(status).to.eq(200);
         expect(body).to.deep.eq({
           id: expectedTokenId,
-          ttl: secretTtl,
         });
       });
     });
@@ -72,9 +70,8 @@ describe('create secret', () => {
               equalToJson: {
                 type: 'token',
                 data: secretData,
-                metadata: {
-                  ttl: secretTtl,
-                },
+                // eslint-disable-next-line camelcase,no-template-curly-in-string
+                expires_at: '${now offset=1 days}',
               },
             },
           ],

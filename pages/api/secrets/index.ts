@@ -13,16 +13,18 @@ export default async (
 
   const bt = await getBasisTheoryClient();
 
+  const expiresAtDate = new Date();
+
+  expiresAtDate.setTime(expiresAtDate.getTime() + req.body.ttl * 1000);
+
   const token = await bt.tokens.create({
     type: 'token',
     data: req.body.data,
-    metadata: {
-      ttl: req.body.ttl,
-    },
+    // eslint-disable-next-line camelcase
+    expires_at: expiresAtDate.toISOString(),
   });
 
   res.status(200).json({
     id: token.id,
-    ttl: req.body.ttl,
   });
 };

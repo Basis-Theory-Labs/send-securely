@@ -14,7 +14,7 @@
 // ***********************************************************
 // Import commands.ts using ES2015 syntax:
 // / <reference types="cypress" />
-import type { Token } from '@basis-theory/basis-theory-elements-interfaces/models';
+import { Token } from '@basis-theory/basis-theory-js/types/models';
 import Chance from 'chance';
 import 'cypress-axe';
 import _get from 'lodash/get';

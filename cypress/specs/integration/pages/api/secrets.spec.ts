@@ -12,7 +12,6 @@ describe('secrets', () => {
     // CREATE
     cy.request('POST', '/api/secrets', secret).then(({ status, body }) => {
       expect(status).to.eq(200);
-      expect(body.ttl).to.eq(secret.ttl);
       cy.wrap(body.id).as('secretId');
     });
 
@@ -22,8 +21,6 @@ describe('secrets', () => {
         ({ status, body }) => {
           expect(status).to.eq(200);
           expect(body.id).to.eq(secretId);
-          // eslint-disable-next-line no-unused-expressions
-          expect(body.timeLeft).to.not.be.null;
         }
       );
     });

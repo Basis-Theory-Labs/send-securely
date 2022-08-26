@@ -33,8 +33,9 @@ describe('create secret', () => {
                 type: 'token',
                 data: secretData,
                 // eslint-disable-next-line no-template-curly-in-string,camelcase
-                expires_at: '${json-unit.ignore}',
+                expires_at: '${json-unit.any-string}',
               },
+              ignoreExtraElements: true,
             },
           ],
         },
@@ -52,7 +53,7 @@ describe('create secret', () => {
       cy.clearStubs(scenario);
     });
 
-    it.only('should return created token identifier in 200 OK', () => {
+    it('should return created token identifier in 200 OK', () => {
       cy.request('POST', '/api/secrets', {
         data: secretData,
         ttl: secretTtl,
@@ -66,51 +67,51 @@ describe('create secret', () => {
     });
   });
 
-  // describe('should handle create token errors', () => {
-  //   const scenario = 'create secret token';
-  //
-  //   beforeEach(() => {
-  //     cy.stubRequest(scenario, {
-  //       request: {
-  //         method: 'POST',
-  //         urlPath: '/tokens/',
-  //         bodyPatterns: [
-  //           {
-  //             equalToJson: {
-  //               type: 'token',
-  //               data: secretData,
-  //               // eslint-disable-next-line camelcase,no-template-curly-in-string
-  //               expires_at: '${json-unit.any-string}',
-  //             },
-  //           },
-  //         ],
-  //       },
-  //       response: {
-  //         status: 400,
-  //         jsonBody: {
-  //           status: 400,
-  //         },
-  //       },
-  //     } as StubMapping);
-  //   });
-  //
-  //   afterEach(() => {
-  //     cy.clearStubs(scenario);
-  //   });
-  //
-  //   it('should return 500 INTERNAL_SERVER_ERROR when create token request fails', () => {
-  //     cy.request({
-  //       method: 'POST',
-  //       url: '/api/secrets',
-  //       body: {
-  //         data: secretData,
-  //         ttl: secretTtl,
-  //       },
-  //       failOnStatusCode: false,
-  //     }).then(({ status, body }) => {
-  //       expect(status).to.eq(500);
-  //       expect(body).to.eq('Internal Server Error');
-  //     });
-  //   });
-  // });
+  describe('should handle create token errors', () => {
+    const scenario = 'create secret token';
+
+    beforeEach(() => {
+      cy.stubRequest(scenario, {
+        request: {
+          method: 'POST',
+          urlPath: '/tokens/',
+          bodyPatterns: [
+            {
+              equalToJson: {
+                type: 'token',
+                data: secretData,
+                // eslint-disable-next-line camelcase,no-template-curly-in-string
+                expires_at: '${json-unit.any-string}',
+              },
+            },
+          ],
+        },
+        response: {
+          status: 400,
+          jsonBody: {
+            status: 400,
+          },
+        },
+      } as StubMapping);
+    });
+
+    afterEach(() => {
+      cy.clearStubs(scenario);
+    });
+
+    it('should return 500 INTERNAL_SERVER_ERROR when create token request fails', () => {
+      cy.request({
+        method: 'POST',
+        url: '/api/secrets',
+        body: {
+          data: secretData,
+          ttl: secretTtl,
+        },
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.eq(500);
+        expect(body).to.eq('Internal Server Error');
+      });
+    });
+  });
 });

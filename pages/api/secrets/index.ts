@@ -24,8 +24,6 @@ export default async (
     expires_at: expiresAtDate.toISOString(),
   });
 
-  console.log(token);
-
   res.status(200).json({
     id: token.id,
     ttl: req.body.ttl,

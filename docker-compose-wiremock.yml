@@ -9,5 +9,3 @@ services:
     command:
       - --https-port=8443
       - --verbose
-      - --record-mappings
-      - --global-response-templating

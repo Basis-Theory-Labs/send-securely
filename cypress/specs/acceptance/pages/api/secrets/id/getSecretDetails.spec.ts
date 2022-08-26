@@ -35,7 +35,6 @@ describe('get secret details', () => {
           expect(status).to.eq(200);
           expect(body).to.deep.eq({
             id: tokenId,
-            timeLeft: secretExpiresAt.toISOString(),
           });
         }
       );

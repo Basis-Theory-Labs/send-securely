@@ -9,13 +9,7 @@ describe('create secret', () => {
 
   beforeEach(() => {
     secretData = chance.guid();
-    secretTtl =
-      ttls[
-        chance.integer({
-          min: 0,
-          max: 2,
-        })
-      ];
+    secretTtl = chance.pickone(ttls);
     expectedTokenId = chance.guid();
   });
 

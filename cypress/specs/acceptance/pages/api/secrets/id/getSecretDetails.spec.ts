@@ -1,9 +1,8 @@
 import Chance from 'chance';
-import { add } from 'date-fns';
 
 describe('get secret details', () => {
   const chance = new Chance();
-  let secretData, secretTtl, secretCreatedAt, tokenId;
+  let secretData, secretTtl, secretCreatedAt, secretExpiresAt, tokenId;
 
   describe('secret details not expired', () => {
     const scenario = 'get secret details';
@@ -11,6 +10,8 @@ describe('get secret details', () => {
     beforeEach(() => {
       secretTtl = 1000;
       secretCreatedAt = new Date();
+      secretExpiresAt = new Date();
+      secretExpiresAt.setTime(secretExpiresAt.getTime() + secretTtl * 1000);
       secretData = chance.guid();
       tokenId = chance.guid();
 
@@ -20,9 +21,7 @@ describe('get secret details', () => {
         tenantId: chance.guid(),
         data: secretData,
         createdAt: secretCreatedAt.toISOString(),
-        metadata: {
-          ttl: secretTtl,
-        },
+        expiresAt: secretExpiresAt.toISOString(),
       });
     });
 
@@ -36,72 +35,9 @@ describe('get secret details', () => {
           expect(status).to.eq(200);
           expect(body).to.deep.eq({
             id: tokenId,
-            timeLeft: add(secretCreatedAt, {
-              seconds: secretTtl,
-            }).toISOString(),
           });
         }
       );
-    });
-  });
-
-  describe('should validate secret is not expired', () => {
-    const scenario = 'get secret details expired';
-
-    beforeEach(() => {
-      secretTtl = 0;
-      secretCreatedAt = new Date().toISOString();
-      secretData = chance.guid();
-      tokenId = chance.guid();
-
-      cy.stubGetTokenById(scenario, {
-        id: tokenId,
-        type: 'token',
-        tenantId: chance.guid(),
-        data: secretData,
-        createdAt: secretCreatedAt,
-        metadata: {
-          ttl: secretTtl,
-        },
-      });
-
-      cy.stubRequest(scenario, {
-        request: {
-          method: 'DELETE',
-          urlPath: `/tokens/${tokenId}`,
-        },
-        response: {
-          status: 204,
-        },
-      });
-    });
-
-    afterEach(() => {
-      cy.clearStubs(scenario);
-    });
-
-    it('should return 404 NOT_FOUND when secret is expired', () => {
-      cy.request({
-        method: 'GET',
-        url: `/api/secrets/${tokenId}/details`,
-        failOnStatusCode: false,
-      }).then(({ status, body }) => {
-        expect(status).to.eq(404);
-        expect(body).to.deep.eq({});
-      });
-    });
-
-    it('should delete token after retrieving', () => {
-      cy.request({
-        method: 'GET',
-        url: `/api/secrets/${tokenId}/details`,
-        failOnStatusCode: false,
-      });
-
-      cy.verifyRequestCount(1, {
-        method: 'DELETE',
-        urlPath: `/tokens/${tokenId}`,
-      });
     });
   });
 

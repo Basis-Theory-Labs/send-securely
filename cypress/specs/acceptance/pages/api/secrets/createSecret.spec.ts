@@ -5,9 +5,11 @@ describe('create secret', () => {
   const chance = new Chance();
   let secretData, secretTtl, expectedTokenId;
 
+  const ttls = [600, 3600, 86400];
+
   beforeEach(() => {
     secretData = chance.guid();
-    secretTtl = chance.integer();
+    secretTtl = chance.pickone(ttls);
     expectedTokenId = chance.guid();
   });
 
@@ -24,10 +26,10 @@ describe('create secret', () => {
               equalToJson: {
                 type: 'token',
                 data: secretData,
-                metadata: {
-                  ttl: secretTtl,
-                },
+                // eslint-disable-next-line no-template-curly-in-string,camelcase
+                expires_at: '${json-unit.any-string}',
               },
+              ignoreExtraElements: true,
             },
           ],
         },
@@ -72,9 +74,8 @@ describe('create secret', () => {
               equalToJson: {
                 type: 'token',
                 data: secretData,
-                metadata: {
-                  ttl: secretTtl,
-                },
+                // eslint-disable-next-line camelcase,no-template-curly-in-string
+                expires_at: '${json-unit.any-string}',
               },
             },
           ],

@@ -2,7 +2,7 @@ import Chance from 'chance';
 
 describe('get secret by ID', () => {
   const chance = new Chance();
-  let secretData, secretTtl, secretCreatedAt, tokenId;
+  let secretData, secretTtl, secretCreatedAt, secretExpiresAt, tokenId;
 
   describe('should retrieve secret when not expired', () => {
     const scenario = 'get secret';
@@ -10,6 +10,8 @@ describe('get secret by ID', () => {
     beforeEach(() => {
       secretTtl = 1000;
       secretCreatedAt = new Date().toISOString();
+      secretExpiresAt = new Date();
+      secretExpiresAt.setTime(secretExpiresAt.getTime() + secretTtl * 1000);
       secretData = chance.guid();
       tokenId = chance.guid();
 
@@ -19,9 +21,7 @@ describe('get secret by ID', () => {
         tenantId: chance.guid(),
         data: secretData,
         createdAt: secretCreatedAt,
-        metadata: {
-          ttl: secretTtl,
-        },
+        expiresAt: secretExpiresAt.toISOString(),
       });
 
       cy.stubRequest(scenario, {
@@ -50,66 +50,6 @@ describe('get secret by ID', () => {
 
     it('should delete token after retrieving', () => {
       cy.request('GET', `/api/secrets/${tokenId}`);
-
-      cy.verifyRequestCount(1, {
-        method: 'DELETE',
-        urlPath: `/tokens/${tokenId}`,
-      });
-    });
-  });
-
-  describe('should validate secret is not expired', () => {
-    const scenario = 'get secret expired';
-
-    beforeEach(() => {
-      secretTtl = 0;
-      secretCreatedAt = new Date().toISOString();
-      secretData = chance.guid();
-      tokenId = chance.guid();
-
-      cy.stubGetTokenById(scenario, {
-        id: tokenId,
-        type: 'token',
-        tenantId: chance.guid(),
-        data: secretData,
-        createdAt: secretCreatedAt,
-        metadata: {
-          ttl: secretTtl,
-        },
-      });
-
-      cy.stubRequest(scenario, {
-        request: {
-          method: 'DELETE',
-          urlPath: `/tokens/${tokenId}`,
-        },
-        response: {
-          status: 204,
-        },
-      });
-    });
-
-    afterEach(() => {
-      cy.clearStubs(scenario);
-    });
-
-    it('should return 404 NOT_FOUND when token is expired', () => {
-      cy.request({
-        method: 'GET',
-        url: `/api/secrets/${tokenId}`,
-        failOnStatusCode: false,
-      }).then(({ status, body }) => {
-        expect(status).to.eq(404);
-        expect(body).to.deep.eq({});
-      });
-    });
-
-    it('should delete token after retrieving', () => {
-      cy.request({
-        method: 'GET',
-        url: `/api/secrets/${tokenId}`,
-        failOnStatusCode: false,
-      });
 
       cy.verifyRequestCount(1, {
         method: 'DELETE',

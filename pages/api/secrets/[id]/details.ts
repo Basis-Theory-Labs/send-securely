@@ -1,4 +1,3 @@
-import { parseISO, add, getTime } from 'date-fns';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getBasisTheoryClient } from '@/server-side/services/basistheory-service';
 
@@ -24,19 +23,10 @@ export default async (
 
   try {
     const token = await bt.tokens.retrieve(id);
-    const datePlusTTL = add(parseISO(token.createdAt), {
-      seconds: Number.parseInt(token.metadata.ttl),
-    });
 
-    if (getTime(datePlusTTL) > Date.now()) {
-      res.status(200).json({
-        id: token.id,
-        timeLeft: datePlusTTL,
-      });
-    } else {
-      await bt.tokens.delete(id);
-      res.status(404).json({});
-    }
+    res.status(200).json({
+      id: token.id,
+    });
   } catch {
     res.status(404).json({});
   }

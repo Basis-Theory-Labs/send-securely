@@ -19,7 +19,7 @@ export default async (
 
   const token = await bt.tokens.create({
     type: 'token',
-    data: req.body,
+    data: req.body.text,
     // eslint-disable-next-line camelcase
     expires_at: expiresAtDate.toISOString(),
   });

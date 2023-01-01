@@ -390,10 +390,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@basis-theory/basis-theory-js@^1.48.0":
-  version "1.48.0"
-  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.48.0.tgz#23ee7412c0f061cb6db53c5ab1adb991ecc1a1c6"
-  integrity sha512-vef6Mc/Oyb5CIPLdjDUuoAFsWvPMbz1p77vO18lk76EA4zpGniQg2Q3JOUkbpMKcFIcmGzRAbMcRcV4B0m5uaw==
+"@basis-theory/basis-theory-js@^1.58.0":
+  version "1.58.0"
+  resolved "https://registry.yarnpkg.com/@basis-theory/basis-theory-js/-/basis-theory-js-1.58.0.tgz#16b1e23988b79c3e945614b352c696f7144da6c3"
+  integrity sha512-zgQ0aGOWvz9CAaSdCdd3SocrivznRafgI4f5ZXJNTRS2zkIeBIwO9gdunmEj18uwYoYhHQk915EjAZbs8L6XGw==
   dependencies:
     axios "^0.21.2"
     camelcase-keys "^6.2.2"
@@ -2056,19 +2056,10 @@ cssnano-simple@3.0.0:
   dependencies:
     cssnano-preset-simple "^3.0.0"
 
-csstype@^3.0.10:
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
-  integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
-
-csstype@^3.0.11:
+csstype@^3.0.10, csstype@^3.0.11, csstype@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.0.tgz#4ddcac3718d787cf9df0d1b7d15033925c8f29f2"
   integrity sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==
-
-csstype@^3.0.2:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.7.tgz#2a5fb75e1015e84dd15692f71e89a1450290950b"
 
 cypress-axe@^0.14.0:
   version "0.14.0"

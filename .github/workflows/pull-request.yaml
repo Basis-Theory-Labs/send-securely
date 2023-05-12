@@ -15,7 +15,7 @@ jobs:
       - name: Use Node v16
         uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1

@@ -2,9 +2,6 @@
   "name": "send-securely",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=14"
-  },
   "files": [],
   "prettier": "@basis-theory/eslint-config/prettier",
   "scripts": {

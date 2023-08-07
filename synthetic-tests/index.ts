@@ -21,18 +21,15 @@ const sendSecurelyHealthCheck = new datadog.SyntheticsTest(healthCheckName, {
   ],
   message: '@pagerduty-engineering SendSecurely HealthCheck Failure',
   locations: [
-    'aws:sa-east-1',
-    'aws:us-east-2',
-    'aws:us-west-2',
     'aws:us-west-1',
   ],
   optionsList: {
     followRedirects: true,
     minFailureDuration: 300, // seconds
-    minLocationFailed: 2,
+    minLocationFailed: 1,
     monitorName: healthCheckName,
     monitorPriority: 4,
-    tickEvery: 300, // seconds
+    tickEvery: 86400, // seconds
     monitorOptions: {
       renotifyInterval: 60, // minutes
     },
@@ -122,9 +119,6 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
   ],
   message: '@pagerduty-engineering SendSecurely APICheck Failure',
   locations: [
-    'aws:sa-east-1',
-    'aws:us-east-2',
-    'aws:us-west-2',
     'aws:us-west-1',
   ],
   optionsList: {
@@ -133,7 +127,7 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
     minLocationFailed: 2,
     monitorName: apiCheckName,
     monitorPriority: 4,
-    tickEvery: 3600, // seconds
+    tickEvery: 86400, // seconds
     monitorOptions: {
       renotifyInterval: 60, // minutes
     },
@@ -143,86 +137,3 @@ const sendSecurelyApiCheck = new datadog.SyntheticsTest(apiCheckName, {
     },
   },
 });
-
-// there are outstanding issues creating browser tests via code https://github.com/DataDog/terraform-provider-datadog/issues/1433
-// // browser check
-// const browserCheckName = 'sendsecurely-browser-check';
-// const sendSecurelyBrowserCheck = new datadog.SyntheticsTest(browserCheckName, {
-//   name: browserCheckName,
-//   status: 'live',
-//   type: 'browser',
-//   requestDefinition: {
-//     method: 'GET',
-//     url: 'https://sendsecure.ly',
-//   },
-//   browserSteps: [
-//     {
-//       name: 'Check current url',
-//       params: {
-//         check: 'contains',
-//         value: 'sendsecure',
-//       },
-//       type: 'assertCurrentUrl',
-//     },
-//     {
-//       name: 'Type secret',
-//       params: {
-//         elementUserLocator: {
-//           value: {
-//             value: '#secret-data',
-//           },
-//           failTestOnCannotLocate: true,
-//         },
-//         value: 'synthetic testing secret!',
-//       },
-//       type: 'typeText',
-//     },
-//     {
-//       name: 'Click on "Create Link"',
-//       params: {
-//         elementUserLocator: {
-//           value: {
-//             value: '#create-link-button',
-//           },
-//           failTestOnCannotLocate: true,
-//         },
-//       },
-//       type: 'click',
-//     },
-//     {
-//       name: 'Test that "Copy" button exists',
-//       params: {
-//         elementUserLocator: {
-//           value: {
-//             value: '#copy-secret-link-button',
-//           },
-//           failTestOnCannotLocate: true,
-//         },
-//       },
-//       type: 'assertElementPresent',
-//     },
-//   ],
-//   deviceIds: ['laptop_large'],
-//   message: '@pagerduty-engineering SendSecurely BrowserCheck Failure',
-//   locations: [
-//     'aws:sa-east-1',
-//     'aws:us-east-2',
-//     'aws:us-west-2',
-//     'aws:us-west-1',
-//   ],
-//   optionsList: {
-//     followRedirects: true,
-//     minFailureDuration: 300, // seconds
-//     minLocationFailed: 2,
-//     monitorName: browserCheckName,
-//     monitorPriority: 4,
-//     tickEvery: 300,
-//     monitorOptions: {
-//       renotifyInterval: 120,
-//     },
-//     retry: {
-//       count: 3,
-//       interval: 60,
-//     },
-//   },
-// });

@@ -9,7 +9,7 @@
   "prettier": "@basis-theory/eslint-config/prettier",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
     "start": "next start",
     "lint": "eslint . --quiet --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",

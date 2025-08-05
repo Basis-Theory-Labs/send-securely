@@ -1,4 +1,4 @@
-ARG node_image=node:18-alpine3.15
+ARG node_image=node:22-alpine3.22
 
 # STAGE 1
 FROM $node_image as builder

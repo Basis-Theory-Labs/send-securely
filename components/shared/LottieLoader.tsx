@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
-import Lottie from 'react-lottie';
+import dynamic from 'next/dynamic';
 import type { Options, LottieProps } from 'react-lottie';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 type Props = Omit<Options, 'loop' | 'autoplay' | 'rendererSettings'> &
   Omit<LottieProps, 'options'>;

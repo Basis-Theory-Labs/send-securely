@@ -34,14 +34,14 @@ export const Footer = () => (
       </Box>
       <FooterLink
         i18nKey="links.termsOfService"
-        linkUrl="https://basistheory.com/terms-of-service"
+        linkUrl="https://basistheory.com/resources/terms-of-service"
       />
       <Box ml={1} mr={1}>
         {'·'}
       </Box>
       <FooterLink
         i18nKey="links.privacyPolicy"
-        linkUrl="https://basistheory.com/privacy-policy"
+        linkUrl="https://basistheory.com/resources/privacy-policy"
       />
     </Box>
     <ProductHuntBadge />

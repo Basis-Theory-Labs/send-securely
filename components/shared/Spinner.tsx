@@ -7,6 +7,8 @@ interface Props {
   height?: number;
 }
 
-export const Spinner = (loaderProps: Props) => (
+const Spinner = (loaderProps: Props) => (
   <LottieLoader animationData={animationData} {...loaderProps} />
 );
+
+export default Spinner;

@@ -1,7 +1,10 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import type { ButtonProps } from '@mui/material/Button';
-import { Spinner } from './Spinner';
+import dynamic from 'next/dynamic';
+
+// Use dynamic() for your Spinner export/component:
+const Spinner = dynamic(() => import('./Spinner'), { ssr: false });
 
 interface Props extends ButtonProps {
   loading?: boolean;

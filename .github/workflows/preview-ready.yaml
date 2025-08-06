@@ -8,12 +8,12 @@ jobs:
     if: github.event.deployment_status.environment == 'Preview' && github.event.deployment_status.creator.login == 'vercel[bot]'
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Use Node v14
-        uses: actions/setup-node@v1
+      - name: Use Node v20
+        uses: actions/setup-node@v4
         with:
-          node-version: '14.x'
+          node-version: '20'
 
       - name: Install deps
         run: yarn --frozen-lockfile --no-progress --ignore-scripts

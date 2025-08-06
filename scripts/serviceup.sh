@@ -25,5 +25,5 @@ do
 done
 
 echo 'Health check did not pass within timeout'
-docker-compose logs app
+docker compose logs app
 exit 1

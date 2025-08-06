@@ -39,10 +39,10 @@ export const CreateSecret = (props: Props) => {
           <PoweredByBasisTheory />
         </Box>
         <Typography mb={1} variant="h2">
-          {t('create.title')}
+          {t<string>('create.title')}
         </Typography>
         <Typography color="textSecondary" mb={5} variant="body2">
-          {t('create.subtitle')}
+          {t<string>("create.subtitle")}
         </Typography>
         <ScrollableText
           id="secret-data"
@@ -60,7 +60,7 @@ export const CreateSecret = (props: Props) => {
         >
           <Box mr={2}>
             <Typography color="textSecondary" variant="body2">
-              {t('create.secretExpiresAfter')}
+              {t<string>("create.secretExpiresAfter")}
             </Typography>
           </Box>
           <ToggleButtonGroup
@@ -115,7 +115,7 @@ export const CreateSecret = (props: Props) => {
           size="medium"
           variant="contained"
         >
-          {!isSubmitting && t('create.button')}
+          {!isSubmitting && t<string>("create.button")}
         </LoadingButton>
       </Box>
       <Footer />

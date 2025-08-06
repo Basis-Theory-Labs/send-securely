@@ -22,7 +22,7 @@ export const PoweredByBasisTheory = () => {
         }}
       >
         <Typography mr={1} sx={{ color: '#FFFFFF' }} variant="body3">
-          {t('poweredBy.prefix')}
+          {t<string>("poweredBy.prefix")}
         </Typography>
         <BasisTheoryLogo />
       </Box>

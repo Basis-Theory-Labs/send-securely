@@ -32,7 +32,7 @@ export const ErrorPage = ({ status, message, caption }: Props) => {
             <Box mt={4}>
               <NextLink href="/" passHref>
                 <Button color="primary" variant="contained">
-                  {tc('goToHome')}
+                  {tc<string>("goToHome")}
                 </Button>
               </NextLink>
             </Box>

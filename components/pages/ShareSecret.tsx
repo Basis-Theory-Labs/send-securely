@@ -38,10 +38,10 @@ export const ShareSecret = (props: Props) => {
           <PoweredByBasisTheory />
         </Box>
         <Typography mb={1} variant="h2">
-          {t('share.title')}
+          {t<string>("share.title")}
         </Typography>
         <Typography color="textSecondary" mb={5} variant="body2">
-          {t('share.subtitle')}
+          {t<string>("share.subtitle")}
         </Typography>
         <Box
           display="flex"
@@ -98,7 +98,7 @@ export const ShareSecret = (props: Props) => {
               width: 'fit-content',
             }}
           >
-            {t('share.secureAnotherSecret')}
+            {t<string>("share.secureAnotherSecret")}
           </Button>
         </Box>
       </Box>

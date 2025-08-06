@@ -50,7 +50,7 @@ export const SecurityInfo = () => {
                   }}
                   variant="subtitle1"
                 >
-                  {t('securityInfo.title')}
+                  {t<string>("securityInfo.title")}
                 </Typography>
               </Box>
             </Box>
@@ -65,27 +65,27 @@ export const SecurityInfo = () => {
             <Box>
               <Box mb={1}>
                 <Typography component="span" variant="subtitle2">
-                  {t('securityInfo.learnMore.heading1')}
+                  {t<string>("securityInfo.learnMore.heading1")}
                 </Typography>
               </Box>
               <Typography color="textSecondary" variant="body2">
-                {t('securityInfo.learnMore.body1')}
+                {t<string>("securityInfo.learnMore.body1")}
               </Typography>
             </Box>
             <Box mt={5}>
               <Box mb={1}>
                 <Typography component="span" variant="subtitle2">
-                  {t('securityInfo.learnMore.heading2')}
+                  {t<string>("securityInfo.learnMore.heading2")}
                 </Typography>
               </Box>
               <Typography color="textSecondary" variant="body2">
-                {t('securityInfo.learnMore.body2')}
+                {t<string>("securityInfo.learnMore.body2")}
               </Typography>
             </Box>
             <Box mt={5}>
               <Box mb={1}>
                 <Typography component="span" variant="subtitle2">
-                  {t('securityInfo.learnMore.heading3')}
+                  {t<string>("securityInfo.learnMore.heading3")}
                 </Typography>
               </Box>
               <Typography

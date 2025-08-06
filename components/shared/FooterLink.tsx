@@ -24,7 +24,7 @@ export const FooterLink = (props: FooterLinkProps) => {
           }}
           target="_blank"
         >
-          {t(i18nKey)}
+          {t<string>(i18nKey)}
         </Link>
       </Typography>
     </Box>

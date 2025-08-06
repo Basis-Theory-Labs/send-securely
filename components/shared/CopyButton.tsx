@@ -68,7 +68,7 @@ export const CopyButton = (props: NoCopyTextProps | CopyTextProps) => {
         }}
         variant="contained"
       >
-        {t<string>(`shared.CopyButton.${copied ? "copied" : "copy"}`)}
+        {t(`shared.CopyButton.${copied ? "copied" : "copy"}`)}
       </Button>
     );
   }

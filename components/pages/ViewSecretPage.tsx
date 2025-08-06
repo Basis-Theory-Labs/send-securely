@@ -36,10 +36,10 @@ export const ViewSecretPage = () => {
           <PoweredByBasisTheory />
         </Box>
         <Typography mb={1} variant="h2">
-          {t<string>("view.title")}
+          {t("view.title")}
         </Typography>
         <Typography color="textSecondary" mb={4} variant="body2">
-          {t<string>("view.subtitle")}
+          {t("view.subtitle")}
         </Typography>
         <Box alignItems="center" display="flex" flexDirection="column" mt={4}>
           {secret ? (
@@ -96,7 +96,7 @@ export const ViewSecretPage = () => {
                           fontWeight: 600,
                         }}
                       >
-                        {t<string>("view.button")}
+                        {t("view.button")}
                       </Typography>
                     </Box>
                   </Box>

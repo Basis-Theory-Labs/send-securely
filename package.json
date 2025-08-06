@@ -52,7 +52,6 @@
     "react": "19.1.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "19.1.1",
-    "react-lottie": "^1.2.3",
     "snakecase-keys": "^5.4.1",
     "swr": "^1.0.1",
     "uuid": "^11.1.0"
@@ -65,7 +64,6 @@
     "@types/node": "^22.9.0",
     "@types/react": "^19.1.9",
     "@types/react-copy-to-clipboard": "^5.0.7",
-    "@types/react-lottie": "^1.2.10",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/react-text-mask": "^5.4.14",
     "axe-core": "^4.4.1",

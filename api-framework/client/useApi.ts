@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { transformResponseCamelCase } from '@basis-theory/basis-theory-js/common';
-import axios from 'axios';
-import type { AxiosTransformer } from 'axios';
+import axios, { AxiosResponseTransformer } from "axios";
 import * as queryString from 'query-string';
 import type { SWRResponse } from 'swr';
 import useSWR from 'swr';
@@ -25,7 +24,7 @@ interface UseApiOptions extends SWRConfiguration {
    *
    * @default deeply transform response to camel case
    */
-  transformResponse?: AxiosTransformer;
+  transformResponse?: (data: any, headers?: any) => any;
 
   /**
    * Additional request headers to be sent.
@@ -36,12 +35,12 @@ interface UseApiOptions extends SWRConfiguration {
 }
 
 const fetcher =
-  (transformResponse: AxiosTransformer, headers?: Record<string, string>) =>
+  (transformResponse: (data: any, headers?: any) => any, headers?: Record<string, string>) =>
   async <T>(url: string): Promise<T> => {
     const { data, status } = await axios.get(url, {
       validateStatus: () => true,
       transformResponse: [
-        ...(axios.defaults.transformResponse as AxiosTransformer[]),
+        ...(axios.defaults.transformResponse as AxiosResponseTransformer[]),
         transformResponse,
       ],
       headers,
@@ -71,7 +70,7 @@ const useApi = <Data = any, Error = unknown>(
     key += `?${queryString.stringify(query)}`;
   }
 
-  const sticky = useRef<Data>();
+  const sticky = useRef<Data>(undefined);
 
   const {
     data: response,

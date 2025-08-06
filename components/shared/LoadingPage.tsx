@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Fade, Modal } from '@mui/material';
-import { InitialPageLogoLoader } from './InitialPageLogoLoader';
+import InitialPageLogoLoader from './InitialPageLogoLoader';
 
 interface Props {
   logo?: boolean;

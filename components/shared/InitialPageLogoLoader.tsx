@@ -7,15 +7,11 @@ interface Props {
   height?: number;
 }
 
-export const InitialPageLogoLoader = ({
-  width,
-  height,
-}: Props): JSX.Element => (
+const InitialPageLogoLoader: React.FC<Props> = ({ width, height }) => (
   <Lottie
     animationData={animationData}
-    style={{
-      width,
-      height,
-    }}
+    style={{ width, height }}
   />
 );
+
+export default InitialPageLogoLoader;

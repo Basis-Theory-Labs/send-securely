@@ -1,5 +1,5 @@
 module.exports = {
   root: true,
   extends: ['@basis-theory/eslint-config/next'],
-  ignorePatterns: ['load-tests/*.js'],
+  ignorePatterns: ['load-tests/*.js', 'cypress.config.ts',],
 };

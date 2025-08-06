@@ -33,7 +33,6 @@
   "exclude": [
     "node_modules",
     "cypress",
-    "load-tests",
-    "synthetic-tests"
+    "load-tests"
   ]
 }

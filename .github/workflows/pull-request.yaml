@@ -10,18 +10,18 @@ jobs:
       CI: 1
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Use Node v16
-        uses: actions/setup-node@v1
+      - name: Use Node v20
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '20'
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v3
 
       - name: Cache Send Securely Docker layers
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: /tmp/.buildx-app-cache
           key: ${{ runner.os }}-buildx-app-${{ github.sha }}
@@ -50,7 +50,7 @@ jobs:
           mv /tmp/.buildx-app-cache-new /tmp/.buildx-app-cache
 
       - name: Cache Cypress binary
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.cache/Cypress
           key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
@@ -76,21 +76,3 @@ jobs:
       - name: Stop services
         if: always()
         run: make stop-docker
-
-  view-synthetic-test-diff:
-    runs-on: ubuntu-latest
-    env:
-      CI: 1
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Update Synthetic Tests
-        uses: ./.github/composite/update-synthetic-tests
-        with:
-          is-pr-workflow: true
-          pulumi-stack: basistheory/prod
-          pulumi-access-token: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          datadog-app-key: ${{ secrets.DATADOG_APP_KEY }}
-          datadog-api-key: ${{ secrets.DATADOG_API_KEY }}

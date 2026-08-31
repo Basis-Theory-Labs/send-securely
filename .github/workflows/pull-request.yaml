@@ -12,10 +12,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node v20
+      - name: Use Node v24
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -60,7 +60,7 @@ jobs:
       - name: Install deps (with cache)
         uses: bahmutov/npm-install@v1
         with:
-          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
+          install-command: yarn --frozen-lockfile --no-progress --ignore-scripts --registry https://registry.yarnpkg.com
         env:
           CYPRESS_INSTALL_BINARY: 0
 

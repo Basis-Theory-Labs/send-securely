@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "files": [],
   "prettier": "@basis-theory/eslint-config/prettier",
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint . --quiet --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",

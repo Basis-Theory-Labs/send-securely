@@ -45,7 +45,7 @@ class MyDocument extends Document {
         <body
           style={{
             background:
-              'radial-gradient(61.89% 61.89% at 50% 8.83%, #2C2C2C 0%, #0C0C0C 100%)',
+              'radial-gradient(80% 80% at 80% 20%, rgba(92, 232, 192, 0.1), transparent 60%), linear-gradient(180deg, #06080D 0%, #0B0E15 100%)',
             minHeight: '100vh',
           }}
         >

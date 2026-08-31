@@ -15,13 +15,14 @@ export const PoweredByBasisTheory = () => {
         display="flex"
         justifyContent="center"
         sx={{
-          opacity: 0.4,
+          opacity: 0.72,
+          transition: 'opacity 120ms ease',
           '&:hover': {
             opacity: 1,
           },
         }}
       >
-        <Typography mr={1} sx={{ color: '#FFFFFF' }} variant="body3">
+        <Typography mr={1} sx={{ color: '#A0A5B3' }} variant="body3">
           {t('poweredBy.prefix')}
         </Typography>
         <BasisTheoryLogo />

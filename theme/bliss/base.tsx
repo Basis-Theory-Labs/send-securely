@@ -141,7 +141,7 @@ export const baseThemeOptions: ThemeOptions = {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '8px',
+          borderRadius: '999px',
         },
         outlined: {
           borderWidth: '2px !important', // only way to override for all sub styles and keep consistency

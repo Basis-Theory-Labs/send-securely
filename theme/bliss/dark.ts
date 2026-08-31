@@ -4,7 +4,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import merge from 'lodash/merge';
 import { baseThemeOptions } from './base';
 
-const defaultContrastText = '#000000';
+const defaultContrastText = '#0B0E15';
 const grey = {
   '50': '#F2F4FF',
   '100': '#CACDDB',
@@ -20,10 +20,10 @@ const grey = {
 };
 
 const divider = alpha('#414970', 0.5);
-const successContrastText = alpha('#070A1B', 0.9);
+const successContrastText = alpha(defaultContrastText, 0.9);
 
-const textPrimary = '#E5E6EC';
-const textSecondary = '#A1A1A1';
+const textPrimary = '#E6E8EE';
+const textSecondary = '#A0A5B3';
 
 const options: ThemeOptions = {
   palette: {
@@ -34,17 +34,17 @@ const options: ThemeOptions = {
       disabled: alpha('#a3b0ec', 0.4),
     },
     action: {
-      active: '#5383FF',
-      hover: '#20243A',
+      active: '#CDF75F',
+      hover: '#181B25',
       selected: alpha('#000000', 0.08),
       selectedOpacity: 0.08, // does not produce desired effect
       disabled: '#626262',
       disabledBackground: '#363636',
     },
     primary: {
-      main: '#5383FF',
-      dark: '#3658B2',
-      light: '#5383FF',
+      main: '#CDF75F',
+      dark: '#95B832',
+      light: '#E1FF8A',
       contrastText: defaultContrastText,
     },
     secondary: {
@@ -79,7 +79,7 @@ const options: ThemeOptions = {
     },
     background: {
       default: defaultContrastText,
-      paper: '#1D1D1D',
+      paper: '#11141D',
     },
     divider, // used for borders
     grey,

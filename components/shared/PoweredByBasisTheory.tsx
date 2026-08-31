@@ -13,6 +13,7 @@ export const PoweredByBasisTheory = () => {
       <Box
         alignItems="center"
         display="flex"
+        gap={1}
         justifyContent="center"
         sx={{
           opacity: 0.72,
@@ -22,7 +23,13 @@ export const PoweredByBasisTheory = () => {
           },
         }}
       >
-        <Typography mr={1} sx={{ color: '#A0A5B3' }} variant="body3">
+        <Typography
+          sx={{
+            color: '#A0A5B3',
+            whiteSpace: 'nowrap',
+          }}
+          variant="body3"
+        >
           {t('poweredBy.prefix')}
         </Typography>
         <BasisTheoryLogo />

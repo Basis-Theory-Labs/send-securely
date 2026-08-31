@@ -5,8 +5,11 @@ export const BasisTheoryLogo = () => (
   <Box
     alt="Basis Theory"
     component="img"
-    height="22"
     src="/basis-theory-logo-white.svg"
-    width="104"
+    sx={{
+      display: 'block',
+      height: '18px',
+      width: '85px',
+    }}
   />
 );

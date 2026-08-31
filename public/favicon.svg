@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#11141D"/>
+  <path
+    d="M27.392 33.9796L37.144 24.2278C41.0461 20.3257 41.0461 13.9991 37.144 10.0969C33.2418 6.19484 26.9153 6.19483 23.0132 10.0969L20.9653 12.1448M15.0906 18.0196L13.5391 19.5711M15.698 3.33746L6.22394 12.8115C2.32184 16.7137 2.32184 23.0402 6.22394 26.9423C10.1261 30.8445 16.4526 30.8445 20.3547 26.9423L29.8288 17.4682"
+    transform="translate(10.5 13.5)"
+    fill="none"
+    stroke="url(#mark)"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="4.70211"
+  />
+  <defs>
+    <linearGradient id="mark" x1="44.2558" x2="-10.4007" y1="11.4206" y2="41.9308" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#94FAF0"/>
+      <stop offset="1" stop-color="#5CE8C0"/>
+    </linearGradient>
+  </defs>
+</svg>

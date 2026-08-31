@@ -30,9 +30,9 @@ export const CreateSecret = (props: Props) => {
         </Box>
         <Box
           mb={{
-            xs: 8,
+            xs: 6,
             sm: 8,
-            md: 15,
+            md: 10,
           }}
           mt={1}
         >

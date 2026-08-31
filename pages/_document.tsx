@@ -16,7 +16,14 @@ class MyDocument extends Document {
         <Head nonce={nonce}>
           {/* PWA primary color */}
           <meta content={dark.palette.primary.main} name="theme-color" />
-          <link href="/favicon.ico" rel="icon" />
+          <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+          <link
+            href="/favicon-32x32.png"
+            rel="icon"
+            sizes="32x32"
+            type="image/png"
+          />
+          <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
           {/* Theme fonts */}
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="/manifest.webmanifest" rel="manifest" />

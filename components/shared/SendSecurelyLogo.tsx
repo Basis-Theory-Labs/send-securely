@@ -24,8 +24,8 @@ export const SendSecurelyLogo = () => (
         y1="-2.07942"
         y2="28.4308"
       >
-        <stop stopColor="#CDF75F" />
-        <stop offset="1" stopColor="#07CEE0" />
+        <stop stopColor="#94FAF0" />
+        <stop offset="1" stopColor="#5CE8C0" />
       </linearGradient>
     </defs>
   </svg>

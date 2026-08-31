@@ -34,7 +34,7 @@ const options: ThemeOptions = {
       disabled: alpha('#a3b0ec', 0.4),
     },
     action: {
-      active: '#CDF75F',
+      active: '#94FAF0',
       hover: '#181B25',
       selected: alpha('#000000', 0.08),
       selectedOpacity: 0.08, // does not produce desired effect
@@ -42,9 +42,9 @@ const options: ThemeOptions = {
       disabledBackground: '#363636',
     },
     primary: {
-      main: '#CDF75F',
-      dark: '#95B832',
-      light: '#E1FF8A',
+      main: '#94FAF0',
+      dark: '#5CE8C0',
+      light: '#B3F0E8',
       contrastText: defaultContrastText,
     },
     secondary: {

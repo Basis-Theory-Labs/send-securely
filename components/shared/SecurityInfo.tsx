@@ -35,11 +35,12 @@ export const SecurityInfo = () => {
             justifyContent="space-between"
           >
             <Box alignItems="center" display="flex">
-              <img
-                alt="security"
-                height="36px"
-                src="/security-icon.png"
-                width="36px"
+              <Box
+                alt=""
+                component="img"
+                height={36}
+                src="/security-icon.svg"
+                width={36}
               />
               <Box ml={2.5} sx={{ textAlign: 'left' }}>
                 <Typography

@@ -13,15 +13,23 @@ export const PoweredByBasisTheory = () => {
       <Box
         alignItems="center"
         display="flex"
+        gap={1}
         justifyContent="center"
         sx={{
-          opacity: 0.4,
+          opacity: 0.72,
+          transition: 'opacity 120ms ease',
           '&:hover': {
             opacity: 1,
           },
         }}
       >
-        <Typography mr={1} sx={{ color: '#FFFFFF' }} variant="body3">
+        <Typography
+          sx={{
+            color: '#A0A5B3',
+            whiteSpace: 'nowrap',
+          }}
+          variant="body3"
+        >
           {t('poweredBy.prefix')}
         </Typography>
         <BasisTheoryLogo />

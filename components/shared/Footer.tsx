@@ -1,6 +1,5 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { ProductHuntBadge } from '@/components/shared/ProductHuntBadge';
 import { SecurityInfo } from '@/components/shared/SecurityInfo';
 import { FooterLink } from './FooterLink';
 
@@ -34,16 +33,15 @@ export const Footer = () => (
       </Box>
       <FooterLink
         i18nKey="links.termsOfService"
-        linkUrl="https://basistheory.com/terms-of-service"
+        linkUrl="https://basistheory.com/resources/terms-of-service"
       />
       <Box ml={1} mr={1}>
         {'·'}
       </Box>
       <FooterLink
         i18nKey="links.privacyPolicy"
-        linkUrl="https://basistheory.com/privacy-policy"
+        linkUrl="https://basistheory.com/resources/privacy-policy"
       />
     </Box>
-    <ProductHuntBadge />
   </Box>
 );

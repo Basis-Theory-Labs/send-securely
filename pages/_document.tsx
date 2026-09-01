@@ -16,7 +16,14 @@ class MyDocument extends Document {
         <Head nonce={nonce}>
           {/* PWA primary color */}
           <meta content={dark.palette.primary.main} name="theme-color" />
-          <link href="/favicon.ico" rel="icon" />
+          <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+          <link
+            href="/favicon-32x32.png"
+            rel="icon"
+            sizes="32x32"
+            type="image/png"
+          />
+          <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
           {/* Theme fonts */}
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="/manifest.webmanifest" rel="manifest" />
@@ -45,7 +52,7 @@ class MyDocument extends Document {
         <body
           style={{
             background:
-              'radial-gradient(61.89% 61.89% at 50% 8.83%, #2C2C2C 0%, #0C0C0C 100%)',
+              'radial-gradient(80% 80% at 80% 20%, rgba(92, 232, 192, 0.1), transparent 60%), linear-gradient(180deg, #06080D 0%, #0B0E15 100%)',
             minHeight: '100vh',
           }}
         >

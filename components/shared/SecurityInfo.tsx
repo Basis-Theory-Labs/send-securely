@@ -38,9 +38,9 @@ export const SecurityInfo = () => {
               <Box
                 alt=""
                 component="img"
-                height={36}
+                height={32}
                 src="/security-icon.svg"
-                width={36}
+                width={32}
               />
               <Box ml={2.5} sx={{ textAlign: 'left' }}>
                 <Typography

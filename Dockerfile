@@ -1,4 +1,4 @@
-ARG node_image=node:20-alpine3.22
+ARG node_image=node:24-alpine3.22
 
 # STAGE 1
 FROM $node_image as builder
@@ -8,7 +8,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app/
 
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --no-progress --ignore-scripts
+RUN yarn install --frozen-lockfile --no-progress --ignore-scripts --registry https://registry.yarnpkg.com
 
 COPY next.config.js ./
 COPY next-i18next.config.js ./
@@ -32,7 +32,7 @@ FROM $node_image as production
 WORKDIR /app/
 
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production --no-progress --ignore-scripts
+RUN yarn install --frozen-lockfile --production --no-progress --ignore-scripts --registry https://registry.yarnpkg.com
 
 # STAGE 3
 FROM $node_image

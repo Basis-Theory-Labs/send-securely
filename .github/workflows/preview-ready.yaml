@@ -10,13 +10,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node v20
+      - name: Use Node v24
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install deps
-        run: yarn --frozen-lockfile --no-progress --ignore-scripts
+        run: yarn --frozen-lockfile --no-progress --ignore-scripts --registry https://registry.yarnpkg.com
 
       # Install and check Cypress binary
       - run: yarn run cypress install

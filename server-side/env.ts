@@ -26,8 +26,8 @@ const env = cached(cleanEnvWithSecrets, {
     desc: 'The BT server to server API key',
   }),
   BT_API_BASE_URL: str({
-    desc: 'The BT API base URL',
-    default: 'https://api.basistheory.com/',
+    desc: 'The BT API base URL. Region-pinned: EU keys must override',
+    default: 'https://api.us.basistheory.com/',
   }),
 });
 
